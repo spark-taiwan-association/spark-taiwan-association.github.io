@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>碎裂轉場實驗室 | 積動城市</title>
+    <style>
+        :root {
+            --eva-green: #A3FF00;
+            --eva-black: #0D0415;
+            --speed: 0.6s;
+        }
+
+        body {
+            background: var(--eva-black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* 為了看碎片飛出去 */
+        }
+
+        /* 實驗容器 */
+        .shatter-box {
+            position: relative;
+            width: 400px;
+            height: 250px;
+            cursor: pointer;
+            border: 1px solid rgba(163, 255, 0, 0.3);
+        }
+
+        /* 2026 新圖 (底層) */
+        .img-2026 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(0); /* 初始隱藏 */
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1;
+        }
+
+        /* 2025 碎片通用樣式 (頂層) */
+        .shard {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+            transition: all var(--speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* 使用 clip-path 裁切四個碎片 */
+        .s1 { clip-path: polygon(0 0, 50% 0, 50% 50%, 0 50%); } /* 左上 */
+        .s2 { clip-path: polygon(50% 0, 100% 0, 100% 50%, 50% 50%); } /* 右上 */
+        .s3 { clip-path: polygon(0 50%, 50% 50%, 50% 100%, 0 100%); } /* 左下 */
+        .s4 { clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%); } /* 右下 */
+
+        /* --- 炸裂觸發狀態 --- */
+        .shatter-box.active .img-2026 {
+            transform: scale(1.1); /* 破框彈出並稍微放大 */
+            box-shadow: 0 0 30px var(--eva-green);
+        }
+
+        /* 碎片飛散路徑 */
+        .shatter-box.active .s1 { transform: translate(-150px, -150px) rotate(-30deg); opacity: 0; }
+        .shatter-box.active .s2 { transform: translate(150px, -150px) rotate(30deg); opacity: 0; }
+        .shatter-box.active .s3 { transform: translate(-150px, 150px) rotate(-20deg); opacity: 0; }
+        .shatter-box.active .s4 { transform: translate(150px, 150px) rotate(20deg); opacity: 0; }
+
+        /* 提示文字 */
+        .hint {
+            position: absolute;
+            bottom: -50px;
+            color: var(--eva-green);
+            font-family: 'Orbitron';
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shatter-box" onclick="this.classList.toggle('active')">
+        <img src="https://via.placeholder.com/400x250/A3FF00/000000?text=2026+TARGET" class="img-2026">
+
+        <img src="https://via.placeholder.com/400x250/4A267A/FFFFFF?text=2025+OLD+RECORD" class="shard s1">
+        <img src="https://via.placeholder.com/400x250/4A267A/FFFFFF?text=2025+OLD+RECORD" class="shard s2">
+        <img src="https://via.placeholder.com/400x250/4A267A/FFFFFF?text=2025+OLD+RECORD" class="shard s3">
+        <img src="https://via.placeholder.com/400x250/4A267A/FFFFFF?text=2025+OLD+RECORD" class="shard s4">
+
+        <div class="hint">CLICK TO BREACH</div>
+    </div>
+
+    <script>
+        // 這段腳本純粹是為了讓使用者點擊測試，不影響 CSS 邏輯
+        console.log("系統就緒：請點擊方框測試破框效果");
+    </script>
+</body>
+</html>
