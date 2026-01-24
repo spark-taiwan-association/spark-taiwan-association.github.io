@@ -12,6 +12,7 @@
             --spark-purple: #9d50bb;
             --tech-gold: #ffcc00;
             --bg-dark: #050505;
+            --cinema-glow: #81D8D0;
         }
 
         body {
@@ -27,7 +28,7 @@
             position: fixed;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(0, 210, 255, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(129, 216, 208, 0.1) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
             z-index: 9999;
@@ -41,314 +42,123 @@
             z-index: 1000;
             background: rgba(5, 5, 5, 0.8);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(129, 216, 208, 0.2);
         }
 
-        /* === 3. 英雄首頁區 (自動播放) === */
-        .hero-slider {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-        }
+        /* === 3. 英雄首頁區 === */
+        .hero-slider { position: relative; width: 100%; height: 100vh; overflow: hidden; }
         .slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
+            position: absolute; inset: 0; opacity: 0;
             transition: opacity 1.5s ease-in-out, transform 3s ease-out;
-            background-size: cover;
-            background-position: center;
-            transform: scale(1.1);
+            background-size: cover; background-position: center; transform: scale(1.1);
         }
         .slide.active { opacity: 1; transform: scale(1); }
-
         .hero-overlay {
-            position: absolute;
-            inset: 0;
+            position: absolute; inset: 0;
             background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, var(--bg-dark) 90%);
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; z-index: 10;
         }
-
         .hero-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 900;
-            letter-spacing: 15px;
+            font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900; letter-spacing: 15px;
             background: linear-gradient(to right, #fff, var(--spark-blue), #fff);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             animation: shine 5s linear infinite;
         }
         @keyframes shine { to { background-position: 200% center; } }
 
-        /* === 4. 最新消息流水導覽 (News Flow) === */
+        /* === 4. 最新消息流水導覽 === */
         .news-ticker {
-            background: rgba(0, 210, 255, 0.1);
-            border-top: 1px solid var(--spark-blue);
-            border-bottom: 1px solid var(--spark-blue);
-            padding: 10px 0;
-            overflow: hidden;
-            white-space: nowrap;
+            background: rgba(129, 216, 208, 0.1);
+            border-top: 1px solid var(--spark-blue); border-bottom: 1px solid var(--spark-blue);
+            padding: 10px 0; overflow: hidden; white-space: nowrap;
         }
-        .ticker-content {
-            display: inline-block;
-            animation: ticker 30s linear infinite;
-            font-weight: 500;
-        }
+        .ticker-content { display: inline-block; animation: ticker 30s linear infinite; font-weight: 500; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* === 5. 三大賽事門戶 (3D 卡片) === */
+        /* === 5. 三大賽事卡片與流水燈 === */
         .section-title {
             font-size: 2.5rem; font-weight: 900; text-align: center; margin: 80px 0 40px;
             font-family: 'Orbitron', sans-serif; color: var(--spark-blue);
         }
-
-        .comp-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 30px; padding: 0 10%; margin-bottom: 100px;
-        }
-
+        .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 0 10%; margin-bottom: 100px; }
         .comp-card {
-            background: linear-gradient(145deg, #111, #000);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 20px; padding: 50px 30px;
-            text-align: center; transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative; overflow: hidden;
+            background: linear-gradient(145deg, #111, #000); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px; padding: 50px 30px; text-align: center;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); position: relative; overflow: hidden;
         }
-        .comp-card:hover {
-            transform: translateY(-20px) rotateX(10deg);
-            border-color: var(--spark-blue);
-            box-shadow: 0 20px 50px rgba(0, 210, 255, 0.3);
-        }
-        .comp-card h3 { font-size: 1.8rem; font-weight: 900; margin-bottom: 15px; font-family: 'Orbitron', sans-serif; }
-        
-        /* === 6. 協會理念與榮耀榜 === */
-        .content-section { padding: 100px 10%; background: #080808; }
-        .glass-box {
-            background: rgba(255,255,255,0.03); border-radius: 30px;
-            padding: 60px; border: 1px solid rgba(255,255,255,0.05);
-            backdrop-filter: blur(20px);
-        }
+        .comp-card:hover { transform: translateY(-20px) rotateX(10deg); border-color: var(--spark-blue); box-shadow: 0 20px 50px rgba(129, 216, 208, 0.3); }
 
-        /* === 7. 頁尾打字機 === */
+        .logo-frame {
+            position: relative; width: 120px; height: 120px; margin: 0 auto 25px;
+            background: #000; border-radius: 15px; display: flex; justify-content: center; align-items: center; overflow: hidden;
+        }
+        .logo-frame::before {
+            content: ''; position: absolute; width: 200%; height: 200%;
+            background: conic-gradient(var(--spark-blue), transparent, transparent, var(--spark-blue));
+            animation: rotate-border 4s linear infinite;
+        }
+        .logo-frame::after { content: ''; position: absolute; inset: 4px; background: #1a1a1a; border-radius: 12px; z-index: 1; }
+        .logo-frame img { position: relative; z-index: 2; max-width: 80%; max-height: 80%; object-fit: contain; }
+        @keyframes rotate-border { 100% { transform: rotate(360deg); } }
+
+        /* === 6. 榮耀時光放映館樣式 (由積動城市電影院改裝) === */
+        .cinema-screen-container { position: relative; width: 90%; max-width: 1000px; margin: 40px auto; perspective: 1000px; }
+        .cinema-screen {
+            position: relative; aspect-ratio: 16/9; background: #000;
+            border: 4px solid #333; border-radius: 10px;
+            box-shadow: 0 0 30px rgba(129, 216, 208, 0.2); overflow: hidden; z-index: 30;
+        }
+        .screen-texture { position: absolute; inset: 0; z-index: 15; pointer-events: none; background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.6) 100%); }
+        .screen-texture::before {
+            content: ""; position: absolute; inset: 0;
+            background-image: repeating-linear-gradient(90deg, transparent 0, transparent 15%, rgba(255,255,255,0.05) 15.1%, transparent 15.2%);
+            animation: filmFlicker 0.15s infinite;
+        }
+        .slide-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; z-index: 1; transition: opacity 0.8s ease-in-out; }
+        .slide-img.active { opacity: 1; z-index: 2; animation: screenShake 0.4s infinite; }
+        
+        /* 放映機與光束 */
+        .projector-unit-fixed { position: absolute; right: -160px; top: 50%; transform: translateY(-50%); z-index: 99; width: 200px; }
+        .projector-machine { position: relative; width: 100px; height: 120px; background: #1a1a1a; border: 2px solid #333; border-radius: 8px; margin-left: auto; }
+        .reel { position: absolute; width: 85px; height: 85px; border: 5px solid #2a2a2a; border-radius: 50%; background: repeating-conic-gradient(#111 0% 15%, #222 15% 30%); animation: rotateMachine 3s linear infinite; }
+        .reel.spinning { animation: rotateMachine 0.3s linear infinite !important; }
+        .reel-top { top: -60px; right: 20px; } .reel-back { top: 20px; right: -40px; z-index: -1; }
+        .lens-glow { position: absolute; left: -35px; top: 25px; width: 10px; height: 50px; background: var(--spark-blue); box-shadow: 0 0 20px var(--spark-blue); z-index: 2; }
+        .cinema-beam-fixed { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 1200px; height: 700px; background: radial-gradient(ellipse at right, rgba(129, 216, 208, 0.15) 0%, transparent 80%); clip-path: polygon(0% 0%, 0% 100%, 100% 52%, 100% 48%); pointer-events: none; z-index: -1; }
+        .tripod-stand { position: relative; width: 100%; height: 200px; }
+        .leg { position: absolute; top: 0; left: 75%; width: 4px; height: 100%; background: #333; transform-origin: top; }
+        .l-1 { transform: rotate(15deg); } .l-2 { transform: rotate(-15deg); }
+
+        /* 字幕與控制台 */
+        .subtitle-container { position: absolute; bottom: 30px; left: 0; width: 100%; text-align: center; z-index: 50; }
+        .subtitle-text { background: rgba(0, 0, 0, 0.85); color: var(--spark-blue); padding: 8px 25px; font-size: 1.2rem; font-weight: 700; border-bottom: 2px solid var(--spark-blue); transition: opacity 0.3s; }
+        .control-deck { background: #111; border: 1px solid #333; border-radius: 0 0 15px 15px; width: 60%; margin: -4px auto 0; padding: 15px; display: flex; justify-content: center; gap: 40px; position: relative; z-index: 40; }
+        .dial-button { width: 40px; height: 40px; background: #222; border: 2px solid #444; border-radius: 50%; cursor: pointer; position: relative; }
+        .dial-button::after { content: ''; width: 3px; height: 10px; background: var(--spark-blue); position: absolute; top: 5px; left: calc(50% - 1.5px); }
+        .btn-prev::after { transform: rotate(-45deg); } .btn-next::after { transform: rotate(45deg); }
+
+        /* === 7. 聯絡區塊與頁尾 === */
+        .social-container { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding: 40px 0; }
+        .social-card { animation: floatingCard 4s ease-in-out infinite; }
+        .card-inner { width: 140px; height: 160px; background: rgba(15, 15, 25, 0.8); border: 2px solid var(--spark-blue); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.4s; }
+        .social-card:hover .card-inner { transform: translateY(-10px); border-color: #ff00ff; box-shadow: 0 0 30px rgba(255, 0, 255, 0.4); }
         footer { padding: 60px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
         .cursor { display: inline-block; width: 3px; height: 20px; background: var(--spark-blue); animation: blink 0.8s infinite; vertical-align: middle; }
+
+        /* 動畫集 */
+        @keyframes filmFlicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.9; } }
+        @keyframes screenShake { 0% { transform: translate(0,0); } 10% { transform: translate(-0.5px, 0.5px); } }
+        @keyframes rotateMachine { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes floatingCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
         @keyframes blink { 50% { opacity: 0; } }
 
         @media (max-width: 1024px) {
             .comp-grid { grid-template-columns: 1fr; }
+            .projector-unit-fixed { display: none; }
+            .control-deck { width: 90%; }
         }
-        /* === 賽事 LOGO 框與流水燈特效 === */
-.logo-frame {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 25px;
-    background: #000;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* 確保流水燈不會溢出 */
-}
-
-/* 流水燈旋轉背景 */
-.logo-frame::before {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(#81D8D0, transparent, transparent, #81D8D0);
-    animation: rotate-border 4s linear infinite;
-}
-
-/* 內層遮罩，讓邊框看起來像細線 */
-.logo-frame::after {
-    content: '';
-    position: absolute;
-    inset: 4px; /* 邊框粗細 */
-    background: #333333;
-    border-radius: 12px;
-    z-index: 1;
-}
-
-.logo-frame img {
-    position: relative;
-    z-index: 2;
-    max-width: 80%;
-    max-height: 80%;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-/* 滑鼠移入時的閃爍特效 */
-.comp-card:hover .logo-frame::before {
-    animation: flicker-border 0.2s infinite;
-    background: #81D8D0; /* 閃爍時變全亮顏色 */
-}
-
-.comp-card:hover .logo-frame {
-    box-shadow: 0 0 30px rgba(129, 216, 208, 0.6);
-}
-
-/* 動態定義 */
-@keyframes rotate-border {
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes flicker-border {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.1; }
-}
-                /* 聯絡區塊基礎設置 */
-.contact-section {
-    padding: 80px 0;
-    text-align: center;
-    background: transparent;
-}
-
-/* 社群卡片容器 */
-.social-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    padding-top: 40px;
-}
-
-/* 高科技社群圖框 */
-.social-card {
-    text-decoration: none;
-    color: #fff;
-    perspective: 1000px;
-    /* 持續漂浮動畫，三個卡片給予不同的延遲時間讓動態更有層次 */
-    animation: floatingCard 4s ease-in-out infinite;
-}
-
-.social-card:nth-child(2) { animation-delay: 0.5s; }
-.social-card:nth-child(3) { animation-delay: 1s; }
-
-.card-inner {
-    width: 140px;
-    height: 160px;
-    background: rgba(15, 15, 25, 0.8);
-    border: 2px solid #81D8D0; /* 蒂芬妮綠邊框 */
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.2);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-}
-
-/* 圖框上方的掃描光束特效 */
-.card-inner::after {
-    content: '';
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
-    transition: 0.5s;
-}
-
-/* 圖像框 */
-.icon-box {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.social-icon {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-}
-
-/* --- 觸碰動態回饋 (Hover) --- */
-.social-card:hover .card-inner {
-    transform: translateY(-10px) rotateX(10deg) scale(1.1);
-    border-color: #ff00ff; /* 觸碰時變為初號機紫/粉色系 */
-    box-shadow: 0 0 30px rgba(255, 0, 255, 0.6), inset 0 0 20px rgba(255, 0, 255, 0.4);
-}
-
-.social-card:hover .card-inner::after {
-    top: -50%;
-    left: -50%;
-}
-
-.social-card span {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-/* --- 動畫：持續漂浮 --- */
-@keyframes floatingCard {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-/* 平滑捲動 */
-html {
-    scroll-behavior: smooth;
-}
-        /* === 榮耀放映館：SPARK 科技綠版本 === */
-:root {
-    --cinema-glow: #81D8D0;
-    --cinema-bg: #000000;
-}
-
-/* 重新定義放映螢幕邊框 */
-.cinema-screen {
-    border: 4px solid #333;
-    box-shadow: 0 0 30px rgba(129, 216, 208, 0.2); /* 改為綠色光暈 */
-}
-
-/* 讓字幕變成蒂芬妮綠 */
-.subtitle-text {
-    border-bottom: 2px solid var(--cinema-glow) !important;
-    color: var(--cinema-glow) !important;
-    background: rgba(0, 0, 0, 0.85);
-}
-
-/* 改裝控制台按鈕 */
-.dial-button::after {
-    background: var(--cinema-glow) !important; /* 旋鈕指針改綠色 */
-}
-
-/* 改裝放映機鏡頭光束 */
-.lens-glow {
-    background: var(--cinema-glow) !important;
-    box-shadow: 0 0 30px var(--cinema-glow) !important;
-}
-
-.cinema-beam-fixed {
-    background: radial-gradient(ellipse at right, rgba(129, 216, 208, 0.15) 0%, transparent 80%) !important;
-}
-
-/* 底部按鈕風格統一 */
-.info-lightbox {
-    border: 2px solid var(--cinema-glow) !important;
-}
-.info-lightbox button {
-    border-color: var(--cinema-glow) !important;
-    color: var(--cinema-glow) !important;
-}
-.info-lightbox button:hover {
-    background: var(--cinema-glow) !important;
-    color: #000 !important;
-}
     </style>
 </head>
 <body>
@@ -356,12 +166,12 @@ html {
     <div id="cursor-glow"></div>
 
     <nav class="flex justify-between items-center px-10 py-5">
-        <div class="text-2xl font-black tracking-tighter">SPARK</div>
-        <div class="hidden md:flex gap-8 font-medium text-sm tracking-widest">
+        <div class="text-2xl font-black tracking-tighter" style="font-family: 'Orbitron', sans-serif;">SPARK</div>
+        <div class="hidden md:flex gap-8 font-medium text-sm tracking-widest uppercase">
             <a href="#" class="hover:text-[var(--spark-blue)] transition">首頁</a>
             <a href="#about" class="hover:text-[var(--spark-blue)] transition">協會理念</a>
             <a href="#competitions" class="hover:text-[var(--spark-blue)] transition">三大賽事</a>
-            <a href="#honors" class="hover:text-[var(--spark-blue)] transition">榮耀時光放映館</a>
+            <a href="#honors" class="hover:text-[var(--spark-blue)] transition">榮耀時光</a>
             <a href="#contact" class="hover:text-[var(--spark-blue)] transition">聯絡我們</a>
         </div>
     </nav>
@@ -388,126 +198,101 @@ html {
             <h2 class="section-title" style="margin-top: 0;">協會理念</h2>
             <p class="text-center text-gray-400 text-lg leading-relaxed max-w-4xl mx-auto">
                 SPARK (臺灣智能程式科技教育推廣協會) 致力於點燃青少年對程式與人工智慧的熱情。<br>
-                我們相信，程式不只是冷冰冰的代碼，而是孩子實踐創意、解決問題、連結世界的語言。<br>
-                透過舉辦高水準國際賽事，我們為臺灣學子搭建通向未來的橋樑。
+                我們相信，程式不只是冷冰冰的代碼，而是孩子實踐創意、解決問題、連結世界的語言。
             </p>
         </div>
     </section>
 
- <section id="competitions">
-    <h2 class="section-title">MAJOR COMPETITIONS</h2>
-    <div class="comp-grid">
-        <div class="comp-card">
-            <div class="logo-frame">
-                <img src="jbc_logo.png" alt="JBC LOGO">
+    <section id="competitions" class="py-20">
+        <h2 class="section-title">MAJOR COMPETITIONS</h2>
+        <div class="comp-grid">
+            <div class="comp-card">
+                <div class="logo-frame"><img src="jbc_logo.png" alt="JBC"></div>
+                <h3>JBC</h3>
+                <p class="text-gray-500 mb-6">Junior Botball Challenge</p>
+                <a href="https://junior-botball-challenge-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入官網</a>
             </div>
-            <h3>JBC</h3>
-            <p class="text-gray-500 mb-6">Junior Botball Challenge<br>初階機器人挑戰賽</p>
-            <a href="https://junior-botball-challenge-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
-        </div>
-
-        <div class="comp-card">
-            <div class="logo-frame">
-                <img src="grg_logo.png" alt="GRG LOGO">
+            <div class="comp-card">
+                <div class="logo-frame"><img src="grg_logo.png" alt="GRG"></div>
+                <h3>GRG</h3>
+                <p class="text-gray-500 mb-6">Global Robotics Games</p>
+                <a href="https://global-robotics-games-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入官網</a>
             </div>
-            <h3>GRG</h3>
-            <p class="text-gray-500 mb-6">Global Robotics Games<br>全球機器人運動會</p>
-            <a href="https://global-robotics-games-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
-        </div>
-
-        <div class="comp-card">
-            <div class="logo-frame">
-                <img src="enjoyai_logo.png" alt="ENJOY AI LOGO">
+            <div class="comp-card">
+                <div class="logo-frame"><img src="enjoyai_logo.png" alt="ENJOY AI"></div>
+                <h3>ENJOY AI</h3>
+                <p class="text-gray-500 mb-6">Global Youth AI Popularization</p>
+                <a href="https://enjoyai-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入官網</a>
             </div>
-            <h3>ENJOY AI</h3>
-            <p class="text-gray-500 mb-6">Global Youth AI Popularization<br>人工智慧普及賽</p>
-            <a href="https://enjoyai-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
         </div>
-    </div>
-</section>
+    </section>
 
-   <section id="honors" class="py-20 bg-black relative">
-    <header class="text-center pb-10">
-        <h2 class="section-title">THE GLORY MOMENTS</h2>
-        <p class="text-[#81D8D0] tracking-widest text-sm uppercase">榮耀時光放映館</p>
-    </header>
+    <section id="honors" class="py-20 bg-[#080808]">
+        <header class="text-center pb-10">
+            <h2 class="section-title">THE GLORY MOMENTS</h2>
+            <p class="text-[#81D8D0] tracking-widest text-sm uppercase">榮耀時光放映館</p>
+        </header>
 
-    <div class="container mx-auto px-4">
-        <div class="cinema-screen-container">
-            <div class="projector-unit-fixed">
-                <div class="projector-machine">
-                    <div class="reel reel-top"></div>
-                    <div class="reel reel-back"></div>
-                    <div class="machine-lens">
+        <div class="container mx-auto px-4">
+            <div class="cinema-screen-container">
+                <div class="projector-unit-fixed">
+                    <div class="projector-machine">
+                        <div class="reel reel-top"></div>
+                        <div class="reel reel-back"></div>
                         <div class="lens-glow"></div>
                         <div class="cinema-beam-fixed"></div>
                     </div>
+                    <div class="tripod-stand">
+                        <div class="leg l-1"></div><div class="leg l-2"></div>
+                    </div>
                 </div>
-                <div class="tripod-stand">
-                    <div class="leg l-1"></div><div class="leg l-2"></div><div class="leg l-3"></div>
-                </div>
-            </div>
 
-            <div class="cinema-screen" id="projector-screen">
-                <div class="screen-texture"></div>
-                <img src="wro1.jpg" class="slide-img active" data-caption="2019年馬來西亞足球機器人國際公開賽" alt="wro1">
-                <img src="wro2.jpg" class="slide-img" data-caption="2018 WRO 臺灣全國總決賽" alt="wro2">
-                <img src="wro3.jpg" class="slide-img" data-caption="2018 WRO 世界賽" alt="wro3">
-                <img src="wro4.jpg" class="slide-img" data-caption="2018 WRO 世界決賽" alt="wro4">
-                <img src="wro5.jpg" class="slide-img" data-caption="2018 亞洲機器人運動競賽" alt="wro5">
-                <img src="wro6.jpg" class="slide-img" data-caption="2019 亞洲智慧型機器人大賽" alt="wro6">
-                <img src="wro7.jpg" class="slide-img" data-caption="各項獎盃展示" alt="wro7">
-                
-                <div class="subtitle-container">
-                    <span id="target-subtitle" class="subtitle-text">2019年馬來西亞足球機器人國際公開賽</span>
+                <div class="cinema-screen">
+                    <div class="screen-texture"></div>
+                    <img src="wro1.jpg" class="slide-img active" data-caption="2019年馬來西亞足球機器人國際公開賽">
+                    <img src="wro2.jpg" class="slide-img" data-caption="2018 WRO 臺灣全國總決賽">
+                    <img src="wro3.jpg" class="slide-img" data-caption="2018 WRO 世界賽">
+                    <img src="wro4.jpg" class="slide-img" data-caption="2018 WRO 世界決賽">
+                    <img src="wro5.jpg" class="slide-img" data-caption="2018 亞洲機器人運動競賽">
+                    <img src="wro6.jpg" class="slide-img" data-caption="2019 亞洲智慧型機器人大賽">
+                    <img src="wro7.jpg" class="slide-img" data-caption="各項獎盃榮耀展示">
+                    
+                    <div class="subtitle-container">
+                        <span id="target-subtitle" class="subtitle-text">2019年馬來西亞足球機器人國際公開賽</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="control-deck">
-                <div class="dial-unit">
-                    <div class="dial-label">PREV</div>
-                    <button class="dial-button btn-prev" onclick="changeSlide(-1)"></button>
-                </div>
-                <div class="dial-unit">
-                    <div class="dial-label" style="color:#81D8D0">LIVE</div>
-                    <div class="w-2 h-2 bg-[#81D8D0] rounded-full mx-auto my-3 animate-pulse"></div>
-                </div>
-                <div class="dial-unit">
-                    <div class="dial-label">NEXT</div>
-                    <button class="dial-button btn-next" onclick="changeSlide(1)"></button>
+                <div class="control-deck">
+                    <div class="dial-unit text-center">
+                        <div class="text-[10px] text-gray-500 mb-1">PREV</div>
+                        <button class="dial-button btn-prev" onclick="changeCinemaSlide(-1)"></button>
+                    </div>
+                    <div class="dial-unit text-center">
+                        <div class="text-[10px] text-[#81D8D0] mb-1">AUTO PLAY</div>
+                        <div class="w-2 h-2 bg-[#81D8D0] rounded-full mx-auto my-3 animate-pulse"></div>
+                    </div>
+                    <div class="dial-unit text-center">
+                        <div class="text-[10px] text-gray-500 mb-1">NEXT</div>
+                        <button class="dial-button btn-next" onclick="changeCinemaSlide(1)"></button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section id="contact" class="py-20">
         <h2 class="section-title">聯絡我們</h2>
-        
         <div class="social-container">
             <a href="https://www.facebook.com/SPARKrobot" target="_blank" class="social-card">
-                <div class="card-inner">
-                    <div class="icon-box">
-                        <img src="path-to-your-fb-icon.png" alt="Facebook" class="social-icon"> </div>
-                    <span>Facebook</span>
-                </div>
+                <div class="card-inner"><span>Facebook</span></div>
             </a>
-
-            <a href="https://www.instagram.com/enjoyai__taiwan/?igsh=aW9xaGV2M2ptbzF6&utm_source=qr#" target="_blank" class="social-card">
-                <div class="card-inner">
-                    <div class="icon-box">
-                        <img src="path-to-your-ig-icon.png" alt="Instagram" class="social-icon"> </div>
-                    <span>Instagram</span>
-                </div>
+            <a href="https://www.instagram.com/enjoyai__taiwan/" target="_blank" class="social-card">
+                <div class="card-inner"><span>Instagram</span></div>
             </a>
-
-            <a href="https://www.threads.com/@enjoyai__taiwan?invite=0" target="_blank" class="social-card">
-                <div class="card-inner">
-                    <div class="icon-box">
-                        <img src="path-to-your-threads-icon.png" alt="Threads" class="social-icon"> </div>
-                    <span>Threads</span>
-                </div>
+            <a href="https://www.threads.com/@enjoyai__taiwan" target="_blank" class="social-card">
+                <div class="card-inner"><span>Threads</span></div>
             </a>
         </div>
-    </div>
     </section>
 
     <footer>
@@ -518,34 +303,76 @@ html {
     </footer>
 
     <script>
-        // 滑鼠引力燈
+        // 1. 滑鼠引力燈
         const glow = document.getElementById('cursor-glow');
         document.addEventListener('mousemove', (e) => {
             glow.style.left = e.clientX + 'px';
             glow.style.top = e.clientY + 'px';
         });
 
-        // 英雄區自動翻頁
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        setInterval(nextSlide, 5000);
+        // 2. 英雄區背景自動翻頁
+        let heroIdx = 0;
+        const heroSlides = document.querySelectorAll('.hero-slider .slide');
+        setInterval(() => {
+            heroSlides[heroIdx].classList.remove('active');
+            heroIdx = (heroIdx + 1) % heroSlides.length;
+            heroSlides[heroIdx].classList.add('active');
+        }, 5000);
 
-        // 打字機頁尾
-        const text = "臺灣智能程式科技教育推廣協會 SPARK © 2026";
-        let index = 0;
-        function type() {
-            if (index < text.length) {
-                document.getElementById("typing-text").innerHTML += text.charAt(index);
-                index++;
-                setTimeout(type, 150);
+        // 3. 【核心】榮耀時光放映館：自動幻燈片與連動邏輯
+        const cinemaSlides = document.querySelectorAll('.slide-img');
+        const subtitle = document.getElementById('target-subtitle');
+        const reels = document.querySelectorAll('.reel');
+        let cinemaIdx = 0;
+        let isMoving = false;
+
+        window.changeCinemaSlide = function(dir) {
+            if (isMoving) return;
+            isMoving = true;
+
+            // 膠捲加速轉動
+            reels.forEach(r => r.classList.add('spinning'));
+
+            // 圖片切換
+            cinemaSlides[cinemaIdx].classList.remove('active');
+            cinemaIdx = (cinemaIdx + dir + cinemaSlides.length) % cinemaSlides.length;
+            cinemaSlides[cinemaIdx].classList.add('active');
+
+            // 字幕更新
+            subtitle.style.opacity = 0;
+            setTimeout(() => {
+                subtitle.innerText = cinemaSlides[cinemaIdx].getAttribute('data-caption');
+                subtitle.style.opacity = 1;
+            }, 300);
+
+            // 延遲恢復轉速
+            setTimeout(() => {
+                reels.forEach(r => r.classList.remove('spinning'));
+                isMoving = false;
+            }, 800);
+        };
+
+        // 自動播放放映機 (每 5 秒一張)
+        let cinemaTimer = setInterval(() => changeCinemaSlide(1), 5000);
+
+        // 滑鼠移入暫停，移出恢復
+        const cinemaContainer = document.querySelector('.cinema-screen-container');
+        cinemaContainer.addEventListener('mouseenter', () => clearInterval(cinemaTimer));
+        cinemaContainer.addEventListener('mouseleave', () => {
+            cinemaTimer = setInterval(() => changeCinemaSlide(1), 5000);
+        });
+
+        // 4. 打字機頁尾
+        const footerStr = "臺灣智能程式科技教育推廣協會 SPARK © 2026";
+        let footerIdx = 0;
+        function typeFooter() {
+            if (footerIdx < footerStr.length) {
+                document.getElementById("typing-text").innerHTML += footerStr.charAt(footerIdx);
+                footerIdx++;
+                setTimeout(typeFooter, 150);
             }
         }
-        window.onload = type;
+        window.onload = typeFooter;
     </script>
 </body>
 </html>
