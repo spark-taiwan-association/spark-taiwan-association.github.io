@@ -6,6 +6,7 @@
     <title>SPARK | 臺灣智能程式科技教育推廣協會</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;900&family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
+    <div id="particles-js"></div>
     <style>
         :root {
             --spark-blue: #81D8D0;
@@ -256,6 +257,16 @@
             .projector-unit-fixed { display: none; } 
             .comp-grid { grid-template-columns: 1fr; }
         }
+        /* === 新增：粒子背景容器 === */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 放在所有內容後方 */
+    background: var(--bg-dark);
+}
     </style>
 </head>
 <body>
