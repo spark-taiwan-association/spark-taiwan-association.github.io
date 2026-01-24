@@ -6,6 +6,7 @@
     <title>SPARK | 臺灣智能程式科技教育推廣協會</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;900&family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
    
     <style>
         :root {
@@ -457,6 +458,45 @@
             }
         }
         window.onload = type;
+        // 初始化粒子背景
+particlesJS("particles-js", {
+    "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#81D8D0" }, // 使用你的 SPARK 藍色
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.2, "random": false },
+        "size": { "value": 3, "random": true },
+        "line_linked": { 
+            "enable": true, 
+            "distance": 150, 
+            "color": "#81D8D0", 
+            "opacity": 0.2, 
+            "width": 1 
+        },
+        "move": { 
+            "enable": true, 
+            "speed": 2, 
+            "direction": "none", 
+            "random": false, 
+            "straight": false, 
+            "out_mode": "out", 
+            "bounce": false 
+        }
+    },
+    "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+            "onhover": { "enable": true, "mode": "grab" }, // 游標經過會吸附
+            "onclick": { "enable": true, "mode": "push" }, // 點擊會噴發
+            "resize": true
+        },
+        "modes": {
+            "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+            "push": { "particles_nb": 4 }
+        }
+    },
+    "retina_detect": true
+});
     </script>
 </body>
 </html>
