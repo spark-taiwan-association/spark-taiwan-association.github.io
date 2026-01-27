@@ -301,31 +301,62 @@
     display: flex !important;
 }
 
-/* --- 修改這部分來解決透明問題 --- */
+/* --- 修改這部分來解決選項重疊與透明問題 --- */
 #mobile-menu {
     position: fixed !important;
     inset: 0 !important;
-    background: #000000 !important; /* 強制純黑 */
-    z-index: 9998 !important;       /* 低於按鈕 */
-    display: flex !important;       /* 強制為 Flex 佈局 */
+    /* 強制純黑背景，確保這面「黑牆」蓋住後面的所有內容 */
+    background: #000000 !important; 
+    /* 層級必須極高，但要低於按鈕 */
+    z-index: 9998 !important; 
+    display: flex !important;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding-top: 120px;
-    transform: translateX(100%);     /* 預設在右側 */
+    justify-content: center; /* 改為居中，讓佈局更平衡 */
+    
+    /* 初始隱藏狀態 */
+    transform: translateX(100%);
     opacity: 0;
-    visibility: hidden;              /* 預設隱藏 */
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* 當選單啟動時的狀態 */
 #mobile-menu.active {
     transform: translateX(0) !important;
     opacity: 1 !important;
-    visibility: visible !important;   /* 開啟時顯示 */
+    visibility: visible !important;
 }
 
+/* 為選項文字加上獨立的「防重疊」呼吸空間 */
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    width: 100%;
+    /* 這裡可以額外確保文字周圍是乾淨的 */
+    background: transparent; 
+}
+
+/* 強化選項文字，確保在黑牆上非常清晰 */
+.mobile-link {
+    color: white !important;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 8px;
+    text-shadow: 0 0 15px rgba(129, 216, 208, 0.6); /* SPARK 藍發光 */
+    transition: all 0.3s ease;
+}
+
+.mobile-link:hover {
+    color: var(--spark-blue) !important;
+    transform: scale(1.1);
+}
+
+/* 確保漢堡/叉叉按鈕永遠在黑牆最上方 */
 #menu-btn {
-    z-index: 9999 !important;        /* 確保按鈕永遠在選單之上 */
+    z-index: 9999 !important;
 }
     </style>
 </head>
@@ -356,8 +387,8 @@
     </svg>
 </button>
 
-<div id="mobile-menu" class="fixed inset-0 bg-black flex flex-col items-center pt-32">
-    <div class="flex flex-col items-center gap-10 text-2xl tracking-[6px] font-bold text-white">
+<div id="mobile-menu">
+    <div class="mobile-menu-content">
         <a href="#" class="mobile-link">首頁</a>
         <a href="#about" class="mobile-link">協會理念</a>
         <a href="#competitions" class="mobile-link">三大賽事</a>
