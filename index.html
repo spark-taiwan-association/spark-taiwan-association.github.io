@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;900&family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
+   
     <style>
         :root {
             --spark-blue: #81D8D0;
@@ -16,7 +16,6 @@
             --bg-dark: #050505;
         }
 
-        /* === 基礎設定 === */
         body {
             background: var(--bg-dark);
             color: white;
@@ -25,18 +24,11 @@
             scroll-behavior: smooth;
         }
 
-        /* === 1. 特效：粒子與滑鼠燈 === */
-        #particles-js {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            background: var(--bg-dark);
-        }
-
+        /* === 1. 滑鼠引力燈 === */
         #cursor-glow {
             position: fixed;
-            width: 500px; height: 500px;
+            width: 500px;
+            height: 500px;
             background: radial-gradient(circle, rgba(129, 216, 208, 0.15) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
@@ -44,67 +36,30 @@
             transform: translate(-50%, -50%);
         }
 
-        /* === 2. 導覽列與選單 === */
+        /* === 2. 導航欄 === */
         nav {
             position: fixed;
             top: 0; width: 100%;
             z-index: 1000;
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: blur(15px);
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .spark-logo-glow {
-            animation: spark-energy 4s ease-in-out infinite;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-        }
-        .spark-logo-glow:hover {
-            filter: drop-shadow(0 0 30px rgba(129, 216, 208, 1)) brightness(1.2);
-            transform: scale(1.05);
-        }
-
-        #mobile-menu {
-            position: fixed;
-            inset: 0;
-            background: #000000;
-            z-index: 9998;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transform: translateX(100%);
-            opacity: 0;
-            visibility: hidden;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-        }
-
-        #mobile-menu.active {
-            transform: translateX(0);
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-link {
-            color: #ffffff;
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: 5px;
-            margin: 1.5rem 0;
-            text-shadow: 0 0 10px rgba(129, 216, 208, 0.5);
         }
 
         /* === 3. 英雄首頁區 === */
         .hero-slider {
             position: relative;
-            width: 100%; height: 100vh;
+            width: 100%;
+            height: 100vh;
             overflow: hidden;
         }
         .slide {
             position: absolute;
-            inset: 0; opacity: 0;
+            inset: 0;
+            opacity: 0;
             transition: opacity 1.5s ease-in-out, transform 3s ease-out;
-            background-size: cover; background-position: center;
+            background-size: cover;
+            background-position: center;
             transform: scale(1.1);
         }
         .slide.active { opacity: 1; transform: scale(1); }
@@ -112,172 +67,350 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, var(--bg-dark) 95%);
+            background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, var(--bg-dark) 90%);
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; z-index: 10;
         }
 
         .hero-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 900;
-            letter-spacing: 15px;
+            letter-spacing: 10px;
             background: linear-gradient(to right, #fff, var(--spark-blue), #fff);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: shine 5s linear infinite;
         }
+        @keyframes shine { to { background-position: 200% center; } }
 
-        /* === 4. 流水燈公告 === */
+        /* === 4. 最新消息流水導覽 === */
         .news-ticker {
             background: rgba(129, 216, 208, 0.1);
-            border-y: 1px solid var(--spark-blue);
-            padding: 12px 0; overflow: hidden; white-space: nowrap;
+            border-top: 1px solid var(--spark-blue);
+            border-bottom: 1px solid var(--spark-blue);
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
         }
         .ticker-content {
             display: inline-block;
-            animation: ticker 35s linear infinite;
+            animation: ticker 30s linear infinite;
             font-weight: 500;
         }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* === 5. 三大賽事卡片 === */
+        /* === 5. 通用標題與排版 === */
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            letter-spacing: 5px;
+            margin-bottom: 50px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(129, 216, 208, 0.5);
+        }
+
+        .content-section { padding: 100px 10%; background: #080808; }
+        .glass-box {
+            background: rgba(255,255,255,0.03); border-radius: 30px;
+            padding: 60px; border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+        }
+
+        /* === 6. 三大賽事流水燈與閃爍 === */
         .comp-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; padding: 0 10% 80px;
+            gap: 30px;
+            padding: 0 10% 100px;
         }
+
         .comp-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px; padding: 40px 20px;
-            text-align: center; transition: all 0.3s ease;
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
         }
+
         .logo-frame {
             position: relative;
-            width: 130px; height: 130px;
-            margin: 0 auto 25px; background: #000;
-            border-radius: 20px; display: flex;
-            justify-content: center; align-items: center; overflow: hidden;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 25px;
+            background: #000;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
+
         .logo-frame::before {
-            content: ''; position: absolute;
-            width: 200%; height: 200%;
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
             background: conic-gradient(from 0deg, #81D8D0, transparent, transparent, #81D8D0);
             animation: rotate-border 3s linear infinite;
         }
+
         .logo-frame::after {
-            content: ''; position: absolute; inset: 3px;
-            background: #000; border-radius: 18px; z-index: 1;
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: #000;
+            border-radius: 18px;
+            z-index: 1;
         }
-        .logo-frame img { position: relative; z-index: 2; max-width: 75%; transition: transform 0.4s ease; }
-        
+
+        .logo-frame img {
+            position: relative;
+            z-index: 2;
+            max-width: 75%;
+            max-height: 75%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .comp-card:hover .logo-frame::before {
+            animation: flicker-border 0.15s infinite;
+            background: #81D8D0;
+        }
+
         .comp-card:hover {
             border-color: var(--spark-blue);
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             background: rgba(129, 216, 208, 0.05);
         }
 
-        /* === 6. 榮耀時光放映館 === */
-        .cinema-screen-container { position: relative; width: 95%; max-width: 1000px; margin: 40px auto; perspective: 1200px; }
+        .comp-card:hover .logo-frame {
+            box-shadow: 0 0 40px rgba(129, 216, 208, 0.5);
+        }
+
+        .comp-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--spark-blue);
+        }
+
+        @keyframes rotate-border { 100% { transform: rotate(360deg); } }
+        @keyframes flicker-border { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        /* === 7. 榮耀放映館 === */
+        .cinema-screen-container { position: relative; width: 90%; max-width: 1000px; margin: 40px auto; perspective: 1000px; }
         .cinema-screen {
             position: relative; aspect-ratio: 16/9; background: #000;
             border: 4px solid #333; border-radius: 10px;
-            box-shadow: 0 0 40px rgba(129, 216, 208, 0.2); overflow: hidden; z-index: 30;
+            box-shadow: 0 0 30px rgba(129, 216, 208, 0.2); overflow: hidden; z-index: 30;
         }
         .slide-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.8s ease; }
-        .slide-img.active { opacity: 1; animation: screenShake 0.5s infinite; }
+        .slide-img.active { opacity: 1; animation: screenShake 0.4s infinite; }
 
-        .projector-unit-fixed { position: absolute; right: -180px; top: 50%; transform: translateY(-50%); z-index: 99; width: 200px; }
+        .projector-unit-fixed { position: absolute; right: -160px; top: 50%; transform: translateY(-50%); z-index: 99; width: 200px; }
         .projector-machine { position: relative; width: 100px; height: 120px; background: #1a1a1a; border: 2px solid #333; border-radius: 8px; margin-left: auto; }
         .reel { position: absolute; width: 85px; height: 85px; border: 5px solid #2a2a2a; border-radius: 50%; background: repeating-conic-gradient(#111 0% 15%, #222 15% 30%); animation: rotateMachine 3s linear infinite; }
-        .reel.spinning { animation: rotateMachine 0.4s linear infinite !important; }
-        .reel-top { top: -60px; right: 20px; }
-        .reel-back { top: 20px; right: -40px; z-index: -1; }
+        .reel.spinning { animation: rotateMachine 0.3s linear infinite !important; }
+        .reel-top { top: -60px; right: 20px; } .reel-back { top: 20px; right: -40px; z-index: -1; }
         .lens-glow { position: absolute; left: -35px; top: 25px; width: 10px; height: 50px; background: var(--spark-blue); box-shadow: 0 0 20px var(--spark-blue); z-index: 2; }
-        .cinema-beam-fixed { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 1200px; height: 800px; background: radial-gradient(ellipse at right, rgba(129, 216, 208, 0.1) 0%, transparent 80%); clip-path: polygon(0% 0%, 0% 100%, 100% 52%, 100% 48%); pointer-events: none; z-index: -1; }
+        .cinema-beam-fixed { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 1200px; height: 700px; background: radial-gradient(ellipse at right, rgba(129, 216, 208, 0.15) 0%, transparent 80%); clip-path: polygon(0% 0%, 0% 100%, 100% 52%, 100% 48%); pointer-events: none; z-index: -1; }
 
-        .subtitle-text { background: rgba(0, 0, 0, 0.85); color: var(--spark-blue); padding: 8px 25px; font-size: 1.1rem; font-weight: 700; border-bottom: 2px solid var(--spark-blue); }
+        .subtitle-container { position: absolute; bottom: 30px; width: 100%; text-align: center; z-index: 50; }
+        .subtitle-text { background: rgba(0, 0, 0, 0.85); color: var(--spark-blue); padding: 8px 25px; font-size: 1.2rem; font-weight: 700; border-bottom: 2px solid var(--spark-blue); }
 
-        /* === 7. 聯絡我們卡片 === */
-        .social-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 40px 0; }
-        .social-card { text-decoration: none; color: #fff; animation: floatingCard 4s ease-in-out infinite; }
+        .control-deck { background: #111; border: 1px solid #333; border-radius: 0 0 15px 15px; width: 60%; margin: -4px auto 0; padding: 15px; display: flex; justify-content: center; gap: 40px; position: relative; z-index: 40; }
+        .dial-button { width: 40px; height: 40px; background: #222; border: 2px solid #444; border-radius: 50%; cursor: pointer; position: relative; }
+        .dial-button::after { content: ''; width: 3px; height: 10px; background: var(--spark-blue); position: absolute; top: 5px; left: calc(50% - 1.5px); }
+
+        /* === 8. 聯絡我們與特效 === */
+        .icon-box { width: 60px; height: 60px; margin-bottom: 15px; display: flex; justify-content: center; align-items: center; }
+        .social-icon { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 0 5px var(--spark-blue)); }
+        
+        .social-container { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding: 40px 0; }
+        .social-card { text-decoration: none; color: #fff; perspective: 1000px; animation: floatingCard 4s ease-in-out infinite; }
         .card-inner {
             width: 140px; height: 160px; background: rgba(15, 15, 25, 0.8);
-            border: 2px solid var(--spark-blue); border-radius: 12px;
+            border: 2px solid var(--spark-blue); border-radius: 10px;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden;
         }
         .social-card:hover .card-inner {
-            transform: translateY(-10px) scale(1.1);
+            transform: translateY(-10px) rotateX(10deg) scale(1.1);
             border-color: var(--spark-purple);
-            box-shadow: 0 0 30px rgba(157, 80, 187, 0.5);
+            box-shadow: 0 0 30px rgba(157, 80, 187, 0.6), inset 0 0 20px rgba(157, 80, 187, 0.4);
         }
 
-        /* === 動畫庫 === */
-        @keyframes shine { to { background-position: 200% center; } }
-        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        @keyframes spark-energy { 0%, 100% { filter: drop-shadow(0 0 10px rgba(129, 216, 208, 0.4)); transform: scale(1); } 50% { filter: drop-shadow(0 0 25px rgba(129, 216, 208, 0.8)); transform: scale(1.02); } }
-        @keyframes rotate-border { 100% { transform: rotate(360deg); } }
+        /* 動畫庫 */
+        @keyframes screenShake { 0% { transform: translate(0,0); } 10% { transform: translate(-0.5px, 0.5px); } }
         @keyframes rotateMachine { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @keyframes screenShake { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(-0.5px, 0.5px); } }
-        @keyframes floatingCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        @keyframes floatingCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
         @keyframes blink { 50% { opacity: 0; } }
 
-        .section-title { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; text-align: center; letter-spacing: 5px; color: #fff; text-shadow: 0 0 10px rgba(129, 216, 208, 0.5); }
-        .cursor { display: inline-block; width: 3px; height: 18px; background: var(--spark-blue); animation: blink 0.8s infinite; vertical-align: middle; }
+        footer { padding: 60px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        .cursor { display: inline-block; width: 3px; height: 20px; background: var(--spark-blue); animation: blink 0.8s infinite; vertical-align: middle; }
 
         @media (max-width: 1024px) { 
             .projector-unit-fixed { display: none; } 
             .comp-grid { grid-template-columns: 1fr; }
         }
+        /* === 新增：粒子背景容器 === */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 放在所有內容後方 */
+    background: var(--bg-dark);
+}
+/* 進階能量呼吸燈 */
+@keyframes spark-energy {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px rgba(129, 216, 208, 0.4)) brightness(1);
+        transform: scale(1);
+    }
+    50% {
+        /* 增加發光範圍與亮度 */
+        filter: drop-shadow(0 0 30px rgba(129, 216, 208, 0.9)) brightness(1.3);
+        transform: scale(1.03);
+    }
+}
+
+.spark-logo-glow {
+    animation: spark-energy 4s ease-in-out infinite;
+    /* 讓滑鼠滑過時有電力爆發感 */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.spark-logo-glow:hover {
+    filter: drop-shadow(0 0 50px rgba(129, 216, 208, 1)) contrast(1.1);
+    transform: scale(1.1) rotate(2deg); /* 帶一點點傾斜，更有動態感 */
+}
+/* 強制開啟選單時的狀態 */
+#mobile-menu.active {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    background-color: #000000 !important; /* 強制純黑背景，解決透明混亂 */
+    pointer-events: auto !important;     /* 允許點擊 */
+    display: flex !important;
+}
+
+/* --- 修改這部分來解決選項重疊與透明問題 --- */
+#mobile-menu {
+    position: fixed !important;
+    inset: 0 !important;
+    /* 強制純黑背景，確保這面「黑牆」蓋住後面的所有內容 */
+    background: #000000 !important; 
+    /* 層級必須極高，但要低於按鈕 */
+    z-index: 9998 !important; 
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* 改為居中，讓佈局更平衡 */
+    
+    /* 初始隱藏狀態 */
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 當選單啟動時的狀態 */
+#mobile-menu.active {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 為選項文字加上獨立的「防重疊」呼吸空間 */
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    width: 100%;
+    /* 這裡可以額外確保文字周圍是乾淨的 */
+    background: transparent; 
+}
+
+/* 強化選項文字，確保在黑牆上非常清晰 */
+.mobile-link {
+    color: white !important;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 8px;
+    text-shadow: 0 0 15px rgba(129, 216, 208, 0.6); /* SPARK 藍發光 */
+    transition: all 0.3s ease;
+}
+
+.mobile-link:hover {
+    color: var(--spark-blue) !important;
+    transform: scale(1.1);
+}
+
+/* 確保漢堡/叉叉按鈕永遠在黑牆最上方 */
+#menu-btn {
+    z-index: 9999 !important;
+}
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <div id="cursor-glow"></div>
 
-    <nav class="flex justify-between items-center px-6 md:px-10 py-4">
-        <div class="flex items-center gap-4">
-            <img src="spark_logo.png" alt="SPARK" class="h-8 md:h-10 w-auto object-contain spark-logo-glow">
-            <div class="text-xl md:text-2xl font-black tracking-tighter">
-                SPARK <span class="hidden sm:inline text-xs font-light ml-2 opacity-70">臺灣智能程式科技教育推廣協會</span>
-            </div>
-        </div>
+<nav class="flex justify-between items-center px-6 md:px-10 py-5">
+  <div class="flex items-center gap-4">
+    <img src="spark_logo.png" alt="SPARK" class="h-8 md:h-10 w-auto object-contain spark-logo-glow">
+    
+    <div class="text-xl md:text-2xl font-black tracking-tighter">
+        SPARK <span class="hidden sm:inline text-sm font-light ml-2">臺灣智能程式科技教育推廣協會</span>
+    </div>
+</div>
 
-        <div class="hidden md:flex gap-8 font-medium text-sm tracking-widest">
-            <a href="#" class="hover:text-[var(--spark-blue)] transition">首頁</a>
-            <a href="#about" class="hover:text-[var(--spark-blue)] transition">協會理念</a>
-            <a href="#competitions" class="hover:text-[var(--spark-blue)] transition">三大賽事</a>
-            <a href="#honors" class="hover:text-[var(--spark-blue)] transition">榮耀時光</a>
-            <a href="#contact" class="hover:text-[var(--spark-blue)] transition">聯絡我們</a>
-        </div>
+    <div class="hidden md:flex gap-8 font-medium text-sm tracking-widest">
+        <a href="#" class="hover:text-[var(--spark-blue)] transition">首頁</a>
+        <a href="#about" class="hover:text-[var(--spark-blue)] transition">協會理念</a>
+        <a href="#competitions" class="hover:text-[var(--spark-blue)] transition">三大賽事</a>
+        <a href="#honors" class="hover:text-[var(--spark-blue)] transition">榮耀時光放映館</a>
+        <a href="#contact" class="hover:text-[var(--spark-blue)] transition">聯絡我們</a>
+    </div>
 
-        <button id="menu-btn" class="md:hidden text-[var(--spark-blue)] z-[9999]">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
+  <button id="menu-btn" class="md:hidden text-[var(--spark-blue)] focus:outline-none z-[3000] fixed top-5 right-6">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+</button>
 
-        <div id="mobile-menu">
-            <a href="#" class="mobile-link" onclick="closeMenu()">首頁</a>
-            <a href="#about" class="mobile-link" onclick="closeMenu()">協會理念</a>
-            <a href="#competitions" class="mobile-link" onclick="closeMenu()">三大賽事</a>
-            <a href="#honors" class="mobile-link" onclick="closeMenu()">榮耀時光</a>
-            <a href="#contact" class="mobile-link" onclick="closeMenu()">聯絡我們</a>
-        </div>
-    </nav>
+<div id="mobile-menu">
+    <div class="mobile-menu-content">
+        <a href="#" class="mobile-link">首頁</a>
+        <a href="#about" class="mobile-link">協會理念</a>
+        <a href="#competitions" class="mobile-link">三大賽事</a>
+        <a href="#honors" class="mobile-link">榮耀時光放映館</a>
+        <a href="#contact" class="mobile-link">聯絡我們</a>
+    </div>
+</div>
+</nav>
 
     <section class="hero-slider">
         <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('slide1.jpg')"></div>
         <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('slide2.jpg')"></div>
         <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('slide3.jpg')"></div>
-        <div class="hero-overlay">
-            <img src="spark_logo2.png" alt="SPARK" class="w-[300px] md:w-[600px] mb-4 spark-logo-glow">
-            <h1 class="hero-title">SPARK</h1>
-            <p class="text-sm md:text-lg mt-2 tracking-[8px] uppercase font-light opacity-80">臺灣智能程式科技教育推廣協會</p>
-            <div class="mt-12 animate-bounce text-[var(--spark-blue)]">▼ Explore</div>
-        </div>
+      <div class="hero-overlay">
+    <img src="spark_logo2.png" alt="SPARK" class="w-[400px] md:w-[650px] mb-2 spark-logo-glow">
+
+    <h1 class="hero-title">SPARK</h1>
+    
+    <p class="text-lg md:text-xl mt-1 tracking-[6px] uppercase font-light opacity-80">臺灣智能程式科技教育推廣協會</p>
+    
+    <div class="mt-10 animate-bounce text-[var(--spark-blue)]">▼ Scroll Down</div>
+</div>
     </section>
 
     <div class="news-ticker">
@@ -286,10 +419,10 @@
         </div>
     </div>
 
-    <section class="py-24 px-6" id="about">
-        <div class="max-w-5xl mx-auto bg-white/5 rounded-[40px] p-10 md:p-20 backdrop-blur-xl border border-white/10">
-            <h2 class="section-title mb-10">協會理念</h2>
-            <p class="text-center text-gray-400 text-lg leading-loose">
+    <section class="content-section" id="about">
+        <div class="glass-box">
+            <h2 class="section-title">協會理念</h2>
+            <p class="text-center text-gray-400 text-lg leading-relaxed max-w-4xl mx-auto">
                 SPARK (臺灣智能程式科技教育推廣協會) 致力於點燃青少年對程式與人工智慧的熱情。<br>
                 我們相信，程式不只是冷冰冰的代碼，而是孩子實踐創意、解決問題、連結世界的語言。<br>
                 透過舉辦高水準國際賽事，我們為臺灣學子搭建通向未來的橋樑。
@@ -298,117 +431,112 @@
     </section>
 
     <section id="competitions" class="py-20">
-        <h2 class="section-title mb-16">MAJOR COMPETITIONS</h2>
+        <h2 class="section-title">MAJOR COMPETITIONS</h2>
         <div class="comp-grid">
             <div class="comp-card">
                 <div class="logo-frame"><img src="jbc_logo.png" alt="JBC"></div>
-                <h3 class="text-2xl font-bold text-[var(--spark-blue)] mb-2">JBC</h3>
-                <p class="text-gray-500 mb-8">Junior Botball Challenge<br>初階機器人挑戰賽</p>
-                <a href="https://junior-botball-challenge-taiwan.github.io/" class="inline-block px-10 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
+                <h3>JBC</h3>
+                <p class="text-gray-500 mb-6">Junior Botball Challenge<br>初階機器人挑戰賽</p>
+                <a href="https://junior-botball-challenge-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
             </div>
             <div class="comp-card">
                 <div class="logo-frame"><img src="grg_logo.png" alt="GRG"></div>
-                <h3 class="text-2xl font-bold text-[var(--spark-blue)] mb-2">GRG</h3>
-                <p class="text-gray-500 mb-8">Global Robotics Games<br>全球機器人運動會</p>
-                <a href="https://global-robotics-games-taiwan.github.io/" class="inline-block px-10 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
+                <h3>GRG</h3>
+                <p class="text-gray-500 mb-6">Global Robotics Games<br>全球機器人運動會</p>
+                <a href="https://global-robotics-games-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
             </div>
             <div class="comp-card">
                 <div class="logo-frame"><img src="enjoyai_logo.png" alt="ENJOY AI"></div>
-                <h3 class="text-2xl font-bold text-[var(--spark-blue)] mb-2">ENJOY AI</h3>
-                <p class="text-gray-500 mb-8">Global Youth AI Popularization<br>人工智慧普及賽</p>
-                <a href="https://enjoyai-taiwan.github.io/" class="inline-block px-10 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
+                <h3>ENJOY AI</h3>
+                <p class="text-gray-500 mb-6">Global Youth AI Popularization<br>人工智慧普及賽</p>
+                <a href="https://enjoyai-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
             </div>
         </div>
     </section>
 
-    <section id="honors" class="py-24 bg-black/40">
-        <header class="text-center mb-16">
-            <h2 class="section-title mb-2">THE GLORY MOMENTS</h2>
-            <p class="text-[var(--spark-blue)] tracking-[10px] text-lg uppercase font-bold">榮耀時光放映館</p>
-        </header>
-        
-        <div class="cinema-screen-container">
-            <div class="projector-unit-fixed">
-                <div class="projector-machine">
-                    <div class="reel reel-top"></div>
-                    <div class="reel reel-back"></div>
-                    <div class="lens-glow"></div>
-                    <div class="cinema-beam-fixed"></div>
+    <section id="honors" class="py-20 bg-[#080808]">
+       <header class="text-center pb-12"> <h2 class="section-title mb-2">THE GLORY MOMENTS</h2> <p class="text-[#81D8D0] tracking-[12px] text-xl md:text-2xl uppercase font-bold">榮耀時光放映館</p>
+</header>
+        <div class="container mx-auto px-4">
+            <div class="cinema-screen-container">
+                <div class="projector-unit-fixed">
+                    <div class="projector-machine">
+                        <div class="reel reel-top"></div>
+                        <div class="reel reel-back"></div>
+                        <div class="lens-glow"></div>
+                        <div class="cinema-beam-fixed"></div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="cinema-screen">
-                <img src="wro1.jpg" class="slide-img active" data-caption="2019年馬來西亞足球機器人國際公開賽">
-                <img src="wro2.jpg" class="slide-img" data-caption="2018 WRO 臺灣全國總決賽">
-                <img src="wro3.jpg" class="slide-img" data-caption="2018 WRO 世界賽">
-                <img src="wro4.jpg" class="slide-img" data-caption="2018 WRO 世界決賽">
-                <img src="wro5.jpg" class="slide-img" data-caption="2018 亞洲機器人運動競賽">
-                <img src="wro6.jpg" class="slide-img" data-caption="2019 亞洲智慧型機器人大賽">
-                <img src="wro7.jpg" class="slide-img" data-caption="各項獎盃榮耀展示">
-                <div class="absolute bottom-6 w-full text-center z-50">
-                    <span id="target-subtitle" class="subtitle-text">2019年馬來西亞足球機器人國際公開賽</span>
+                <div class="cinema-screen">
+                    <img src="wro1.jpg" class="slide-img active" data-caption="2019年馬來西亞足球機器人國際公開賽">
+                    <img src="wro2.jpg" class="slide-img" data-caption="2018 WRO 臺灣全國總決賽">
+                    <img src="wro3.jpg" class="slide-img" data-caption="2018 WRO 世界賽">
+                    <img src="wro4.jpg" class="slide-img" data-caption="2018 WRO 世界決賽">
+                    <img src="wro5.jpg" class="slide-img" data-caption="2018 亞洲機器人運動競賽">
+                    <img src="wro6.jpg" class="slide-img" data-caption="2019 亞洲智慧型機器人大賽">
+                    <img src="wro7.jpg" class="slide-img" data-caption="各項獎盃榮耀展示">
+                    <div class="subtitle-container"><span id="target-subtitle" class="subtitle-text">2019年馬來西亞足球機器人國際公開賽</span></div>
                 </div>
-            </div>
 
-            <div class="flex justify-center gap-10 mt-6">
-                <button class="w-12 h-12 bg-white/10 rounded-full border border-white/20 hover:bg-[var(--spark-blue)] transition group" onclick="changeCinemaSlide(-1)">
-                    <span class="text-white group-hover:text-black">◀</span>
-                </button>
-                <div class="w-3 h-3 bg-[var(--spark-blue)] rounded-full animate-pulse my-auto"></div>
-                <button class="w-12 h-12 bg-white/10 rounded-full border border-white/20 hover:bg-[var(--spark-blue)] transition group" onclick="changeCinemaSlide(1)">
-                    <span class="text-white group-hover:text-black">▶</span>
-                </button>
+                <div class="control-deck">
+                    <button class="dial-button" onclick="changeCinemaSlide(-1)"></button>
+                    <div class="w-2 h-2 bg-[#81D8D0] rounded-full animate-pulse my-auto"></div>
+                    <button class="dial-button" onclick="changeCinemaSlide(1)"></button>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="py-20">
-        <h2 class="section-title mb-12">聯絡我們</h2>
-        <div class="social-container">
-            <a href="https://www.facebook.com/SPARKrobot" target="_blank" class="social-card">
-                <div class="card-inner">
-                    <img src="fb_icon.png" alt="FB" class="w-12 h-12 mb-3">
-                    <span class="font-bold">Facebook</span>
-                </div>
-            </a>
-            <a href="https://www.instagram.com/enjoyai__taiwan/" target="_blank" class="social-card">
-                <div class="card-inner">
-                    <img src="ig_icon.png" alt="IG" class="w-12 h-12 mb-3">
-                    <span class="font-bold">Instagram</span>
-                </div>
-            </a>
-            <a href="https://www.threads.com/@enjoyai__taiwan" target="_blank" class="social-card">
-                <div class="card-inner">
-                    <img src="threads_icon.png" alt="Threads" class="w-12 h-12 mb-3">
-                    <span class="font-bold">Threads</span>
-                </div>
-            </a>
+        <div class="container mx-auto">
+            <h2 class="section-title">聯絡我們</h2>
+            <div class="social-container">
+                <a href="https://www.facebook.com/SPARKrobot" target="_blank" class="social-card">
+                    <div class="card-inner">
+                        <div class="icon-box"><img src="path-to-your-fb-icon.png" alt="Facebook" class="social-icon"></div>
+                        <span class="font-bold">Facebook</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/enjoyai__taiwan/?igsh=aW9xaGV2M2ptbzF6&utm_source=qr#" target="_blank" class="social-card">
+                    <div class="card-inner">
+                        <div class="icon-box"><img src="path-to-your-ig-icon.png" alt="Instagram" class="social-icon"></div>
+                        <span class="font-bold">Instagram</span>
+                    </div>
+                </a>
+                <a href="https://www.threads.com/@enjoyai__taiwan?invite=0" target="_blank" class="social-card">
+                    <div class="card-inner">
+                        <div class="icon-box"><img src="path-to-your-threads-icon.png" alt="Threads" class="social-icon"></div>
+                        <span class="font-bold">Threads</span>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center border-t border-white/10">
+    <footer>
         <div class="mb-4"><span id="typing-text"></span><span class="cursor"></span></div>
-        <p class="text-gray-600 text-sm">臺灣智能程式科技教育推廣協會 (SPARK)<br>Sparking Intelligence, Coding Future.</p>
+        <p class="text-gray-600 text-sm">臺灣智能程式科技教育推廣協會 (SPARK) <br> Sparking Intelligence, Coding Future.</p>
     </footer>
 
     <script>
-        // 1. 滑鼠燈
+        // 1. 滑鼠引力燈
         const glow = document.getElementById('cursor-glow');
         document.addEventListener('mousemove', (e) => {
             glow.style.left = e.clientX + 'px';
             glow.style.top = e.clientY + 'px';
         });
 
-        // 2. 英雄幻燈片
+        // 2. 英雄翻頁
         let curSlide = 0;
         const slides = document.querySelectorAll('.slide');
-        if(slides.length > 0) {
-            setInterval(() => {
+        setInterval(() => {
+            if(slides.length > 0) {
                 slides[curSlide].classList.remove('active');
                 curSlide = (curSlide + 1) % slides.length;
                 slides[curSlide].classList.add('active');
-            }, 5000);
-        }
+            }
+        }, 5000);
 
         // 3. 放映館邏輯
         const cinemaSlides = document.querySelectorAll('.slide-img');
@@ -430,7 +558,8 @@
                 isMoving = false;
             }, 800);
         };
-        setInterval(() => changeCinemaSlide(1), 6000);
+
+        setInterval(() => changeCinemaSlide(1), 5000);
 
         // 4. 打字機頁尾
         const footerText = "臺灣智能程式科技教育推廣協會 SPARK © 2026";
@@ -442,42 +571,77 @@
                 setTimeout(type, 150);
             }
         }
-
-        // 5. 手機選單切換
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-
-        menuBtn.addEventListener('click', toggleMenu);
-        function toggleMenu() {
-            const isActive = mobileMenu.classList.toggle('active');
-            document.body.style.overflow = isActive ? 'hidden' : '';
-            menuIcon.setAttribute('d', isActive ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16');
+        window.onload = type;
+        // 初始化粒子背景
+particlesJS("particles-js", {
+    "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#81D8D0" }, // 使用你的 SPARK 藍色
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.3, "random": false },
+        "size": { "value": 6, "random": true },
+        "line_linked": { 
+            "enable": true, 
+            "distance": 150, 
+            "color": "#81D8D0", 
+            "opacity": 0.4, 
+            "width": 2 
+        },
+        "move": { 
+            "enable": true, 
+            "speed": 2, 
+            "direction": "none", 
+            "random": false, 
+            "straight": false, 
+            "out_mode": "out", 
+            "bounce": false 
         }
-        function closeMenu() {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
+    },
+    "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+            "onhover": { "enable": true, "mode": "grab" }, // 游標經過會吸附
+            "onclick": { "enable": true, "mode": "push" }, // 點擊會噴發
+            "resize": true
+        },
+        "modes": {
+            "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+            "push": { "particles_nb": 4 }
+        }
+    },
+    "retina_detect": true
+});
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+
+if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+        const isActive = mobileMenu.classList.toggle('active');
+        menuBtn.classList.toggle('btn-active');
+        
+        // 禁止背景捲動
+        document.body.style.overflow = isActive ? 'hidden' : '';
+
+        // 切換圖示：三條線 <-> X
+        if (isActive) {
+            menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+        } else {
             menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
         }
+    });
 
-        // 6. 粒子初始化
-        window.onload = () => {
-            type();
-            particlesJS("particles-js", {
-                "particles": {
-                    "number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": "#81D8D0" },
-                    "shape": { "type": "circle" },
-                    "opacity": { "value": 0.3 },
-                    "size": { "value": 4, "random": true },
-                    "line_linked": { "enable": true, "distance": 150, "color": "#81D8D0", "opacity": 0.3, "width": 1 },
-                    "move": { "enable": true, "speed": 1.5 }
-                },
-                "interactivity": {
-                    "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
-                }
-            });
-        };
+    // 點擊連結後自動關閉
+    const links = document.querySelectorAll('.mobile-link');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            menuBtn.classList.remove('btn-active');
+            menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            document.body.style.overflow = '';
+        });
+    });
+}
     </script>
 </body>
 </html>
