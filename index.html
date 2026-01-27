@@ -268,27 +268,29 @@
     z-index: -1; /* 放在所有內容後方 */
     background: var(--bg-dark);
 }
-        /* LOGO 核心呼吸燈動畫 */
-@keyframes spark-pulse {
+/* 進階能量呼吸燈 */
+@keyframes spark-energy {
     0%, 100% {
-        filter: drop-shadow(0 0 15px rgba(129, 216, 208, 0.4)) brightness(1);
+        filter: drop-shadow(0 0 10px rgba(129, 216, 208, 0.4)) brightness(1);
         transform: scale(1);
     }
     50% {
-        filter: drop-shadow(0 0 35px rgba(129, 216, 208, 0.8)) brightness(1.2);
-        transform: scale(1.02); /* 微幅放大，更有動態感 */
+        /* 增加發光範圍與亮度 */
+        filter: drop-shadow(0 0 30px rgba(129, 216, 208, 0.9)) brightness(1.3);
+        transform: scale(1.03);
     }
 }
 
 .spark-logo-glow {
-    animation: spark-pulse 3s ease-in-out infinite;
-    transition: all 0.3s ease;
+    animation: spark-energy 4s ease-in-out infinite;
+    /* 讓滑鼠滑過時有電力爆發感 */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
 }
 
-/* 游標移上去時加強發光 */
 .spark-logo-glow:hover {
-    filter: drop-shadow(0 0 45px rgba(129, 216, 208, 1));
-    transform: scale(1.05);
+    filter: drop-shadow(0 0 50px rgba(129, 216, 208, 1)) contrast(1.1);
+    transform: scale(1.1) rotate(2deg); /* 帶一點點傾斜，更有動態感 */
 }
     </style>
 </head>
@@ -319,7 +321,7 @@
         <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('slide2.jpg')"></div>
         <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('slide3.jpg')"></div>
        <div class="hero-overlay">
-  <img src="spark_logo2.png" alt="SPARK" class="w-64 md:w-80 mb-4 spark-logo-glow">
+  <img src="spark_logo2.png" alt="SPARK" class="w-64 md:w-90 mb-4 spark-logo-glow">
     <h1 class="hero-title">SPARK</h1>
     <p class="text-xl mt-2 tracking-[8px] uppercase font-light">臺灣智能程式科技教育推廣協會</p>
     <div class="mt-10 animate-bounce text-[var(--spark-blue)]">▼ Scroll Down</div>
