@@ -301,49 +301,40 @@
     display: flex !important;
 }
 
-/* --- 修改這部分來解決選項重疊與透明問題 --- */
+/* 覆蓋原本所有 #mobile-menu 相關樣式 */
 #mobile-menu {
     position: fixed !important;
     inset: 0 !important;
-    /* 強制純黑背景，確保這面「黑牆」蓋住後面的所有內容 */
     background: #000000 !important; 
-    /* 層級必須極高，但要低於按鈕 */
     z-index: 9998 !important; 
     display: flex !important;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* 改為居中，讓佈局更平衡 */
+    justify-content: center;
     
-    /* 初始隱藏狀態 */
+    /* 預設隱藏：移動到右側以外 */
     transform: translateX(100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none; /* 隱藏時不可點擊 */
 }
 
-/* 強制開啟選單時的狀態 */
 #mobile-menu.active {
-    transform: translateX(0) !important;
-    opacity: 1 !important;
-    background-color: #000000 !important; /* 強制純黑背景，解決透明混亂 */
-    pointer-events: auto !important;     /* 允許點擊 */
-    display: flex !important;
-}
-
-/* 確保叉叉按鈕永遠在最前面且顏色鮮明 */
-#menu-btn {
-    transition: transform 0.3s ease;
-}
-
-#menu-btn.btn-active {
-    color: #ffffff !important; /* 變成 X 時切換為白色，避免跟綠色背景混淆 */
-    transform: rotate(90deg);  /* 增加一個旋轉動畫，更有科技感 */
+    transform: translateX(0);
+    pointer-events: auto; /* 顯示時恢復點擊 */
 }
 
 .mobile-link {
     color: white !important;
     text-shadow: 0 0 10px rgba(129, 216, 208, 0.5);
-    z-index: 2001;
+    margin: 20px 0; /* 增加選項間距 */
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    transition: color 0.3s ease;
+}
+
+.mobile-link:hover {
+    color: var(--spark-blue) !important;
 }
     </style>
 </head>
@@ -367,15 +358,14 @@
         <a href="#honors" class="hover:text-[var(--spark-blue)] transition">榮耀時光放映館</a>
         <a href="#contact" class="hover:text-[var(--spark-blue)] transition">聯絡我們</a>
     </div>
-
-  <button id="menu-btn" class="md:hidden text-[var(--spark-blue)] focus:outline-none z-[3000] fixed top-5 right-6">
+<button id="menu-btn" class="md:hidden text-[var(--spark-blue)] focus:outline-none z-[3000] fixed top-5 right-6">
     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
     </svg>
 </button>
 
-<div id="mobile-menu" class="fixed inset-0 bg-black z-[2000] flex flex-col items-center pt-32 transition-all duration-500 translate-x-full opacity-0 pointer-events-none">
-    <div class="flex flex-col items-center gap-10 text-2xl tracking-[6px] font-bold text-white">
+<div id="mobile-menu">
+    <div class="flex flex-col items-center gap-10 text-2xl tracking-[6px] font-bold">
         <a href="#" class="mobile-link">首頁</a>
         <a href="#about" class="mobile-link">協會理念</a>
         <a href="#competitions" class="mobile-link">三大賽事</a>
