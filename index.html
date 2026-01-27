@@ -292,24 +292,23 @@
     filter: drop-shadow(0 0 50px rgba(129, 216, 208, 1)) contrast(1.1);
     transform: scale(1.1) rotate(2deg); /* 帶一點點傾斜，更有動態感 */
 }
-/* 修改啟動器，確保內容垂直置中且可見 */
+/* 1. 啟動器：確保 translate-x-full 被歸零 */
 #mobile-menu.active {
     transform: translateX(0) !important;
     opacity: 1 !important;
-    display: flex !important; /* 強制確保它是 flex 佈局 */
 }
 
-/* 讓手機版選單的文字更亮一點，增加辨識度 */
+/* 2. 選單連結：確保文字為白色且帶有蒂芬妮綠的懸停效果 */
 .mobile-link {
-    color: white;
-    text-decoration: none;
+    color: #ffffff !important; /* 強制文字為白色 */
+    text-shadow: 0 0 10px rgba(129, 216, 208, 0.3);
     transition: all 0.3s ease;
-    padding: 10px;
 }
 
-.mobile-link:active {
-    color: var(--spark-blue);
-    transform: scale(0.9);
+.mobile-link:hover, .mobile-link:active {
+    color: var(--spark-blue) !important;
+    text-shadow: 0 0 20px rgba(129, 216, 208, 1);
+    transform: scale(1.1);
 }
     </style>
 </head>
@@ -340,14 +339,14 @@
         </svg>
     </button>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[1000] flex flex-col items-center justify-center transition-all duration-500 translate-x-full opacity-0">
+    <div id="mobile-menu" class="fixed inset-0 bg-black/98 backdrop-blur-2xl z-[1000] flex flex-col items-center pt-32 transition-all duration-500 translate-x-full opacity-0">
     
-    <div class="flex flex-col items-center gap-8 text-2xl tracking-[4px]">
-        <a href="#" class="mobile-link hover:text-[var(--spark-blue)]">首頁</a>
-        <a href="#about" class="mobile-link hover:text-[var(--spark-blue)]">協會理念</a>
-        <a href="#competitions" class="mobile-link hover:text-[var(--spark-blue)]">三大賽事</a>
-        <a href="#honors" class="mobile-link hover:text-[var(--spark-blue)]">榮耀時光放映館</a>
-        <a href="#contact" class="mobile-link hover:text-[var(--spark-blue)]">聯絡我們</a>
+    <div class="flex flex-col items-center gap-10 text-2xl tracking-[6px] font-bold">
+        <a href="#" class="mobile-link">首頁</a>
+        <a href="#about" class="mobile-link">協會理念</a>
+        <a href="#competitions" class="mobile-link">三大賽事</a>
+        <a href="#honors" class="mobile-link">榮耀時光放映館</a>
+        <a href="#contact" class="mobile-link">聯絡我們</a>
     </div>
 </div>
 </nav>
