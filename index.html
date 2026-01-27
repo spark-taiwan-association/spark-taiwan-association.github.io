@@ -321,42 +321,29 @@
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 當選單啟動時的狀態 */
+/* 強制開啟選單時的狀態 */
 #mobile-menu.active {
     transform: translateX(0) !important;
     opacity: 1 !important;
-    visibility: visible !important;
+    background-color: #000000 !important; /* 強制純黑背景，解決透明混亂 */
+    pointer-events: auto !important;     /* 允許點擊 */
+    display: flex !important;
 }
 
-/* 為選項文字加上獨立的「防重疊」呼吸空間 */
-.mobile-menu-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-    width: 100%;
-    /* 這裡可以額外確保文字周圍是乾淨的 */
-    background: transparent; 
+/* 確保叉叉按鈕永遠在最前面且顏色鮮明 */
+#menu-btn {
+    transition: transform 0.3s ease;
 }
 
-/* 強化選項文字，確保在黑牆上非常清晰 */
+#menu-btn.btn-active {
+    color: #ffffff !important; /* 變成 X 時切換為白色，避免跟綠色背景混淆 */
+    transform: rotate(90deg);  /* 增加一個旋轉動畫，更有科技感 */
+}
+
 .mobile-link {
     color: white !important;
-    font-size: 1.8rem;
-    font-weight: 900;
-    letter-spacing: 8px;
-    text-shadow: 0 0 15px rgba(129, 216, 208, 0.6); /* SPARK 藍發光 */
-    transition: all 0.3s ease;
-}
-
-.mobile-link:hover {
-    color: var(--spark-blue) !important;
-    transform: scale(1.1);
-}
-
-/* 確保漢堡/叉叉按鈕永遠在黑牆最上方 */
-#menu-btn {
-    z-index: 9999 !important;
+    text-shadow: 0 0 10px rgba(129, 216, 208, 0.5);
+    z-index: 2001;
 }
     </style>
 </head>
@@ -387,8 +374,8 @@
     </svg>
 </button>
 
-<div id="mobile-menu">
-    <div class="mobile-menu-content">
+<div id="mobile-menu" class="fixed inset-0 bg-black z-[2000] flex flex-col items-center pt-32 transition-all duration-500 translate-x-full opacity-0 pointer-events-none">
+    <div class="flex flex-col items-center gap-10 text-2xl tracking-[6px] font-bold text-white">
         <a href="#" class="mobile-link">首頁</a>
         <a href="#about" class="mobile-link">協會理念</a>
         <a href="#competitions" class="mobile-link">三大賽事</a>
@@ -618,7 +605,7 @@ const menuIcon = document.getElementById('menu-icon');
 if (menuBtn && mobileMenu) {
     menuBtn.addEventListener('click', () => {
         const isActive = mobileMenu.classList.toggle('active');
-        menuBtn.classList.toggle('btn-active');
+        menuBtn.classList.toggle('btn-active'); // 切換按鈕自己的樣式
         
         // 禁止背景捲動
         document.body.style.overflow = isActive ? 'hidden' : '';
