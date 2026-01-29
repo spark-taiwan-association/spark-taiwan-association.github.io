@@ -260,42 +260,59 @@
         }
         /* 新增或修改針對 768px (手機版) 的精確排版 */
 @media (max-width: 768px) {
-    /* 讓手機版 2+2 標題置中且行高適中 */
+    /* 1. 協會理念：手機版 2+2 標題設定 */
     .section-title.mobile-only {
         display: block !important;
         text-align: center !important;
-        line-height: 1.4 !important; /* 確保兩行字不會太擠 */
-        font-size: 2rem !important;  /* 根據需求調整手機版大小 */
+        line-height: 1.4 !important;
+        font-size: 2rem !important;
         margin-bottom: 1.5rem !important;
-        /* 1. 讓影片/圖片容器變大，並調整比例 (原本可能是 16:9，改為 4:3 讓垂直空間更多) */
+    } /* <--- 這裡原本漏掉了這個括號 */
+
+    /* 2. 榮耀時光：讓外層容器與螢幕同寬 */
+    .glory-moments-section .container {
+        max-width: 100% !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    /* 3. 榮耀時光：讓影片/圖片螢幕變大，改為 4:3 比例 */
     .glory-moments-container, .movie-screen {
         width: 100% !important;
-        aspect-ratio: 4 / 3 !important; /* 讓圖片螢幕變高一點 */
+        aspect-ratio: 4 / 3 !important; /* 增加高度，避免擋住人臉 */
         height: auto !important;
         margin-bottom: 20px !important;
+        overflow: hidden !important;
     }
 
-    /* 2. 針對圖片本身，確保縮放時重點（人臉）在中心 */
+    /* 4. 針對圖片本身，將重心上移 20%，保住小朋友的臉 */
     .movie-screen img {
+        width: 100% !important;
+        height: 100% !important;
         object-fit: cover !important;
-        object-position: center 20% !important; /* 將圖片重心上移，防止腳部文字擋住人臉 */
+        object-position: center 20% !important; 
     }
 
-    /* 3. 調整文字介紹遮罩的高度與位置 */
-    /* 讓遮罩變窄，且置於最下方，避免擋住小朋友 */
+    /* 5. 調整底部文字遮罩，變窄並靠底，像電影字幕一樣 */
     .movie-info-overlay {
-        padding: 8px 10px !important;
-        background: rgba(0, 0, 0, 0.7) !important; /* 稍微透明一點點 */
+        position: absolute !important;
+        width: 100% !important;
+        padding: 10px 15px !important;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)) !important; /* 漸層背景更美觀 */
         bottom: 0 !important;
+        left: 0 !important;
         height: auto !important;
+        z-index: 10 !important;
     }
 
-    /* 4. 縮小文字字體，避免文字塊佔用太多垂直空間 */
+    /* 6. 縮小文字字體，騰出空間給圖片內容 */
     .movie-info-overlay h3 {
-        font-size: 14px !important;
+        font-size: 15px !important;
+        font-weight: bold !important;
         margin-bottom: 0 !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
     }
-}
+} /* <--- 這是 Media Query 的總結尾 */
         /* === 新增：粒子背景容器 === */
 #particles-js {
     position: fixed;
