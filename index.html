@@ -370,6 +370,87 @@
     text-shadow: 0 0 10px rgba(129, 216, 208, 0.5);
     z-index: 2001;
 }
+        /* --- 新增：科技感液晶螢幕框架樣式 --- */
+.video-monitor-frame {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 15px;
+    background: #000;
+    border: 2px solid rgba(129, 216, 208, 0.2);
+    border-radius: 10px;
+    /* 外層霓虹發光感 */
+    box-shadow: 
+        0 0 30px rgba(129, 216, 208, 0.15),
+        inset 0 0 20px rgba(129, 216, 208, 0.1);
+    overflow: hidden;
+}
+
+/* 霓虹流水邊框效果 (動態旋轉燈) */
+.video-monitor-frame::before {
+    content: '';
+    position: absolute;
+    inset: -150%;
+    background: conic-gradient(
+        from 0deg, 
+        transparent, 
+        var(--spark-blue), 
+        transparent 20%, 
+        transparent 50%, 
+        var(--spark-purple), 
+        transparent 70%,
+        transparent 100%
+    );
+    animation: monitor-flow 5s linear infinite;
+    z-index: 0;
+}
+
+/* 內層黑底墊片，確保框架與影片分離 */
+.video-inner-box {
+    position: relative;
+    background: #050505;
+    border-radius: 5px;
+    z-index: 1;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 裝飾性液晶螢幕護角 */
+.monitor-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--spark-blue);
+    z-index: 10;
+    pointer-events: none;
+    filter: drop-shadow(0 0 10px var(--spark-blue));
+}
+.top-left { top: -2px; left: -2px; border-right: 0; border-bottom: 0; border-radius: 10px 0 0 0; }
+.top-right { top: -2px; right: -2px; border-left: 0; border-bottom: 0; border-radius: 0 10px 0 0; }
+.bottom-left { bottom: -2px; left: -2px; border-right: 0; border-top: 0; border-radius: 0 0 0 10px; }
+.bottom-right { bottom: -2px; right: -2px; border-left: 0; border-top: 0; border-radius: 0 0 10px 0; }
+
+/* 底部掃描線與液晶閃爍感 */
+.video-monitor-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+    z-index: 5;
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+}
+
+@keyframes monitor-flow {
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .video-monitor-frame { padding: 8px; width: 95%; margin: 30px auto; }
+}
     </style>
 </head>
 <body>
@@ -443,7 +524,39 @@
         </p>
     </div>
 </section>
+<section class="py-20 bg-[#050505] relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center mb-12">
+            <h2 class="section-title">MISSION RECORDS</h2>
+            <p class="text-[var(--spark-blue)] tracking-[10px] uppercase font-bold text-sm md:text-lg opacity-80 -mt-8">年度賽事紀錄回顧</p>
+        </div>
 
+        <div class="video-monitor-frame">
+            <div class="monitor-corner top-left"></div>
+            <div class="monitor-corner top-right"></div>
+            <div class="monitor-corner bottom-left"></div>
+            <div class="monitor-corner bottom-right"></div>
+            
+            <div class="video-inner-box">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/b4xGeCfHBXA?autoplay=0&rel=0&modestbranding=1" 
+                    title="SPARK 紀錄影片" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        
+        <div class="flex justify-between max-w-[900px] mx-auto mt-4 text-[10px] font-mono text-gray-600 tracking-widest uppercase">
+            <span>System Status: Optimal</span>
+            <span class="animate-pulse text-[var(--spark-blue)]">● Decrypting Data...</span>
+            <span>Ref: 2026_SPARK_LOG</span>
+        </div>
+    </div>
+</section>
     <section id="competitions" class="py-20">
         <h2 class="section-title">MAJOR COMPETITIONS</h2>
         <div class="comp-grid">
