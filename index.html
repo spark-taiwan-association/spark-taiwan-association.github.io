@@ -258,6 +258,17 @@
             .projector-unit-fixed { display: none; } 
             .comp-grid { grid-template-columns: 1fr; }
         }
+        /* 新增或修改針對 768px (手機版) 的精確排版 */
+@media (max-width: 768px) {
+    /* 讓手機版 2+2 標題置中且行高適中 */
+    .section-title.mobile-only {
+        display: block !important;
+        text-align: center !important;
+        line-height: 1.4 !important; /* 確保兩行字不會太擠 */
+        font-size: 2rem !important;  /* 根據需求調整手機版大小 */
+        margin-bottom: 1.5rem !important;
+    }
+}
         /* === 新增：粒子背景容器 === */
 #particles-js {
     position: fixed;
@@ -376,16 +387,19 @@
         </div>
     </div>
 
-    <section class="content-section" id="about">
-        <div class="glass-box">
-            <h2 class="section-title">協會理念</h2>
-            <p class="text-center text-gray-400 text-lg leading-relaxed max-w-4xl mx-auto">
-                SPARK (臺灣智能程式科技教育推廣協會) 致力於點燃青少年對程式與人工智慧的熱情。<br>
-                我們相信，程式不只是冷冰冰的代碼，而是孩子實踐創意、解決問題、連結世界的語言。<br>
-                透過舉辦高水準國際賽事，我們為臺灣學子搭建通向未來的橋樑。
-            </p>
-        </div>
-    </section>
+ <section class="content-section" id="about">
+    <div class="glass-box">
+        <h2 class="section-title hidden md:block">協會理念</h2>
+
+        <h2 class="section-title block md:hidden">協會<br>理念</h2>
+
+        <p class="text-center text-gray-400 text-lg leading-relaxed max-w-4xl mx-auto">
+            SPARK (臺灣智能程式科技教育推廣協會) 致力於點燃青少年對程式與人工智慧的熱情。<br>
+            我們相信，程式不只是冷冰冰的代碼，而是孩子實踐創意、解決問題、連結世界的語言。<br>
+            透過舉辦高水準國際賽事，我們為臺灣學子搭建通向未來的橋樑。
+        </p>
+    </div>
+</section>
 
     <section id="competitions" class="py-20">
         <h2 class="section-title">MAJOR COMPETITIONS</h2>
@@ -429,7 +443,7 @@
                     <img src="JBC1.jpg" class="slide-img active" data-caption="2024 JBC 比賽">
                     <img src="JBC2.jpg" class="slide-img" data-caption="2025 JBC 公開挑戰賽">
                     <img src="JBC3.jpg" class="slide-img" data-caption="2025 JBC 泰國賽">
-                    <img src="新加坡GRG競賽3.jpg" class="slide-img" data-caption="2024 GRG 新加坡全球機器人運動會">
+                    <img src="新加坡GRG競賽3.jpg" class="slide-img" data-caption="2024 GRG 新加坡競賽">
                     <img src="新加坡GRG競賽2.jpg" class="slide-img" data-caption="2024 GRG Competitions">
                     <img src="ENJOYAI.jpg" class="slide-img" data-caption="ENJOY AI 2025 日本公開賽">
                     <img src="ENJOYAI2.jpg" class="slide-img" data-caption="ENJOY AI 2025 馬來西亞競賽">
