@@ -296,75 +296,138 @@
         .control-deck { width: 80% !important; }
     }
 
-    /* === SPARK 戰術機翼與戰績螢幕 (完整保留) === */
-    #records { position: relative; overflow: visible !important; background: transparent; }
-    .ultimate-monitor-container {
-        position: relative; width: 100%; max-width: 1200px; margin: 80px auto;
-        display: flex; justify-content: center; align-items: center; z-index: 10;
-    }
-    .video-monitor-frame {
-        position: relative; width: 800px; padding: 18px; background: #000;
-        border-radius: 15px; z-index: 10; overflow: hidden;
-        box-shadow: 0 0 80px rgba(0,0,0,0.8);
-    }
-    .video-monitor-frame::before {
-        content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-        background: conic-gradient(transparent, var(--spark-blue), transparent 30%, var(--spark-purple), transparent 70%);
-        animation: rotate-flow 4s linear infinite; filter: blur(8px);
-    }
-    .video-monitor-frame::after { content: ''; position: absolute; inset: 8px; background: #050505; border-radius: 10px; z-index: 1; }
+   /* --- SPARK ULTIMATE MAX: 戰術核心樣式 (升級版) --- */
+#records { 
+    position: relative; 
+    overflow: visible !important; 
+    background: transparent; 
+}
 
-    .side-wing {
-        position: absolute; top: 50%; transform: translateY(-50%); width: 140px; height: 240px;
-        z-index: 5; padding: 10px; overflow: hidden; background: #000; border-radius: 10px;
-    }
-    .side-wing::before {
-        content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-        background: conic-gradient(transparent, var(--spark-blue), transparent 40%);
-        animation: rotate-flow 6s linear infinite reverse; opacity: 0.6;
-    }
-    .side-wing::after { content: ''; position: absolute; inset: 2px; background: rgba(5, 5, 5, 0.9); border-radius: 8px; z-index: 1; }
+.ultimate-monitor-container {
+    position: relative; width: 100%; max-width: 1200px; margin: 80px auto;
+    display: flex; justify-content: center; align-items: center; z-index: 10;
+}
 
-    .wing-l { left: -160px; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%); }
-    .wing-r { right: -160px; clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%); }
+/* 主螢幕外框：增加科技配件感 */
+.video-monitor-frame {
+    position: relative; 
+    width: 800px; 
+    padding: 18px; 
+    background: #000;
+    border-radius: 5px; /* 改為硬派科技風 */
+    z-index: 10; 
+    overflow: visible; /* 允許配件溢出顯示 */
+    box-shadow: 0 0 80px rgba(0,0,0,0.8);
+    border-left: 2px solid rgba(129, 216, 208, 0.3);
+    border-right: 2px solid rgba(129, 216, 208, 0.3);
+}
 
-    .wing-inner-content { position: relative; z-index: 5; height: 100%; display: flex; flex-direction: column; justify-content: space-around; font-family: 'Orbitron', sans-serif; color: var(--spark-blue); }
-    .spectrum-box { display: flex; align-items: flex-end; gap: 3px; height: 60px; }
-    .spec-bar { flex: 1; background: var(--spark-blue); height: 20%; animation: bar-jump 0.5s ease-in-out infinite alternate; }
+/* 科技配件：側邊導軌線條 */
+.video-monitor-frame::before {
+    content: '';
+    position: absolute;
+    top: -10%; left: -2px; width: calc(100% + 4px); height: 120%;
+    border-left: 1px solid var(--spark-blue);
+    border-right: 1px solid var(--spark-blue);
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: -1;
+}
 
-    @keyframes bar-jump { 0% { height: 10%; opacity: 0.3; } 100% { height: 80%; opacity: 1; box-shadow: 0 0 10px var(--spark-blue); } }
-    @keyframes rotate-flow { 100% { transform: rotate(360deg); } }
+/* 流水燈層：現在包裹在內部 */
+.monitor-border-flow {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 5px;
+    z-index: 1;
+}
+.monitor-border-flow::before {
+    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: conic-gradient(transparent, var(--spark-blue), transparent 30%, var(--spark-purple), transparent 70%);
+    animation: rotate-flow 4s linear infinite; filter: blur(8px);
+}
+.monitor-border-flow::after { 
+    content: ''; position: absolute; inset: 8px; background: #050505; border-radius: 5px; z-index: 1; 
+}
 
-    /* === 開機掃描與 REC (完整保留) === */
-    .boot-screen {
-        position: absolute; inset: 0; background: #000; z-index: 100;
-        display: flex; flex-direction: column; align-items: center; justify-content: center;
-        color: var(--spark-blue); font-family: 'Orbitron', sans-serif; transition: all 0.8s ease;
-    }
-    .boot-screen.hide { opacity: 0; visibility: hidden; transform: scale(1.1); pointer-events: none; }
-    .boot-screen::after {
-        content: ""; position: absolute; top: -100%; left: 0; width: 100%; height: 10px;
-        background: linear-gradient(to bottom, transparent, var(--spark-blue), transparent);
-        box-shadow: 0 0 20px var(--spark-blue); animation: full-scan 3s linear infinite;
-    }
-    @keyframes full-scan { 0% { top: -10%; } 100% { top: 110%; } }
+/* 側邊戰術機翼 (保持原始邏輯) */
+.side-wing {
+    position: absolute; top: 50%; transform: translateY(-50%); width: 140px; height: 240px;
+    z-index: 5; padding: 10px; overflow: hidden; background: #000; border-radius: 10px;
+}
+.side-wing::before {
+    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: conic-gradient(transparent, var(--spark-blue), transparent 40%);
+    animation: rotate-flow 6s linear infinite reverse; opacity: 0.6;
+}
+.side-wing::after { content: ''; position: absolute; inset: 2px; background: rgba(5, 5, 5, 0.9); border-radius: 8px; z-index: 1; }
 
-    /* === 協會理念戰術裝甲 (完整保留) === */
-    #about .glass-box::before {
-        content: ""; position: absolute; inset: 0;
-        background-image: linear-gradient(rgba(129, 216, 208, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(129, 216, 208, 0.05) 1px, transparent 1px);
-        background-size: 20px 20px; z-index: -1;
-    }
-    .corner-tag { position: absolute; width: 20px; height: 20px; border: 2px solid var(--spark-blue); }
-    .tag-tl { top: 0; left: 0; border-right: 0; border-bottom: 0; }
-    .tag-br { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+.wing-l { left: -160px; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%); }
+.wing-r { right: -160px; clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%); }
 
-    /* === 能量呼吸燈 === */
-    .spark-logo-glow { animation: spark-energy 4s ease-in-out infinite; transition: all 0.4s; cursor: pointer; }
-    @keyframes spark-energy {
-        0%, 100% { filter: drop-shadow(0 0 10px rgba(129, 216, 208, 0.4)); transform: scale(1); }
-        50% { filter: drop-shadow(0 0 30px rgba(129, 216, 208, 0.9)); transform: scale(1.03); }
-    }
+.wing-inner-content { position: relative; z-index: 5; height: 100%; display: flex; flex-direction: column; justify-content: space-around; font-family: 'Orbitron', sans-serif; color: var(--spark-blue); }
+.spectrum-box { display: flex; align-items: flex-end; gap: 3px; height: 60px; }
+.spec-bar { flex: 1; background: var(--spark-blue); height: 20%; animation: bar-jump 0.5s ease-in-out infinite alternate; }
+
+/* 開機畫面與按鈕加強 */
+.boot-screen {
+    position: absolute; inset: 8px; background: #000; z-index: 100;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--spark-blue); font-family: 'Orbitron', sans-serif; transition: all 0.8s ease;
+    border-radius: 5px;
+}
+.boot-screen.hide { opacity: 0; visibility: hidden; transform: scale(1.1); pointer-events: none; }
+
+/* 掃描線動畫 */
+.boot-screen::after {
+    content: ""; position: absolute; top: -100%; left: 0; width: 100%; height: 10px;
+    background: linear-gradient(to bottom, transparent, var(--spark-blue), transparent);
+    box-shadow: 0 0 20px var(--spark-blue); animation: full-scan 3s linear infinite;
+    z-index: 2;
+}
+
+/* 戰術開機按鈕 */
+.boot-btn {
+    position: relative;
+    z-index: 5;
+    margin-top: 20px;
+    padding: 10px 30px;
+    background: rgba(129, 216, 208, 0.1);
+    border: 1px solid var(--spark-blue);
+    color: var(--spark-blue);
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(129, 216, 208, 0.2);
+}
+.boot-btn:hover {
+    background: var(--spark-blue);
+    color: #000;
+    box-shadow: 0 0 25px var(--spark-blue);
+}
+
+/* 其他保留特效 (協會理念/呼吸燈) */
+#about .glass-box::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(129, 216, 208, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(129, 216, 208, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px; z-index: -1;
+}
+.corner-tag { position: absolute; width: 20px; height: 20px; border: 2px solid var(--spark-blue); }
+.tag-tl { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+.tag-br { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+
+.spark-logo-glow { animation: spark-energy 4s ease-in-out infinite; transition: all 0.4s; cursor: pointer; }
+
+/* 動畫定義庫 */
+@keyframes bar-jump { 0% { height: 10%; opacity: 0.3; } 100% { height: 80%; opacity: 1; box-shadow: 0 0 10px var(--spark-blue); } }
+@keyframes rotate-flow { 100% { transform: rotate(360deg); } }
+@keyframes full-scan { 0% { top: -10%; } 100% { top: 110%; } }
+@keyframes spark-energy {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(129, 216, 208, 0.4)); transform: scale(1); }
+    50% { filter: drop-shadow(0 0 30px rgba(129, 216, 208, 0.9)); transform: scale(1.03); }
+}
 </style>
 </head>
 <body>
@@ -450,7 +513,6 @@
         </div>
 
         <div class="ultimate-monitor-container">
-            
             <div class="side-wing wing-l">
                 <div class="wing-inner-content">
                     <div class="text-[9px] font-bold border-b border-[var(--spark-blue)] pb-1">COMMS_LINK</div>
@@ -466,16 +528,19 @@
             </div>
 
             <div class="video-monitor-frame">
+                <div class="monitor-border-flow"></div>
+
                 <div class="monitor-corner top-left"></div>
                 <div class="monitor-corner top-right"></div>
                 <div class="monitor-corner bottom-left"></div>
                 <div class="monitor-corner bottom-right"></div>
 
-                <div class="video-inner-box" style="position:relative; width:100%; padding-top:56.25%; z-index:2; border-radius:8px; overflow:hidden; background:#000;">
+                <div class="video-inner-box" style="position:relative; width:100%; padding-top:56.25%; z-index:2; border-radius:5px; overflow:hidden; background:#000;">
                     <div class="monitor-rec"><div class="rec-dot"></div> REC ● LIVE</div>
                     
                     <div id="boot-overlay" class="boot-screen">
-                        <p class="animate-pulse text-lg">INITIALIZING SPARK_OS...</p>
+                        <div class="monitor-rec"><div class="rec-dot"></div> REC: SPARK_OS_v2.6</div>
+                        <h3 class="animate-pulse text-lg" style="letter-spacing: 5px; margin-bottom: 20px;">INITIALIZING SYSTEM...</h3>
                         <button onclick="startMonitor()" class="boot-btn">ACCESS SYSTEM</button>
                     </div>
 
@@ -484,6 +549,11 @@
                         title="SPARK Video" frameborder="0" allowfullscreen
                         style="position:absolute; top:0; left:0; width:100%; height:100%;">
                     </iframe>
+                </div>
+
+                <div class="monitor-bottom-bar" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 50%; height: 6px; background: #1a1a1a; border: 1px solid #333; z-index: 10; display: flex; justify-content: center; gap: 10px; align-items: center; border-top: none;">
+                    <div style="width: 3px; height: 3px; background: var(--spark-blue); border-radius: 50%;"></div>
+                    <div style="width: 3px; height: 3px; background: var(--spark-blue); border-radius: 50%;"></div>
                 </div>
             </div>
 
@@ -500,11 +570,11 @@
             </div>
         </div>
 
-        <div class="monitor-pedestal md:flex hidden flex-col items-center mt-6">
-            <div class="pedestal-line" style="height:2px; width:60%; background:linear-gradient(90deg,transparent,var(--spark-blue),transparent); margin:0 auto;"></div>
+        <div class="monitor-pedestal md:flex hidden flex-col items-center mt-10">
+            <div class="pedestal-line" style="height:1px; width:40%; background:linear-gradient(90deg,transparent,var(--spark-blue),transparent); margin:0 auto;"></div>
             <div class="flex gap-8 mt-4 text-[9px] text-[var(--spark-blue)] opacity-50 font-mono">
                 <span>TACTICAL_V4.5</span>
-                <span class="animate-pulse">ONLINE</span>
+                <span class="animate-pulse">SYSTEM_ACTIVE</span>
             </div>
         </div>
     </div>
@@ -734,24 +804,32 @@ if (menuBtn && mobileMenu) {
 }
 /* --- SPARK MONITOR 核心驅動 --- */
 function startMonitor() {
-    // 取得開機遮罩與影片元素
+    // 取得開機遮罩、影片元素以及外框配件
     const overlay = document.getElementById('boot-overlay');
     const video = document.getElementById('monitor-video');
     
+    // 檢查元素是否存在
     if (overlay && video) {
-        // 1. 隱藏開機動畫層
+        // 1. 觸發 CSS 淡出與縮放動畫 (對應我們 CSS 中的 .boot-screen.hide)
         overlay.classList.add('hide');
         
-        // 2. 修正影片連結實現自動播放
-        // 將原本 src 中的 autoplay=0 改為 1
+        // 2. 針對主螢幕科技配件進行狀態切換 (如果需要讓掃描線停止或配件亮起)
+        overlay.style.pointerEvents = 'none'; // 確保點擊後不會阻擋滑鼠操作影片
+        
+        // 3. 修正影片連結實現自動播放
         let videoSrc = video.src;
         if (videoSrc.includes('autoplay=0')) {
+            // 將原本 src 中的 autoplay=0 改為 1，並加上 &mute=0 確保有聲音 (如果需要的話)
             video.src = videoSrc.replace('autoplay=0', 'autoplay=1');
         }
         
-        console.log("SYSTEM_START: SPARK_OS 啟動成功...");
+        // 4. 在控制台印出炫酷的系統啟動 Log
+        console.log("%c[SPARK_OS]: SYSTEM_START_SEQUENCE_INITIALIZED...", "color: #81d8d2; font-weight: bold;");
+        console.log("%c[STATUS]: ALL_TACTICAL_WINGS_ONLINE", "color: #b388ff;");
+        
     } else {
-        console.error("錯誤: 找不到開機遮罩或影片 ID");
+        // 錯誤攔截：如果 HTML ID 寫錯了，這裡會提醒你
+        console.error("CRITICAL_ERROR: 找不到開機遮罩 (boot-overlay) 或影片 (monitor-video) 元素。");
     }
 }
     </script>
