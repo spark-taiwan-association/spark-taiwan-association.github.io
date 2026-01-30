@@ -601,6 +601,65 @@
 /* REC 紅點閃爍 */
 @keyframes blink { 50% { opacity: 0; } }
 .rec-dot { animation: blink 1s infinite; }
+        /* --- 協會理念：SPARK 戰術裝甲樣式 --- */
+#about .glass-box {
+    position: relative;
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid rgba(129, 216, 208, 0.2);
+    padding: 60px 40px;
+    border-radius: 4px; /* 科技感通常偏向硬朗 */
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    box-shadow: inset 0 0 30px rgba(129, 216, 208, 0.05);
+}
+
+/* 1. 背景科技網格 */
+#about .glass-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(129, 216, 208, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(129, 216, 208, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: -1;
+}
+
+/* 2. 四角戰術配件 (L型邊框) */
+.glass-box .corner-tag {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--spark-blue);
+    pointer-events: none;
+}
+.tag-tl { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+.tag-br { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+
+/* 3. 動態垂直掃描線 */
+#about .glass-box::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, rgba(129, 216, 208, 0.1), transparent);
+    animation: content-scan 4s linear infinite;
+}
+
+/* 4. 標題發光效果 */
+#about .section-title {
+    text-shadow: 0 0 15px rgba(129, 216, 208, 0.5);
+    letter-spacing: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+@keyframes content-scan {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}
     </style>
 </head>
 <body>
@@ -663,14 +722,16 @@
         </div>
     </div>
 
- <section class="content-section" id="about">
+<section class="content-section" id="about">
     <div class="glass-box">
+        <div class="corner-tag tag-tl"></div>
+        <div class="corner-tag tag-br"></div>
+        
         <h2 class="section-title hidden md:block">協會理念</h2>
-
         <h2 class="section-title mobile-only block md:hidden">協會<br>理念</h2>
 
-        <p class="text-center text-gray-400 text-lg leading-relaxed max-w-4xl mx-auto">
-            SPARK (臺灣智能程式科技教育推廣協會) 致力於點燃青少年對程式與人工智慧的熱情。<br>
+        <p class="text-center text-gray-300 text-lg leading-relaxed max-w-4xl mx-auto relative z-10">
+            <span class="text-[var(--spark-blue)] font-bold">SPARK</span> (臺灣智能程式科技教育推廣協會) 致力於點燃青少年對程式與人工智慧的熱情。<br>
             我們相信，程式不只是冷冰冰的代碼，而是孩子實踐創意、解決問題、連結世界的語言。<br>
             透過舉辦高水準國際賽事，我們為臺灣學子搭建通向未來的橋樑。
         </p>
