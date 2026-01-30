@@ -370,152 +370,151 @@
     text-shadow: 0 0 10px rgba(129, 216, 208, 0.5);
     z-index: 2001;
 }
-/* --- SPARK MAX 版 螢幕樣式 --- */
-
-/* 1. 主容器：擴大寬度並確保側邊配件不被 overflow:hidden 切掉 */
-.ultimate-monitor-container {
-    position: relative;
-    width: 100%;
-    max-width: 1100px; /* 加寬確保機翼空間 */
-    margin: 0 auto;
-    z-index: 10;
+/* --- SPARK ULTIMATE MAX: 戰術核心樣式 --- */
+:root {
+    --spark-blue: #81d8d0;
+    --spark-purple: #a855f7;
 }
+
 #records {
-    overflow: visible !important; /* 強制允許裝飾溢出 */
+    position: relative;
+    overflow: visible !important; /* 核心修正：不允許父層切割機翼 */
+    background: #050505;
 }
 
+/* 主容器：擴展範圍以容納兩翼 */
 .ultimate-monitor-container {
     position: relative;
     width: 100%;
-    max-width: 1100px;
-    margin: 60px auto; /* 增加上下間距 */
+    max-width: 1200px;
+    margin: 80px auto;
     z-index: 10;
-    /* 核心修正：取消 flex，改用相對定位來支撐絕對定位的機翼 */
-    display: block; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* 2. 螢幕主體保持不變 */
+/* --- [主螢幕：MAX 版流水燈] --- */
 .video-monitor-frame {
     position: relative;
-    width: 90%; /* 使用百分比讓它有空間伸縮 */
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 16px;
+    width: 800px; /* 縮小一點點主螢幕，給機翼留空間 */
+    padding: 18px; /* 決定流水燈粗度 */
     background: #000;
-    border-radius: 12px;
-    z-index: 5;
+    border-radius: 15px;
+    z-index: 10;
     overflow: hidden;
-    box-shadow: 0 0 60px rgba(0,0,0,1);
-}
-/* 2. 流水燈邊框：加粗、加亮 */
-.video-monitor-frame {
-    position: relative;
-    width: 100%;
-    max-width: 860px; /* 螢幕主體寬度 */
-    margin: 0 auto;
-    padding: 16px; /* 增加 padding = 增加流水燈粗度 */
-    background: #000;
-    border-radius: 12px;
-    z-index: 5;
-    overflow: hidden; /* 鎖住流動光效 */
-    box-shadow: 0 0 60px rgba(0,0,0,1);
+    box-shadow: 0 0 80px rgba(0,0,0,0.8);
 }
 
-/* 霓虹流水燈：加粗效果核心 */
 .video-monitor-frame::before {
     content: '';
     position: absolute;
     top: -50%; left: -50%; width: 200%; height: 200%;
-    background: conic-gradient(
-        from 0deg,
-        transparent, 
-        var(--spark-blue) 15%, 
-        transparent 30%, 
-        var(--spark-purple) 65%, 
-        transparent 80%,
-        var(--spark-blue) 100%
-    );
-    animation: rotate-flow 3.5s linear infinite;
-    z-index: 0;
-    filter: blur(10px); /* 增加羽化讓光條看起來更粗、有霓虹感 */
+    background: conic-gradient(transparent, var(--spark-blue), transparent 30%, var(--spark-purple), transparent 70%);
+    animation: rotate-flow 4s linear infinite;
+    filter: blur(8px);
 }
 
-/* 內遮罩：控制流水燈顯示的寬度 */
 .video-monitor-frame::after {
     content: '';
     position: absolute;
-    inset: 8px; /* 數值越大，流水燈邊框就顯得越粗壯 */
+    inset: 8px; /* 內部黑色遮罩 */
     background: #050505;
-    border-radius: 8px;
+    border-radius: 10px;
     z-index: 1;
 }
 
-/* 3. 機翼配件：絕對定位在主容器兩側，不受螢幕 overflow 影響 */
+/* --- [副螢幕：全特效機翼] --- */
 .side-wing {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 120px; /* 稍微加寬 */
-    height: 180px;
-    background: rgba(129, 216, 208, 0.05);
-    border: 1px solid rgba(129, 216, 208, 0.3);
-    backdrop-filter: blur(8px);
-    z-index: 1; /* 放在螢幕外框層級之下 */
+    width: 140px;
+    height: 240px;
+    z-index: 5;
+    padding: 10px;
+    overflow: hidden; /* 為了讓機翼也有流水邊框 */
+    background: #000;
+    border-radius: 10px;
 }
+
+/* 副螢幕流水燈 (呼吸感) */
+.side-wing::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: conic-gradient(transparent, var(--spark-blue), transparent 40%);
+    animation: rotate-flow 6s linear infinite reverse;
+    opacity: 0.6;
+}
+
+.side-wing::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: rgba(5, 5, 5, 0.9);
+    border-radius: 8px;
+    z-index: 1;
+}
+
+/* 機翼定位：向外推 40px，確保不被螢幕擋住，也不被網頁切掉 */
 .wing-l { 
-    left: -60px; /* 往左推更多 */
-    border-right: 4px solid var(--spark-blue); 
-    clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%); 
-}
-.wing-r { 
-    right: -60px; /* 往右推更多 */
-    border-left: 4px solid var(--spark-blue); 
+    left: -160px; 
     clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%); 
 }
-.m-bar, .m-bar-r { height: 4px; margin-top: 6px; width: 100%; border-radius: 2px; }
-
-/* 4. 開機動畫層修正 */
-.boot-screen {
-    position: absolute; inset: 0; background: #000; z-index: 100;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: var(--spark-blue); font-family: 'Orbitron', sans-serif;
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+.wing-r { 
+    right: -160px; 
+    clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%); 
 }
-.boot-screen.hide { opacity: 0; visibility: hidden; transform: scale(1.1); }
 
-.boot-btn {
-    margin-top: 30px;
-    padding: 12px 35px;
-    border: 2px solid var(--spark-blue);
-    background: rgba(129, 216, 208, 0.1);
+/* 內部動態元件 */
+.wing-inner-content {
+    position: relative;
+    z-index: 5;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: 'Orbitron', sans-serif;
     color: var(--spark-blue);
-    font-weight: bold;
-    letter-spacing: 3px;
-    cursor: pointer;
-    transition: 0.3s;
-    text-transform: uppercase;
-    box-shadow: 0 0 15px rgba(129, 216, 208, 0.2);
 }
-.boot-btn:hover {
+
+/* 跳動頻譜動畫 */
+.spectrum-box {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 60px;
+}
+.spec-bar {
+    flex: 1;
     background: var(--spark-blue);
-    color: #000;
-    box-shadow: 0 0 30px var(--spark-blue);
+    height: 20%;
+    animation: bar-jump 0.5s ease-in-out infinite alternate;
 }
 
-/* 影片鎖定 16:9 */
-.video-inner-box {
-    position: relative; width: 100%; padding-top: 56.25%; z-index: 2;
-    background: #000; border-radius: 6px; overflow: hidden;
+@keyframes bar-jump {
+    0% { height: 10%; opacity: 0.3; }
+    100% { height: 80%; opacity: 1; box-shadow: 0 0 10px var(--spark-blue); }
 }
-#monitor-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-/* 動畫定義 */
 @keyframes rotate-flow { 100% { transform: rotate(360deg); } }
-@keyframes scanline-move { 0% { background-position: 0 0; } 100% { background-position: 0 100%; } }
-/* 底部基座 */
-.monitor-pedestal { margin-top: 10px; text-align: center; }
-.pedestal-line { height: 2px; width: 60%; background: linear-gradient(90deg, transparent, var(--spark-blue), transparent); margin: 0 auto; }
-.pedestal-text { color: var(--spark-blue); font-size: 8px; letter-spacing: 4px; opacity: 0.5; margin-top: 5px; }
+
+/* 響應式：小螢幕隱藏機翼 */
+@media (max-width: 1280px) {
+    .side-wing { display: none; }
+    .video-monitor-frame { width: 100%; }
+}
+
+/* (原本的螢幕配件與開機層樣式請保留) */
+.monitor-corner { position: absolute; width: 30px; height: 30px; border: 3px solid var(--spark-blue); z-index: 20; pointer-events: none; }
+.top-left { top: 5px; left: 5px; border-right: 0; border-bottom: 0; }
+.top-right { top: 5px; right: 5px; border-left: 0; border-bottom: 0; }
+.bottom-left { bottom: 5px; left: 5px; border-right: 0; border-top: 0; }
+.bottom-right { bottom: 5px; right: 5px; border-left: 0; border-top: 0; }
+.monitor-rec { position: absolute; top: 15px; left: 20px; z-index: 20; color: #ff4444; font-size: 10px; display: flex; align-items: center; gap: 5px; font-weight: 900; }
+.rec-dot { width: 6px; height: 6px; background: #ff4444; border-radius: 50%; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
     </style>
 </head>
 <body>
@@ -591,7 +590,7 @@
         </p>
     </div>
 </section>
-<section id="records" class="py-20 bg-[#050505] relative overflow-hidden">
+<section id="records" class="py-20">
     <div class="container mx-auto px-4 relative z-10">
         <div class="text-center mb-16">
             <h2 class="text-4xl font-black text-white tracking-widest mb-4">TACTICAL RECORDS</h2>
@@ -600,26 +599,17 @@
 
         <div class="ultimate-monitor-container">
             
-            <div class="side-wing wing-l md:block hidden">
-                <div class="wing-content">
-                    <div class="wing-tag text-[var(--spark-blue)]">LINK: STABLE</div>
-                    <div class="mini-bar-group">
-                        <div class="m-bar animate-pulse bg-[var(--spark-blue)]"></div>
-                        <div class="m-bar bg-[var(--spark-blue)] opacity-40" style="width: 60%"></div>
-                        <div class="m-bar bg-[var(--spark-blue)] opacity-70" style="width: 85%"></div>
+            <div class="side-wing wing-l">
+                <div class="wing-inner-content">
+                    <div class="text-[9px] font-bold border-b border-[var(--spark-blue)] pb-1">COMMS_LINK</div>
+                    <div class="spectrum-box">
+                        <div class="spec-bar" style="animation-delay: 0.1s"></div>
+                        <div class="spec-bar" style="animation-delay: 0.3s"></div>
+                        <div class="spec-bar" style="animation-delay: 0.2s"></div>
+                        <div class="spec-bar" style="animation-delay: 0.5s"></div>
+                        <div class="spec-bar" style="animation-delay: 0.4s"></div>
                     </div>
-                    <div class="mt-8 text-[7px] font-mono text-[var(--spark-blue)] opacity-50">SCANNING_CORES...</div>
-                </div>
-            </div>
-
-            <div class="side-wing wing-r md:block hidden">
-                <div class="wing-content text-right">
-                    <div class="wing-tag text-[var(--spark-purple)]">OS_v4.5_ACTIVE</div>
-                    <div class="flex flex-col items-end gap-1 mt-2">
-                        <div class="m-bar-r bg-[var(--spark-purple)] shadow-[0_0_8px_#a855f7]"></div>
-                        <div class="m-bar-r bg-[var(--spark-purple)] opacity-30" style="width: 40%"></div>
-                    </div>
-                    <div class="mt-8 text-[7px] font-mono text-[var(--spark-purple)]">CPU_LOAD: 24%</div>
+                    <div class="text-[8px] opacity-60">SCANNING...<br>TARGET_LOCKED</div>
                 </div>
             </div>
 
@@ -629,36 +619,40 @@
                 <div class="monitor-corner bottom-left"></div>
                 <div class="monitor-corner bottom-right"></div>
 
-                <div class="video-inner-box">
+                <div class="video-inner-box" style="position:relative; width:100%; padding-top:56.25%; z-index:2; border-radius:8px; overflow:hidden; background:#000;">
                     <div class="monitor-rec"><div class="rec-dot"></div> REC ● LIVE</div>
                     
-                    <div class="glass-reflection"></div>
-                    <div class="crt-scanline"></div>
-
                     <div id="boot-overlay" class="boot-screen">
-                        <div class="scan-line-loader"></div>
-                        <div class="boot-text">
-                            <p class="animate-pulse text-lg mb-2">INITIALIZING SPARK_OS...</p>
-                            <span class="text-[10px] tracking-[5px] opacity-60">VERIFYING BIOMETRIC DATA</span>
-                        </div>
+                        <p class="animate-pulse text-lg">INITIALIZING SPARK_OS...</p>
                         <button onclick="startMonitor()" class="boot-btn">ACCESS SYSTEM</button>
                     </div>
 
                     <iframe id="monitor-video" 
                         src="https://www.youtube.com/embed/b4xGeCfHBXA?autoplay=0&mute=1&rel=0&modestbranding=1" 
-                        title="SPARK Video" frameborder="0" allowfullscreen>
+                        title="SPARK Video" frameborder="0" allowfullscreen
+                        style="position:absolute; top:0; left:0; width:100%; height:100%;">
                     </iframe>
                 </div>
             </div>
 
-            <div class="monitor-pedestal md:flex hidden flex-col items-center mt-6">
-                <div class="pedestal-line"></div>
-                <div class="flex gap-8 mt-4">
-                    <div class="text-[9px] text-[var(--spark-blue)] border border-[var(--spark-blue)] px-3 py-1 opacity-50">CAM_01</div>
-                    <div class="text-[9px] text-[var(--spark-blue)] border border-[var(--spark-blue)] px-3 py-1 opacity-50">CAM_02</div>
-                    <div class="text-[9px] text-[var(--spark-purple)] border border-[var(--spark-purple)] px-3 py-1 shadow-[0_0_10px_#a855f7]">MAIN_FEED</div>
+            <div class="side-wing wing-r">
+                <div class="wing-inner-content">
+                    <div class="text-[9px] font-bold border-b border-[var(--spark-purple)] pb-1 text-[var(--spark-purple)]">SYS_LOAD</div>
+                    <div class="flex flex-col gap-2">
+                        <div class="h-1 bg-[var(--spark-purple)] w-full shadow-[0_0_5px_var(--spark-purple)]"></div>
+                        <div class="h-1 bg-[var(--spark-purple)] w-[70%] opacity-50"></div>
+                        <div class="h-1 bg-[var(--spark-purple)] w-[90%] opacity-80"></div>
+                    </div>
+                    <div class="text-[8px] text-[var(--spark-purple)]">CPU: 42%<br>TEMP: 34°C</div>
                 </div>
-                <div class="pedestal-text mt-4">TACTICAL_INTERFACE_v4.5_FINAL</div>
+            </div>
+        </div>
+
+        <div class="monitor-pedestal md:flex hidden flex-col items-center mt-6">
+            <div class="pedestal-line" style="height:2px; width:60%; background:linear-gradient(90deg,transparent,var(--spark-blue),transparent); margin:0 auto;"></div>
+            <div class="flex gap-8 mt-4 text-[9px] text-[var(--spark-blue)] opacity-50 font-mono">
+                <span>TACTICAL_V4.5</span>
+                <span class="animate-pulse">ONLINE</span>
             </div>
         </div>
     </div>
