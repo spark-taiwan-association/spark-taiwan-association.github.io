@@ -311,44 +311,69 @@
 /* 主螢幕外框：增加科技配件感 */
 .video-monitor-frame {
     position: relative; 
-    width: 800px; 
-    padding: 18px; 
-    background: #000;
-    border-radius: 5px; /* 改為硬派科技風 */
+    width: 820px; /* 稍微加寬容納裝甲 */
+    padding: 25px; /* 增加裝甲厚度感 */
+    background: #0a0a0a;
     z-index: 10; 
-    overflow: visible; /* 允許配件溢出顯示 */
-    box-shadow: 0 0 80px rgba(0,0,0,0.8);
-    border-left: 2px solid rgba(129, 216, 208, 0.3);
-    border-right: 2px solid rgba(129, 216, 208, 0.3);
+    overflow: visible;
+    
+    /* 核心修改：使用 clip-path 切出戰術八角形 */
+    clip-path: polygon(
+        5% 0, 95% 0, 100% 10%, 100% 90%, 
+        95% 100%, 5% 100%, 0 90%, 0 10%
+    );
+    
+    box-shadow: 0 0 50px rgba(0,0,0,1);
 }
 
-/* 科技配件：側邊導軌線條 */
+/* 戰術裝甲：外掛式強化角標 (利用 before 改造) */
 .video-monitor-frame::before {
     content: '';
     position: absolute;
-    top: -10%; left: -2px; width: calc(100% + 4px); height: 120%;
-    border-left: 1px solid var(--spark-blue);
-    border-right: 1px solid var(--spark-blue);
+    inset: 0;
+    /* 切出裝甲接縫線條 */
+    border: 2px solid rgba(129, 216, 208, 0.2);
+    clip-path: polygon(
+        0 15%, 15% 0, 85% 0, 100% 15%, 
+        100% 85%, 85% 100%, 15% 100%, 0 85%
+    );
     pointer-events: none;
-    opacity: 0.5;
-    z-index: -1;
+    z-index: 2;
 }
 
-/* 流水燈層：現在包裹在內部 */
+/* 流水燈層：配合裝甲形狀 */
 .monitor-border-flow {
     position: absolute;
     inset: 0;
     overflow: hidden;
-    border-radius: 5px;
     z-index: 1;
+    clip-path: inherit; /* 強制繼承主框的八角形 */
 }
 .monitor-border-flow::before {
     content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
     background: conic-gradient(transparent, var(--spark-blue), transparent 30%, var(--spark-purple), transparent 70%);
-    animation: rotate-flow 4s linear infinite; filter: blur(8px);
+    animation: rotate-flow 4s linear infinite; filter: blur(12px); /* 增加模糊度營造霓虹感 */
 }
 .monitor-border-flow::after { 
-    content: ''; position: absolute; inset: 8px; background: #050505; border-radius: 5px; z-index: 1; 
+    content: ''; 
+    position: absolute; 
+    inset: 4px; /* 露出一點點縫隙讓流水燈透出來 */
+    background: #050505; 
+    clip-path: inherit; 
+    z-index: 1; 
+}
+
+/* 影片容器：內縮並加上科技感內邊框 */
+.video-inner-box {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    z-index: 5;
+    border-radius: 2px; /* 減少圓角增加硬派感 */
+    overflow: hidden;
+    background: #000;
+    border: 1px solid rgba(129, 216, 208, 0.4);
+    box-shadow: inset 0 0 20px rgba(129, 216, 208, 0.2);
 }
 
 /* 側邊戰術機翼 (保持原始邏輯) */
@@ -422,16 +447,6 @@
     background: var(--spark-blue);
     color: #000;
     box-shadow: 0 0 25px var(--spark-blue);
-}
-      /* 確保影片容器本身是定位基準 */
-.video-inner-box {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%;
-    z-index: 2;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #000;
 }
 
 /* 其他保留特效 (協會理念/呼吸燈) */
