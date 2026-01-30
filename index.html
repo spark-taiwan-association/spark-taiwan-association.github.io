@@ -380,7 +380,33 @@
     margin: 0 auto;
     z-index: 10;
 }
+#records {
+    overflow: visible !important; /* 強制允許裝飾溢出 */
+}
 
+.ultimate-monitor-container {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 60px auto; /* 增加上下間距 */
+    z-index: 10;
+    /* 核心修正：取消 flex，改用相對定位來支撐絕對定位的機翼 */
+    display: block; 
+}
+
+/* 2. 螢幕主體保持不變 */
+.video-monitor-frame {
+    position: relative;
+    width: 90%; /* 使用百分比讓它有空間伸縮 */
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 16px;
+    background: #000;
+    border-radius: 12px;
+    z-index: 5;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(0,0,0,1);
+}
 /* 2. 流水燈邊框：加粗、加亮 */
 .video-monitor-frame {
     position: relative;
@@ -427,18 +453,25 @@
 /* 3. 機翼配件：絕對定位在主容器兩側，不受螢幕 overflow 影響 */
 .side-wing {
     position: absolute;
-    top: 40%;
+    top: 50%;
     transform: translateY(-50%);
-    width: 110px;
-    height: 160px;
-    background: rgba(129, 216, 208, 0.03);
-    border: 1px solid rgba(129, 216, 208, 0.2);
+    width: 120px; /* 稍微加寬 */
+    height: 180px;
+    background: rgba(129, 216, 208, 0.05);
+    border: 1px solid rgba(129, 216, 208, 0.3);
     backdrop-filter: blur(8px);
-    z-index: 4; /* 高於背景，低於螢幕外框 */
+    z-index: 1; /* 放在螢幕外框層級之下 */
 }
-.wing-l { left: -10px; border-right: 4px solid var(--spark-blue); clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%); }
-.wing-r { right: -10px; border-left: 4px solid var(--spark-blue); clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%); }
-
+.wing-l { 
+    left: -60px; /* 往左推更多 */
+    border-right: 4px solid var(--spark-blue); 
+    clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%); 
+}
+.wing-r { 
+    right: -60px; /* 往右推更多 */
+    border-left: 4px solid var(--spark-blue); 
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%); 
+}
 .m-bar, .m-bar-r { height: 4px; margin-top: 6px; width: 100%; border-radius: 2px; }
 
 /* 4. 開機動畫層修正 */
