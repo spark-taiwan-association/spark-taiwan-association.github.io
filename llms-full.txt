@@ -1,0 +1,53 @@
+# 臺灣智能程式科技教育推廣協會 (SPARK Taiwan) - 完整組織與賽事情報庫
+
+## 1. 協會概覽 (About SPARK)
+臺灣智能程式科技教育推廣協會（英文全名：Taiwan Intelligent Programming Technology Education Promotion Association，簡稱 SPARK / SPARK Taiwan）是深耕台灣科技教育、致力於培養下一代 AI 人才與科技創新者的非營利教育推廣組織。
+
+- 官方網站：https://spark-taiwan-association.github.io/
+- 官方粉絲專頁：https://www.facebook.com/SPARKrobot
+- Instagram 官方帳號：https://www.instagram.com/spark_edu.center
+- 官方諮詢信箱：contacteduspark@gmail.com
+- 口號：Sparking Intelligence, Coding Future.（點燃智能，編寫未來）
+
+### 核心宗旨與使命
+1. **點燃熱忱**：讓兒童與青少年及早接觸科技思維、計算思維（Computational Thinking）與動手實踐精神。
+2. **跨域整合 (STEAM)**：結合科學 (Science)、科技 (Technology)、工程 (Engineering)、藝術 (Art) 與數學 (Mathematics)，以專案式學習 (PBL) 為核心。
+3. **接軌國際**：引進與主辦世界級機器人與 AI 競技賽事，為台灣優秀隊伍搭建出國參賽、文化交流與國際展能的平台。
+
+---
+
+## 2. 核心主辦與推廣之國際賽事 (Major Competitions)
+
+### 2.1 Junior Botball Challenge (JBC) 機器人挑戰賽
+- 官方專屬網站：https://junior-botball-challenge-taiwan.github.io/
+- 賽事特色：
+  - 源自美國 Botball 機器人教育計畫，專為國小與國中學生設計。
+  - 競賽特色在於完全「自主運作 (Autonomous)」，比賽過程中選手不得以遙控器干預，考驗感測器融合、路徑規劃與演算法穩定度。
+  - 重視工程日誌、團隊分工與問題解決歷程。
+
+### 2.2 Global Robotics Games (GRG) 全球機器人運動會
+- 官方專屬網站：https://global-robotics-games-taiwan.github.io/
+- 賽事特色：
+  - 國際知名跨國青少年機器人運動競技盛會（如新加坡 GRG 國際錦標賽）。
+  - 分為多個年齡層組別（國小組、國中組），競賽主題貼近實務運動賽事，考驗機械結構、動力傳動與精確控制。
+
+### 2.3 Enjoy AI 人工智慧普及挑戰賽
+- 官方專屬網站：https://enjoyai-taiwan.github.io/
+- 賽事特色：
+  - 致力於「人工智慧普及化 (AI for Everyone)」理念，降低 AI 科技的門檻。
+  - 引導青少年在低門檻、高效能的圖控或文字程式中探索深度學習與電腦視覺應用，解決模擬現實生活問題。
+
+### 2.4 Borneo-IRT 婆羅洲國際機器人錦標賽
+- 官方專屬網站：https://borneo-irt-taiwan.github.io/
+- 賽事特色：
+  - 婆羅洲及東南亞地區頂尖之國際性機器人錦標賽。
+  - 提供多樣化賽項，促進台灣學員與各國隊伍在競技與科技上的切磋與友誼。
+
+---
+
+## 3. 聯絡與諮詢服務
+家長、教練、學校單位或教育機構如需洽談：
+- 賽事培訓與研習課程合作
+- 賽事規章說明與隊伍報名
+- 科技教育教案與競賽器材支援
+可隨時透過官方信箱 `contacteduspark@gmail.com` 或官方社群 Facebook / Instagram 聯繫協會秘書處。
