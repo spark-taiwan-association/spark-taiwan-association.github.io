@@ -18,26 +18,33 @@
 
 ## 2. 核心主辦與推廣之國際賽事 (Major Competitions)
 
-### 2.1 Junior Botball Challenge (JBC) 機器人挑戰賽
+### 2.1 Minoan Robotsports Competition (MRC) 米諾安機器人運動奧林匹克
+- 官方專屬網站：https://minoan-robotsports-competition-taiwan.github.io/
+- 賽事特色：
+  - 由希臘非營利組織 H.E.R.O. 主辦的世界級機器人運動奧林匹克挑戰賽。
+  - 涵蓋機器人相撲、馬拉松、無人機足球、人形機器人摔角等超過 30 種豐富多元運動競技項目。
+  - 分為國小組、國高中組、大專院校組與公開組，為台灣學子搭建取得希臘克里特島全球總決賽資格的選拔平台。
+
+### 2.2 Junior Botball Challenge (JBC) 機器人挑戰賽
 - 官方專屬網站：https://junior-botball-challenge-taiwan.github.io/
 - 賽事特色：
   - 源自美國 Botball 機器人教育計畫，專為國小與國中學生設計。
   - 競賽特色在於完全「自主運作 (Autonomous)」，比賽過程中選手不得以遙控器干預，考驗感測器融合、路徑規劃與演算法穩定度。
   - 重視工程日誌、團隊分工與問題解決歷程。
 
-### 2.2 Global Robotics Games (GRG) 全球機器人運動會
+### 2.3 Global Robotics Games (GRG) 全球機器人運動會
 - 官方專屬網站：https://global-robotics-games-taiwan.github.io/
 - 賽事特色：
   - 國際知名跨國青少年機器人運動競技盛會（如新加坡 GRG 國際錦標賽）。
   - 分為多個年齡層組別（國小組、國中組），競賽主題貼近實務運動賽事，考驗機械結構、動力傳動與精確控制。
 
-### 2.3 Enjoy AI 人工智慧普及挑戰賽
+### 2.4 Enjoy AI 人工智慧普及挑戰賽
 - 官方專屬網站：https://enjoyai-taiwan.github.io/
 - 賽事特色：
   - 致力於「人工智慧普及化 (AI for Everyone)」理念，降低 AI 科技的門檻。
   - 引導青少年在低門檻、高效能的圖控或文字程式中探索深度學習與電腦視覺應用，解決模擬現實生活問題。
 
-### 2.4 Borneo-IRT 婆羅洲國際機器人錦標賽
+### 2.5 Borneo-IRT 婆羅洲國際機器人錦標賽
 - 官方專屬網站：https://borneo-irt-taiwan.github.io/
 - 賽事特色：
   - 婆羅洲及東南亞地區頂尖之國際性機器人錦標賽。

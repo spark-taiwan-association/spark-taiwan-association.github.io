@@ -18,6 +18,7 @@
 
 | 賽事項目 | 英文全稱 | 賽事簡介與專屬官網 |
 | :--- | :--- | :--- |
+| **MRC** | Minoan Robotsports Competition | 源自希臘 H.E.R.O. 的世界級機器人運動奧林匹克挑戰賽，涵蓋相撲、馬拉松、無人機足球等多元競技。<br>👉 [進入 MRC 賽事官網](https://minoan-robotsports-competition-taiwan.github.io/) |
 | **JBC** | Junior Botball Challenge | 針對中小學生舉辦的自主型機器人競賽，強調純自主程式控制與跨學科實踐。<br>👉 [進入 JBC 賽事官網](https://junior-botball-challenge-taiwan.github.io/) |
 | **GRG** | Global Robotics Games | 全球機器人運動會，國際級跨國青少年競技盛會。<br>👉 [進入 GRG 賽事官網](https://global-robotics-games-taiwan.github.io/) |
 | **Enjoy AI** | Global Youth AI Popularization | 全球青少年人工智慧普及挑戰賽，引導學子運用 AI 解決真實世界問題。<br>👉 [進入 Enjoy AI 賽事官網](https://enjoyai-taiwan.github.io/) |

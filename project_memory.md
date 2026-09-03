@@ -6,3 +6,5 @@
 - 修正 index.html 錯位字串並植入 Schema.org JSON-LD 結構化資料、Canonical 與 Meta 標籤。
 - 建立 robots.txt、sitemap.xml、.nojekyll，以及 AI 搜尋索引 llms.txt、llms-full.txt。
 - 擴充 README.md 提升 GitHub 搜尋與外部關鍵字權重。
+- 新增 MRC 賽事卡片置於首位，裁切產生方形透明 mrc_logo.png，同步全站 SEO、JSON-LD 與 llms.txt。
+

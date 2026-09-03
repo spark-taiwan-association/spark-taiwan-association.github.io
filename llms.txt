@@ -13,6 +13,7 @@
 SPARK (臺灣智能程式科技教育推廣協會) 致力於點燃青少年對程式與人工智慧的熱情。我們相信，程式不只是冷冰冰的代碼，而是孩子實踐創意、解決問題、連結世界的語言。透過舉辦高水準國際賽事，我們為臺灣學子搭建通向未來的橋樑。
 
 ## 核心推廣國際賽事
+- [Minoan Robotsports Competition (MRC) 米諾安機器人運動奧林匹克](https://minoan-robotsports-competition-taiwan.github.io/): 源自希臘 H.E.R.O. 的世界級機器人運動奧林匹克挑戰賽，涵蓋機器人相撲、馬拉松、無人機足球等多元賽事。
 - [Junior Botball Challenge (JBC) 機器人挑戰賽](https://junior-botball-challenge-taiwan.github.io/): 針對中小學生舉辦的自主型機器人競賽，由美國 Botball 國際組委會指導，強調純自主程式控制與跨學科實踐。
 - [Global Robotics Games (GRG) 全球機器人運動會](https://global-robotics-games-taiwan.github.io/): 國際級機器人競技舞台，包含國小組、國中組等多項競技運動挑戰。
 - [Enjoy AI 人工智慧普及挑戰賽](https://enjoyai-taiwan.github.io/): 全球青少年人工智慧普及推廣活動，啟發學生將 AI 感測與演算法應用於實際生活。
