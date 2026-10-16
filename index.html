@@ -1,997 +1,414 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPARK | 臺灣智能程式科技教育推廣協會 - 國際機器人競賽與智能程式教育平台</title>
-    <meta name="description" content="臺灣智能程式科技教育推廣協會 (SPARK) 致力於推廣各項國際機器人賽事與智能程式教育，提供 MRC、JBC、GRG 全球機器人運動會、Enjoy AI 人工智慧普及賽及 Borneo-IRT 等多樣化競賽資訊，點燃學習者對科技的熱忱。">
-    <meta name="keywords" content="臺灣智能程式科技教育推廣協會, SPARK, SPARK Taiwan, MRC, Minoan Robotsports Competition, 米諾安機器人運動奧林匹克, 程式教育, 機器人競賽, Enjoy AI, JBC, Junior Botball Challenge, GRG, 全球機器人運動會, Borneo-IRT, 智能程式, 科技教育, STEAM, STEM, 國小機器人, 國中機器人, 高中機器人">
-    <link rel="canonical" href="https://spark-taiwan-association.github.io/">
-    <link rel="icon" type="image/png" href="spark_logo.png">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:locale" content="zh_TW">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="SPARK | 臺灣智能程式科技教育推廣協會">
-    <meta property="og:description" content="點燃智能程式教育的火花！掌握 MRC、JBC、GRG、Enjoy AI、Borneo-IRT 各項機器人賽事情報與科技教育動態。">
-    <meta property="og:url" content="https://spark-taiwan-association.github.io/">
-    <meta property="og:site_name" content="SPARK 臺灣智能程式科技教育推廣協會">
-    <meta property="og:image" content="https://spark-taiwan-association.github.io/spark_logo2.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="SPARK 臺灣智能程式科技教育推廣協會">
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SPARK | 臺灣智能程式科技教育推廣協會">
-    <meta name="twitter:description" content="點燃智能程式教育的火花！掌握 MRC、JBC、GRG、Enjoy AI、Borneo-IRT 各項賽事情報與科技教育動態。">
-    <meta name="twitter:image" content="https://spark-taiwan-association.github.io/spark_logo2.png">
-
-    <!-- Google Site Verification -->
-    <meta name="google-site-verification" content="DhVqMLKQk_duosycDrDV4HnXtZcIOzn5lHSoK9dYo_E">
-    <meta name="google-site-verification" content="c92625bde6a1e008">
-
-    <!-- Schema.org JSON-LD 結構化資料 -->
-    <script type="application/ld+json">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPARK | 臺灣智能程式科技教育推廣協會 - 國際機器人競賽與智能程式教育</title>
+<meta name="description" content="臺灣智能程式科技教育推廣協會（SPARK，內政部立案 1130027903）主辦 JBC、GRG、Enjoy AI、MRC、Borneo-IRT 等國際機器人與 AI 賽事臺灣區，帶臺灣學生前進國際舞台。查看近期賽程、各賽事官網與聯絡方式。">
+<link rel="canonical" href="https://spark-taiwan-association.github.io/">
+<link rel="icon" type="image/png" href="spark_logo.png">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#13294b">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SPARK | 臺灣智能程式科技教育推廣協會">
+<meta property="og:description" content="主辦 JBC、GRG、Enjoy AI、MRC、Borneo-IRT 國際機器人與 AI 賽事臺灣區。近期賽程、各賽事官網與聯絡方式。">
+<meta property="og:url" content="https://spark-taiwan-association.github.io/">
+<meta property="og:site_name" content="SPARK 臺灣智能程式科技教育推廣協會">
+<meta property="og:image" content="https://spark-taiwan-association.github.io/img/jbc1.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:image:alt" content="臺灣隊在 Botball 國際教育機器人大會合影">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SPARK | 臺灣智能程式科技教育推廣協會">
+<meta name="twitter:description" content="主辦 JBC、GRG、Enjoy AI、MRC、Borneo-IRT 國際機器人與 AI 賽事臺灣區。">
+<meta name="twitter:image" content="https://spark-taiwan-association.github.io/img/jbc1.jpg">
+<meta name="google-site-verification" content="DhVqMLKQk_duosycDrDV4HnXtZcIOzn5lHSoK9dYo_E">
+<meta name="google-site-verification" content="c92625bde6a1e008">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "EducationalOrganization",
-          "@id": "https://spark-taiwan-association.github.io/#organization",
-          "name": "臺灣智能程式科技教育推廣協會",
-          "alternateName": ["SPARK", "SPARK Taiwan", "Taiwan Intelligent Programming Technology Education Promotion Association"],
-          "url": "https://spark-taiwan-association.github.io/",
-          "logo": "https://spark-taiwan-association.github.io/spark_logo.png",
-          "image": "https://spark-taiwan-association.github.io/spark_logo2.png",
-          "description": "臺灣智能程式科技教育推廣協會 (SPARK) 致力於點燃青少年對程式與人工智慧的熱情，推廣 MRC、JBC、GRG、Enjoy AI 及 Borneo-IRT 等國際賽事與科技教育。",
-          "email": "contacteduspark@gmail.com",
-          "sameAs": [
-            "https://www.facebook.com/SPARKrobot",
-            "https://www.instagram.com/spark_edu.center"
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://spark-taiwan-association.github.io/#website",
-          "url": "https://spark-taiwan-association.github.io/",
-          "name": "SPARK 臺灣智能程式科技教育推廣協會",
-          "publisher": {
-            "@id": "https://spark-taiwan-association.github.io/#organization"
-          },
-          "inLanguage": "zh-TW"
-        },
-        {
-          "@type": "ItemList",
-          "@id": "https://spark-taiwan-association.github.io/#competitions-list",
-          "name": "SPARK 國際機器人與智能程式競賽",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Minoan Robotsports Competition (MRC) 米諾安機器人運動奧林匹克",
-              "url": "https://minoan-robotsports-competition-taiwan.github.io/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Junior Botball Challenge (JBC) 機器人挑戰賽",
-              "url": "https://junior-botball-challenge-taiwan.github.io/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Global Robotics Games (GRG) 全球機器人運動會",
-              "url": "https://global-robotics-games-taiwan.github.io/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "name": "Enjoy AI 人工智慧普及挑戰賽",
-              "url": "https://enjoyai-taiwan.github.io/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 5,
-              "name": "Borneo-IRT 婆羅洲國際機器人錦標賽",
-              "url": "https://borneo-irt-taiwan.github.io/"
-            }
-          ]
-        }
+      "@type": "EducationalOrganization",
+      "@id": "https://spark-taiwan-association.github.io/#organization",
+      "name": "臺灣智能程式科技教育推廣協會",
+      "alternateName": ["SPARK", "SPARK Taiwan"],
+      "url": "https://spark-taiwan-association.github.io/",
+      "logo": "https://spark-taiwan-association.github.io/spark_logo.png",
+      "image": "https://spark-taiwan-association.github.io/img/jbc1.jpg",
+      "description": "臺灣智能程式科技教育推廣協會（SPARK）主辦 JBC、GRG、Enjoy AI、MRC、Borneo-IRT 等國際機器人與 AI 賽事臺灣區，推廣青少年程式與人工智慧教育。",
+      "foundingDate": "2024-06-01",
+      "email": "contacteduspark@gmail.com",
+      "telephone": "+886-911-955-212",
+      "address": {"@type": "PostalAddress", "streetAddress": "遼陽四街59號", "addressLocality": "北屯區", "addressRegion": "臺中市", "addressCountry": "TW"},
+      "identifier": {"@type": "PropertyValue", "propertyID": "內政部立案證書字號", "value": "1130027903"},
+      "sameAs": ["https://www.facebook.com/SPARKrobot", "https://www.instagram.com/spark_edu.center", "https://www.youtube.com/@Spark_Taiwan"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://spark-taiwan-association.github.io/#website",
+      "url": "https://spark-taiwan-association.github.io/",
+      "name": "SPARK 臺灣智能程式科技教育推廣協會",
+      "publisher": {"@id": "https://spark-taiwan-association.github.io/#organization"},
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://spark-taiwan-association.github.io/#competitions-list",
+      "name": "SPARK 主辦的國際機器人與 AI 賽事臺灣區",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Junior Botball Challenge (JBC) 機器人挑戰賽", "url": "https://junior-botball-challenge-taiwan.github.io/"},
+        {"@type": "ListItem", "position": 2, "name": "Global Robotics Games (GRG) 全球機器人運動會", "url": "https://global-robotics-games-taiwan.github.io/"},
+        {"@type": "ListItem", "position": 3, "name": "Enjoy AI 人工智慧普及挑戰賽", "url": "https://enjoyai-taiwan.github.io/"},
+        {"@type": "ListItem", "position": 4, "name": "Minoan Robotsports Competition (MRC) 米諾安機器人運動奧林匹克", "url": "https://minoan-robotsports-competition-taiwan.github.io/"},
+        {"@type": "ListItem", "position": 5, "name": "Borneo-IRT 婆羅洲國際機器人錦標賽", "url": "https://borneo-irt-taiwan.github.io/"}
       ]
     }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;900&family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-   
-  <style>
-    :root {
-        --spark-blue: #81D8D0;
-        --spark-purple: #9d50bb;
-        --tech-gold: #ffcc00;
-        --bg-dark: #050505;
-    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* 版面：單欄閱讀寬度 72rem，左對齊。協會＝背書者，用深藍＋LOGO 星星黃；五項賽事各用自己的代表色，只出現在小色塊。 */
+:root{
+  --ink:#172033; --muted:#566074; --line:#d9dee7; --paper:#f6f7f9; --card:#ffffff;
+  --navy:#13294b; --navy-2:#1f3c6b; --star:#f2b01e; --star-ink:#7a5300;
+  --jbc:#c8102e; --grg:#0d7584; --enjoy:#6a3ccf; --mrc:#9e1b1b; --borneo:#2e7d32;
+  --serif:"Noto Serif TC","Songti TC",serif; --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --r:14px; --w:72rem;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.75 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--navy-2)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--star);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--serif);line-height:1.3;text-wrap:balance;margin:0;color:var(--navy)}
+.wrap{max-width:var(--w);margin:0 auto;padding-inline:20px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;z-index:100}
+.skip:focus{left:8px}
 
-    body {
-        background: var(--bg-dark);
-        color: white;
-        font-family: 'Noto Sans TC', sans-serif;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-        margin: 0; /* 確保無邊距 */
-    }
+/* 上方選單 */
+.top{position:sticky;top:0;z-index:50;background:rgba(246,247,249,.94);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);min-height:44px}
+.brand img{width:40px;height:40px}
+.brand b{font:900 1.25rem/1 var(--serif);letter-spacing:.04em}
+.brand small{display:block;font:500 .78rem/1.2 var(--sans);color:var(--muted);letter-spacing:.02em}
+.nav{margin-left:auto;display:flex;gap:4px}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-weight:500}
+.nav a:hover{background:#e9edf3}
+.menu{margin-left:auto;display:none}
+.menu summary{list-style:none;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-weight:500;background:#fff}
+.menu summary::-webkit-details-marker{display:none}
+.menu[open] .panel{position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);padding:8px 20px 16px;display:grid}
+.menu .panel a{min-height:48px;display:flex;align-items:center;text-decoration:none;color:var(--ink);font-weight:500;border-bottom:1px solid #eef1f5}
+@media (max-width:820px){.nav{display:none}.menu{display:block}.brand small{display:none}}
 
-    /* === [關鍵修正：粒子背景置底] === */
-    #particles-js {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1; /* 絕對最底層 */
-        background: var(--bg-dark);
-        pointer-events: none;
-    }
+/* 第一屏 */
+.hero{padding-block:40px 32px}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:.85rem;font-weight:700;color:var(--star-ink);background:#fff4d6;border:1px solid #f4dc9c;padding:4px 12px;border-radius:999px}
+.hero h1{font-size:clamp(1.9rem,4.4vw,3rem);font-weight:900;margin-top:16px;letter-spacing:.01em}
+.nb{display:inline-block}
+.hero .lead{font-size:1.12rem;color:var(--muted);margin:14px 0 22px;max-width:34em}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 24px;padding:0;list-style:none;font-size:.92rem;color:var(--muted)}
+.facts b{color:var(--ink);font-weight:700}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:12px;font-weight:700;text-decoration:none;border:2px solid var(--navy)}
+.btn.primary{background:var(--navy);color:#fff}
+.btn.primary:hover{background:var(--navy-2)}
+.btn.ghost{color:var(--navy);background:#fff}
+.btn svg{width:20px;height:20px;flex:none}
+.photo{border-radius:var(--r);overflow:hidden;border:6px solid #fff;box-shadow:0 1px 0 var(--line),0 18px 40px -24px rgba(19,41,75,.45)}
+.photo figcaption{font-size:.82rem;color:var(--muted);padding:8px 2px 0;background:#fff}
+@media (max-width:900px){.hero .grid{grid-template-columns:1fr;gap:28px}.hero{padding-block:24px}}
 
-    /* === 1. 滑鼠引力燈 === */
-    #cursor-glow {
-        position: fixed;
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(circle, rgba(129, 216, 208, 0.15) 0%, transparent 70%);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9999;
-        transform: translate(-50%, -50%);
-    }
-
-    /* === 2. 導航欄 === */
-    nav {
-        position: fixed;
-        top: 0; width: 100%;
-        z-index: 1000;
-        background: rgba(5, 5, 5, 0.8);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* === 3. 英雄首頁區 === */
-    .hero-slider {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        z-index: 10; /* 確保在粒子上方 */
-    }
-    .slide {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        transition: opacity 1.5s ease-in-out, transform 3s ease-out;
-        background-size: cover;
-        background-position: center;
-        transform: scale(1.1);
-    }
-    .slide.active { opacity: 1; transform: scale(1); }
-
-    .hero-overlay {
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, var(--bg-dark) 90%);
-        display: flex; flex-direction: column; justify-content: center; align-items: center;
-        text-align: center; z-index: 10;
-    }
-
-    .hero-title {
-        font-family: 'Orbitron', sans-serif;
-        font-size: clamp(2rem, 6vw, 3.5rem);
-        font-weight: 900;
-        letter-spacing: 10px;
-        background: linear-gradient(to right, #fff, var(--spark-blue), #fff);
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: shine 5s linear infinite;
-    }
-    @keyframes shine { to { background-position: 200% center; } }
-
-    /* === 4. 最新消息流水導覽 === */
-    .news-ticker {
-        background: rgba(129, 216, 208, 0.1);
-        border-top: 1px solid var(--spark-blue);
-        border-bottom: 1px solid var(--spark-blue);
-        padding: 10px 0;
-        overflow: hidden;
-        white-space: nowrap;
-        position: relative;
-        z-index: 20;
-    }
-    .ticker-content {
-        display: inline-block;
-        animation: ticker 30s linear infinite;
-        font-weight: 500;
-    }
-    @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-
-    /* === 5. 通用標題與排版 === */
-    .section-title {
-        font-family: 'Orbitron', sans-serif;
-        font-size: 2.5rem;
-        text-align: center;
-        letter-spacing: 5px;
-        margin-bottom: 50px;
-        color: #fff;
-        text-shadow: 0 0 10px rgba(129, 216, 208, 0.5);
-    }
-
-    .content-section { 
-        padding: 100px 10%; 
-        background: transparent; /* 修正：讓背景透明才能看到粒子 */
-        position: relative;
-        z-index: 10;
-    }
-    .glass-box {
-        background: rgba(255,255,255,0.03); border-radius: 30px;
-        padding: 60px; border: 1px solid rgba(255,255,255,0.05);
-        backdrop-filter: blur(20px);
-        position: relative;
-        overflow: hidden;
-    }
-
-    /* === 6. 三大賽事流水燈與閃爍 === */
-    .comp-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        padding: 0 10% 100px;
-    }
-
-    .comp-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 40px 20px;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-
-    .logo-frame {
-        position: relative;
-        width: 130px;
-        height: 130px;
-        margin: 0 auto 25px;
-        background: #000;
-        border-radius: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    .logo-frame::before {
-        content: '';
-        position: absolute;
-        width: 200%;
-        height: 200%;
-        background: conic-gradient(from 0deg, #81D8D0, transparent, transparent, #81D8D0);
-        animation: rotate-border 3s linear infinite;
-    }
-
-    .logo-frame::after {
-        content: '';
-        position: absolute;
-        inset: 3px;
-        background: #000;
-        border-radius: 18px;
-        z-index: 1;
-    }
-
-    .logo-frame img {
-        position: relative;
-        z-index: 2;
-        max-width: 75%;
-        max-height: 75%;
-        object-fit: contain;
-        transition: transform 0.4s ease;
-    }
-
-    .comp-card:hover .logo-frame::before {
-        animation: flicker-border 0.15s infinite;
-        background: #81D8D0;
-    }
-
-    .comp-card:hover {
-        border-color: var(--spark-blue);
-        transform: translateY(-5px);
-        background: rgba(129, 216, 208, 0.05);
-    }
-
-    .comp-card:hover .logo-frame {
-        box-shadow: 0 0 40px rgba(129, 216, 208, 0.5);
-    }
-
-    .comp-card h3 {
-        font-family: 'Orbitron', sans-serif;
-        font-size: 1.8rem;
-        margin-bottom: 10px;
-        color: var(--spark-blue);
-    }
-
-    @keyframes rotate-border { 100% { transform: rotate(360deg); } }
-    @keyframes flicker-border { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-    /* === 7. 榮耀放映館 === */
-    .cinema-screen-container { position: relative; width: 90%; max-width: 1000px; margin: 40px auto; perspective: 1000px; z-index: 30; }
-    .cinema-screen {
-        position: relative; aspect-ratio: 16/9; background: #000;
-        border: 4px solid #333; border-radius: 10px;
-        box-shadow: 0 0 30px rgba(129, 216, 208, 0.2); overflow: hidden;
-    }
-    .slide-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.8s ease; }
-    .slide-img.active { opacity: 1; animation: screenShake 0.4s infinite; }
-
-    .projector-unit-fixed { position: absolute; right: -160px; top: 50%; transform: translateY(-50%); z-index: 99; width: 200px; }
-    .projector-machine { position: relative; width: 100px; height: 120px; background: #1a1a1a; border: 2px solid #333; border-radius: 8px; margin-left: auto; }
-    .reel { position: absolute; width: 85px; height: 85px; border: 5px solid #2a2a2a; border-radius: 50%; background: repeating-conic-gradient(#111 0% 15%, #222 15% 30%); animation: rotateMachine 3s linear infinite; }
-    .reel.spinning { animation: rotateMachine 0.3s linear infinite !important; }
-    .reel-top { top: -60px; right: 20px; } .reel-back { top: 20px; right: -40px; z-index: -1; }
-    .lens-glow { position: absolute; left: -35px; top: 25px; width: 10px; height: 50px; background: var(--spark-blue); box-shadow: 0 0 20px var(--spark-blue); z-index: 2; }
-    .cinema-beam-fixed { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 1200px; height: 700px; background: radial-gradient(ellipse at right, rgba(129, 216, 208, 0.15) 0%, transparent 80%); clip-path: polygon(0% 0%, 0% 100%, 100% 52%, 100% 48%); pointer-events: none; z-index: -1; }
-
-    .subtitle-container { position: absolute; bottom: 30px; width: 100%; text-align: center; z-index: 50; }
-    .subtitle-text { background: rgba(0, 0, 0, 0.85); color: var(--spark-blue); padding: 8px 25px; font-size: 1.2rem; font-weight: 700; border-bottom: 2px solid var(--spark-blue); }
-
-    .control-deck { background: #111; border: 1px solid #333; border-radius: 0 0 15px 15px; width: 60%; margin: -4px auto 0; padding: 15px; display: flex; justify-content: center; gap: 40px; position: relative; z-index: 40; }
-    .dial-button { width: 40px; height: 40px; background: #222; border: 2px solid #444; border-radius: 50%; cursor: pointer; position: relative; }
-    .dial-button::after { content: ''; width: 3px; height: 10px; background: var(--spark-blue); position: absolute; top: 5px; left: calc(50% - 1.5px); }
-
-    /* === 8. 聯絡我們與特效 === */
-    .social-container { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding: 40px 0; }
-    .social-card { text-decoration: none; color: #fff; perspective: 1000px; animation: floatingCard 4s ease-in-out infinite; }
-    .card-inner {
-        width: 140px; height: 160px; background: rgba(15, 15, 25, 0.8);
-        border: 2px solid var(--spark-blue); border-radius: 10px;
-        display: flex; flex-direction: column; align-items: center; justify-content: center;
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.2);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden;
-    }
-    .social-card:hover .card-inner {
-        transform: translateY(-10px) rotateX(10deg) scale(1.1);
-        border-color: var(--spark-purple);
-        box-shadow: 0 0 30px rgba(157, 80, 187, 0.6), inset 0 0 20px rgba(157, 80, 187, 0.4);
-    }
-    .icon-box { width: 60px; height: 60px; margin-bottom: 15px; display: flex; justify-content: center; align-items: center; }
-    .social-icon { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 0 5px var(--spark-blue)); }
-
-    /* 動畫庫 */
-    @keyframes screenShake { 0% { transform: translate(0,0); } 10% { transform: translate(-0.5px, 0.5px); } }
-    @keyframes rotateMachine { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes floatingCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-    @keyframes blink { 50% { opacity: 0; } }
-
-    footer { padding: 60px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); position: relative; z-index: 10; }
-    .cursor { display: inline-block; width: 3px; height: 20px; background: var(--spark-blue); animation: blink 0.8s infinite; vertical-align: middle; }
-
-    /* === 響應式佈局 === */
-    @media (max-width: 1024px) {
-        .projector-unit-fixed { display: none; }
-        .comp-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 768px) {
-        .section-title.mobile-only {
-            display: block !important;
-            visibility: visible !important;
-            font-size: 2rem !important;
-            line-height: 1.5 !important;
-        }
-        .section-title.desktop-only { display: none !important; }
-        .cinema-screen-container { width: 100% !important; margin: 20px 0 !important; }
-        .cinema-screen { aspect-ratio: 4 / 3 !important; }
-        .slide-img { object-position: center 20% !important; }
-        .control-deck { width: 80% !important; }
-        /* 隱藏字幕容器 */
-    .cinema-screen .subtitle-container {
-        display: none !important;
-    }
-        /* 調整控制鈕大小，方便手指點擊 */
-    .dial-button {
-        width: 40px;
-        height: 40px;
-    }
+/* 近期賽程 */
+section{padding-block:48px}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:900}
+.sec-head p{margin:0;color:var(--muted)}
+.fixtures{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.fixture{display:grid;grid-template-columns:96px 1fr auto;gap:18px;align-items:center;padding:16px 20px;border-top:1px solid var(--line)}
+.fixture:first-child{border-top:0}
+.date{font-variant-numeric:tabular-nums;text-align:center;border-right:1px solid var(--line);padding-right:16px}
+.date .m{display:block;font-size:.8rem;color:var(--muted);font-weight:500}
+.date .d{display:block;font:900 2rem/1 var(--serif);color:var(--navy)}
+.date .y{display:block;font-size:.75rem;color:var(--muted)}
+.fixture h3{font:700 1.08rem/1.4 var(--sans);color:var(--ink)}
+.fixture .where{font-size:.92rem;color:var(--muted)}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;color:#fff;padding:1px 8px;border-radius:6px;margin-right:6px;vertical-align:2px}
+.t-jbc{background:var(--jbc)}.t-grg{background:var(--grg)}.t-enjoy{background:var(--enjoy)}.t-mrc{background:var(--mrc)}.t-borneo{background:var(--borneo)}
+.go{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;border:1px solid var(--line);text-decoration:none;font-weight:700;color:var(--navy);white-space:nowrap;background:#fff}
+.go:hover{border-color:var(--navy)}
+@media (max-width:640px){
+  .fixture{grid-template-columns:72px 1fr 16px;gap:14px;padding:14px 16px;position:relative}
+  .fixture::after{content:"";width:10px;height:10px;border-top:2px solid var(--muted);border-right:2px solid var(--muted);transform:rotate(45deg)}
+  .fixture .go{position:absolute;inset:0;opacity:0;border-radius:0}
+  .fixture .go:focus-visible{opacity:1;background:transparent;outline-offset:-3px}
+  .date .d{font-size:1.6rem}.date{padding-right:12px}
 }
 
-   /* --- SPARK ULTIMATE MAX: 戰術核心樣式 (升級版) --- */
-#records { 
-    position: relative; 
-    overflow: visible !important; 
-    background: transparent; 
+/* 五項賽事 */
+.comps{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.comp{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:var(--r);padding:20px;text-decoration:none;color:var(--ink);min-width:0}
+.comp:hover{box-shadow:0 12px 28px -18px rgba(19,41,75,.5)}
+.comp .logo{height:76px;width:fit-content;max-width:100%;display:flex;align-items:center;background:#0f1b30;border-radius:10px;padding:8px 12px}
+.comp .logo img{max-height:60px;width:auto}
+@media (max-width:640px){
+  .comp{display:grid;grid-template-columns:64px 1fr;column-gap:14px;row-gap:2px;padding:16px;align-items:start}
+  .comp .logo{grid-row:1/5;width:64px;height:64px;padding:6px;justify-content:center}
+  .comp .logo img{max-height:52px}
+  .comp .en{margin-top:0}
+  .comp .more{min-height:36px}
 }
+.comp h3{font:700 1.08rem/1.4 var(--sans);color:var(--ink)}
+.comp .en{font-size:.82rem;color:var(--muted);margin-top:-6px}
+.comp p{margin:0;font-size:.95rem;color:var(--muted);flex:1}
+.comp .more{font-weight:700;color:var(--c);display:inline-flex;align-items:center;min-height:44px}
+.c-jbc{--c:var(--jbc)}.c-grg{--c:var(--grg)}.c-enjoy{--c:var(--enjoy)}.c-mrc{--c:var(--mrc)}.c-borneo{--c:var(--borneo)}
 
-.ultimate-monitor-container {
-    position: relative; width: 100%; max-width: 1200px; margin: 80px auto;
-    display: flex; justify-content: center; align-items: center; z-index: 10;
-}
+/* 協會在做什麼 */
+.about{background:var(--navy);color:#e8edf6}
+.about h2{color:#fff}
+.about .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:start}
+.about blockquote{margin:0;font:700 clamp(1.2rem,2.4vw,1.5rem)/1.6 var(--serif);color:#fff;border-left:4px solid var(--star);padding-left:18px}
+.about ol{margin:0;padding:0;list-style:none;display:grid;gap:16px;counter-reset:s}
+.about li{display:grid;grid-template-columns:40px 1fr;gap:12px;counter-increment:s}
+.about li::before{content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--star);color:var(--navy);font:900 1.1rem/40px var(--serif);text-align:center}
+.about li b{display:block;color:#fff}
+@media (max-width:820px){.about .grid{grid-template-columns:1fr;gap:24px}}
 
-/* 主螢幕外框：增加科技配件感 */
-.video-monitor-frame {
-    position: relative; 
-    width: 820px; /* 稍微加寬容納裝甲 */
-    padding: 25px; /* 增加裝甲厚度感 */
-    background: #0a0a0a;
-    z-index: 10; 
-    overflow: visible;
-    
-    /* 核心修改：使用 clip-path 切出戰術八角形 */
-    clip-path: polygon(
-        5% 0, 95% 0, 100% 10%, 100% 90%, 
-        95% 100%, 5% 100%, 0 90%, 0 10%
-    );
-    
-    box-shadow: 0 0 50px rgba(0,0,0,1);
-}
+/* 影片與照片 */
+.video{position:relative;aspect-ratio:16/9;width:100%;max-width:860px;border-radius:var(--r);overflow:hidden;background:#0b1424}
+.video a,.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video a{display:grid;place-items:center;text-decoration:none}
+.video img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
+.video .play{position:relative;display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--navy);font-weight:700;padding:12px 20px;border-radius:999px;min-height:48px}
+.gallery{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,380px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+.gallery figure{margin:0;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.gallery figcaption{padding:10px 14px;font-size:.9rem;color:var(--muted)}
 
-/* 戰術裝甲：外掛式強化角標 (利用 before 改造) */
-.video-monitor-frame::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    /* 切出裝甲接縫線條 */
-    border: 2px solid rgba(129, 216, 208, 0.2);
-    clip-path: polygon(
-        0 15%, 15% 0, 85% 0, 100% 15%, 
-        100% 85%, 85% 100%, 15% 100%, 0 85%
-    );
-    pointer-events: none;
-    z-index: 2;
-}
+/* 聯絡 */
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.contact a,.contact div{display:flex;gap:12px;align-items:center;min-height:64px;padding:14px 16px;background:#fff;border:1px solid var(--line);border-radius:var(--r);text-decoration:none;color:var(--ink)}
+.contact svg{width:24px;height:24px;flex:none;color:var(--navy)}
+.contact small{display:block;color:var(--muted);font-size:.8rem}
+.contact span{min-width:0}
+.contact b{font-weight:700;overflow-wrap:anywhere}
 
-/* 流水燈層：配合裝甲形狀 */
-.monitor-border-flow {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    z-index: 1;
-    clip-path: inherit; /* 強制繼承主框的八角形 */
-}
-.monitor-border-flow::before {
-    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-    background: conic-gradient(transparent, var(--spark-blue), transparent 30%, var(--spark-purple), transparent 70%);
-    animation: rotate-flow 4s linear infinite; filter: blur(12px); /* 增加模糊度營造霓虹感 */
-}
-.monitor-border-flow::after { 
-    content: ''; 
-    position: absolute; 
-    inset: 4px; /* 露出一點點縫隙讓流水燈透出來 */
-    background: #050505; 
-    clip-path: inherit; 
-    z-index: 1; 
-}
+footer{border-top:1px solid var(--line);padding-block:28px 96px;font-size:.88rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer a{color:var(--muted);display:inline-flex;align-items:center;min-height:44px}
 
-/* 影片容器：內縮並加上科技感內邊框 */
-.video-inner-box {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%;
-    z-index: 5;
-    border-radius: 2px; /* 減少圓角增加硬派感 */
-    overflow: hidden;
-    background: #000;
-    border: 1px solid rgba(129, 216, 208, 0.4);
-    box-shadow: inset 0 0 20px rgba(129, 216, 208, 0.2);
-}
-
-/* 側邊戰術機翼 (保持原始邏輯) */
-.side-wing {
-    position: absolute; top: 50%; transform: translateY(-50%); width: 140px; height: 240px;
-    z-index: 5; padding: 10px; overflow: hidden; background: #000; border-radius: 10px;
-}
-.side-wing::before {
-    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-    background: conic-gradient(transparent, var(--spark-blue), transparent 40%);
-    animation: rotate-flow 6s linear infinite reverse; opacity: 0.6;
-}
-.side-wing::after { content: ''; position: absolute; inset: 2px; background: rgba(5, 5, 5, 0.9); border-radius: 8px; z-index: 1; }
-
-.wing-l { left: -160px; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%); }
-.wing-r { right: -160px; clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%); }
-
-.wing-inner-content { position: relative; z-index: 5; height: 100%; display: flex; flex-direction: column; justify-content: space-around; font-family: 'Orbitron', sans-serif; color: var(--spark-blue); }
-.spectrum-box { display: flex; align-items: flex-end; gap: 3px; height: 60px; }
-.spec-bar { flex: 1; background: var(--spark-blue); height: 20%; animation: bar-jump 0.5s ease-in-out infinite alternate; }
-
-/* 開機畫面與按鈕加強 */
-.boot-screen {
-    position: absolute;
-    /* 強制拉伸到容器的四個極限角落 */
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    
-    background: #000; /* 確保底色是不透光的純黑 */
-    z-index: 100;    /* 確保在影片 iframe 之上 */
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--spark-blue);
-    font-family: 'Orbitron', sans-serif;
-    transition: all 0.8s ease;
-    border-radius: 5px;
-}
-.boot-screen.hide { opacity: 0; visibility: hidden; transform: scale(1.1); pointer-events: none; }
-
-/* 掃描線動畫 */
-.boot-screen::after {
-    content: ""; position: absolute; top: -100%; left: 0; width: 100%; height: 10px;
-    background: linear-gradient(to bottom, transparent, var(--spark-blue), transparent);
-    box-shadow: 0 0 20px var(--spark-blue); animation: full-scan 3s linear infinite;
-    z-index: 2;
-}
-
-/* 戰術開機按鈕 */
-.boot-btn {
-    position: relative;
-    z-index: 5;
-    margin-top: 20px;
-    padding: 10px 30px;
-    background: rgba(129, 216, 208, 0.1);
-    border: 1px solid var(--spark-blue);
-    color: var(--spark-blue);
-    font-weight: bold;
-    letter-spacing: 3px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 10px rgba(129, 216, 208, 0.2);
-}
-.boot-btn:hover {
-    background: var(--spark-blue);
-    color: #000;
-    box-shadow: 0 0 25px var(--spark-blue);
-}
-
-/* 其他保留特效 (協會理念/呼吸燈) */
-#about .glass-box::before {
-    content: ""; position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(129, 216, 208, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(129, 216, 208, 0.05) 1px, transparent 1px);
-    background-size: 20px 20px; z-index: -1;
-}
-.corner-tag { position: absolute; width: 20px; height: 20px; border: 2px solid var(--spark-blue); }
-.tag-tl { top: 0; left: 0; border-right: 0; border-bottom: 0; }
-.tag-br { bottom: 0; right: 0; border-left: 0; border-top: 0; }
-
-.spark-logo-glow { animation: spark-energy 4s ease-in-out infinite; transition: all 0.4s; cursor: pointer; }
-
-/* 動畫定義庫 */
-@keyframes bar-jump { 0% { height: 10%; opacity: 0.3; } 100% { height: 80%; opacity: 1; box-shadow: 0 0 10px var(--spark-blue); } }
-@keyframes rotate-flow { 100% { transform: rotate(360deg); } }
-@keyframes full-scan { 0% { top: -10%; } 100% { top: 110%; } }
-@keyframes spark-energy {
-    0%, 100% { filter: drop-shadow(0 0 10px rgba(129, 216, 208, 0.4)); transform: scale(1); }
-    50% { filter: drop-shadow(0 0 30px rgba(129, 216, 208, 0.9)); transform: scale(1.03); }
-}
+/* 手機底部固定列 */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);border-top:1px solid var(--line);backdrop-filter:blur(8px)}
+.dock a{flex:1;min-height:48px}
+@media (max-width:820px){.dock{display:flex}}
+@media (min-width:821px){footer{padding-bottom:28px}}
 </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    <div id="cursor-glow"></div>
+<a class="skip" href="#main">跳到主要內容</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><path d="m9.75 15.02 5.75-3.27-5.75-3.27v6.54z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></symbol>
+</svg>
 
-<nav class="flex justify-between items-center px-6 md:px-10 py-5">
-  <div class="flex items-center gap-4">
-    <img src="spark_logo.png" alt="SPARK" class="h-8 md:h-10 w-auto object-contain spark-logo-glow">
-    
-    <div class="text-xl md:text-2xl font-black tracking-tighter">
-        SPARK <span class="hidden sm:inline text-sm font-light ml-2">臺灣智能程式科技教育推廣協會</span>
-    </div>
-</div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="SPARK 首頁">
+      <img src="spark_logo.png" width="40" height="40" alt="">
+      <span><b>SPARK</b><small>臺灣智能程式科技教育推廣協會</small></span>
+    </a>
+    <nav class="nav" aria-label="主選單">
+      <a href="#schedule">近期賽程</a><a href="#competitions">主辦賽事</a><a href="#about">關於協會</a><a href="#moments">活動紀錄</a><a href="#contact">聯絡我們</a>
+    </nav>
+    <details class="menu">
+      <summary aria-label="開啟選單">選單</summary>
+      <div class="panel">
+        <a href="#schedule">近期賽程</a><a href="#competitions">主辦賽事</a><a href="#about">關於協會</a><a href="#moments">活動紀錄</a><a href="#contact">聯絡我們</a>
+      </div>
+    </details>
+  </div>
+</header>
 
-    <div class="hidden md:flex gap-8 font-medium text-sm tracking-widest">
-        <a href="#" class="hover:text-[var(--spark-blue)] transition">首頁</a>
-        <a href="#about" class="hover:text-[var(--spark-blue)] transition">協會理念</a>
-        <a href="#records" class="hover:text-[var(--spark-blue)] transition">紀錄影片</a>
-        <a href="#competitions" class="hover:text-[var(--spark-blue)] transition">各項賽事</a>
-        <a href="#honors" class="hover:text-[var(--spark-blue)] transition">榮耀時光放映館</a>
-        <a href="#contact" class="hover:text-[var(--spark-blue)] transition">聯絡我們</a>
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow">內政部立案社會團體</span>
+        <h1><span class="nb">臺灣智能程式科技</span><span class="nb">教育推廣協會</span></h1>
+        <p class="lead">我們主辦五項國際機器人與 AI 賽事的臺灣區，帶臺灣學生從選拔賽一路走到國際總決賽。</p>
+        <ul class="facts">
+          <li>立案字號 <b>1130027903</b></li>
+          <li>成立 <b>2024 年 6 月</b></li>
+          <li>會址 <b>臺中市北屯區</b></li>
+        </ul>
+        <div class="btns">
+          <a class="btn primary" href="#schedule"><svg aria-hidden="true"><use href="#i-cal"/></svg>看近期賽程</a>
+          <a class="btn ghost" href="#competitions">五項賽事</a>
+        </div>
+      </div>
+      <figure class="photo" style="margin:0">
+        <img src="img/jbc1.jpg" width="1200" height="675" alt="臺灣隊在 Botball 國際教育機器人大會（GCER）合影" fetchpriority="high">
+        <figcaption>臺灣隊在 Botball 國際教育機器人大會合影</figcaption>
+      </figure>
     </div>
-<button id="menu-btn" class="md:hidden text-[var(--spark-blue)] focus:outline-none z-[3000] fixed top-5 right-6">
-    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-    </svg>
-</button>
+  </section>
 
-<div id="mobile-menu" class="fixed inset-0 bg-black z-[2000] flex flex-col items-center pt-32 transition-all duration-500 translate-x-full opacity-0 pointer-events-none">
-    <div class="flex flex-col items-center gap-10 text-2xl tracking-[6px] font-bold text-white">
-        <a href="#" class="mobile-link">首頁</a>
-        <a href="#about" class="mobile-link">協會理念</a>
-        <a href="#records" class="mobile-link">紀錄影片</a>
-        <a href="#competitions" class="mobile-link">各項賽事</a>
-        <a href="#honors" class="mobile-link">榮耀時光放映館</a>
-        <a href="#contact" class="mobile-link">聯絡我們</a>
+  <section id="schedule" style="padding-top:16px">
+    <div class="wrap">
+      <div class="sec-head"><h2>近期賽程</h2><p>報名與規則請到各賽事官網</p></div>
+      <ol class="fixtures">
+        <li class="fixture">
+          <div class="date"><span class="m">10 月</span><span class="d">25</span><span class="y">2026 週日</span></div>
+          <div><h3><span class="tag t-grg">GRG</span>臺灣推廣科學競賽</h3><div class="where">桃園市桃園區　成功國小</div></div>
+          <a class="go" href="https://global-robotics-games-taiwan.github.io/">GRG 官網</a>
+        </li>
+        <li class="fixture">
+          <div class="date"><span class="m">11 月</span><span class="d">15</span><span class="y">2026 週日</span></div>
+          <div><h3><span class="tag t-grg">GRG</span>世界總決賽</h3><div class="where">新加坡</div></div>
+          <a class="go" href="https://global-robotics-games-taiwan.github.io/">GRG 官網</a>
+        </li>
+        <li class="fixture">
+          <div class="date"><span class="m">12 月</span><span class="d">13</span><span class="y">2026 週日</span></div>
+          <div><h3><span class="tag t-jbc">JBC</span>開放挑戰台中站</h3><div class="where">臺中市</div></div>
+          <a class="go" href="https://junior-botball-challenge-taiwan.github.io/">JBC 官網</a>
+        </li>
+        <li class="fixture">
+          <div class="date"><span class="m">4 月</span><span class="d">23</span><span class="y">2027 週五</span></div>
+          <div><h3><span class="tag t-mrc">MRC</span>國際總決賽</h3><div class="where">希臘 克里特島 干尼亞</div></div>
+          <a class="go" href="https://minoan-robotsports-competition-taiwan.github.io/">MRC 官網</a>
+        </li>
+      </ol>
     </div>
-</div>
+  </section>
+
+  <section id="competitions">
+    <div class="wrap">
+      <div class="sec-head"><h2>主辦賽事</h2><p>每項賽事都有自己的臺灣區官網</p></div>
+      <div class="comps">
+        <a class="comp c-jbc" href="https://junior-botball-challenge-taiwan.github.io/">
+          <div class="logo"><img src="jbc_logo3.png" width="626" height="150" alt="Junior Botball Challenge" loading="lazy"></div>
+          <h3>JBC 機器人挑戰賽</h3><div class="en">Junior Botball Challenge</div>
+          <p>美國 Botball 國際組委會指導的中小學自主程式機器人競賽。</p>
+          <span class="more">進入 JBC 官網</span>
+        </a>
+        <a class="comp c-grg" href="https://global-robotics-games-taiwan.github.io/">
+          <div class="logo"><img src="grg_logo3.png" width="820" height="820" alt="Global Robotics Games" loading="lazy"></div>
+          <h3>GRG 全球機器人運動會</h3><div class="en">Global Robotics Games</div>
+          <p>臺灣區優勝隊伍代表臺灣前進新加坡世界總決賽。</p>
+          <span class="more">進入 GRG 官網</span>
+        </a>
+        <a class="comp c-enjoy" href="https://enjoyai-taiwan.github.io/">
+          <div class="logo"><img src="enjoyai_logo.png" width="429" height="429" alt="Enjoy AI" loading="lazy"></div>
+          <h3>Enjoy AI 人工智慧普及賽</h3><div class="en">Global Youth AI Popularization</div>
+          <p>全球巡迴的青少年 AI 與機器人賽事，臺灣隊組團出國比賽。</p>
+          <span class="more">進入 Enjoy AI 官網</span>
+        </a>
+        <a class="comp c-mrc" href="https://minoan-robotsports-competition-taiwan.github.io/">
+          <div class="logo"><img src="mrc_logo.png" width="300" height="300" alt="Minoan Robotsports Competition" loading="lazy"></div>
+          <h3>MRC 米諾安機器人運動奧林匹克</h3><div class="en">Minoan Robotsports Competition</div>
+          <p>源自希臘 H.E.R.O. 的機器人運動賽，涵蓋 30 餘項競賽項目。</p>
+          <span class="more">進入 MRC 官網</span>
+        </a>
+        <a class="comp c-borneo" href="https://borneo-irt-taiwan.github.io/">
+          <div class="logo"><img src="borneo-irt_logo.png" width="794" height="845" alt="Borneo-IRT" loading="lazy"></div>
+          <h3>Borneo-IRT 婆羅洲國際機器人錦標賽</h3><div class="en">Borneo International Robot Tournament</div>
+          <p>婆羅洲的國際機器人公開賽，著重跨國交流與團隊合作。</p>
+          <span class="more">進入 Borneo-IRT 官網</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap grid">
+      <div>
+        <h2 style="margin-bottom:20px">關於協會</h2>
+        <blockquote>程式不只是冷冰冰的代碼，而是孩子實踐創意、解決問題、連結世界的語言。</blockquote>
+      </div>
+      <ol>
+        <li><div><b>辦臺灣區賽事</b>取得國際主辦單位授權，在臺灣舉辦選拔賽與開放挑戰賽，規則提供中文說明。</div></li>
+        <li><div><b>帶隊出國比賽</b>協助優勝隊伍報名國際總決賽，處理報名、行前說明與出團事務。</div></li>
+        <li><div><b>推廣程式與 AI 教育</b>和學校、機構合作推廣賽事，讓更多學生接觸機器人與人工智慧。</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="moments">
+    <div class="wrap">
+      <div class="sec-head"><h2>活動紀錄</h2><p><a href="https://www.youtube.com/@Spark_Taiwan">更多影片在 YouTube 頻道</a></p></div>
+      <div class="video" style="margin-bottom:24px">
+        <a href="https://www.youtube.com/watch?v=b4xGeCfHBXA" id="yt" data-id="b4xGeCfHBXA">
+          <img src="https://i.ytimg.com/vi/b4xGeCfHBXA/hqdefault.jpg" width="480" height="360" alt="" loading="lazy">
+          <span class="play"><svg width="20" height="20" aria-hidden="true"><use href="#i-play"/></svg>播放協會紀錄影片</span>
+        </a>
+      </div>
+      <div class="gallery" tabindex="0" aria-label="活動照片，可左右滑動">
+        <figure><img src="img/slide3.jpg" width="1200" height="782" alt="臺灣隊在 Enjoy AI 國際賽舉校旗合影" loading="lazy"><figcaption>Enjoy AI 國際賽臺灣隊</figcaption></figure>
+        <figure><img src="img/jbc3.jpg" width="1200" height="800" alt="JBC 泰國賽頒獎台" loading="lazy"><figcaption>2025 JBC 泰國賽</figcaption></figure>
+        <figure><img src="img/jbc4.jpg" width="872" height="900" alt="JBC 臺灣代表隊在美國合影" loading="lazy"><figcaption>2025 JBC 美國賽臺灣代表隊</figcaption></figure>
+        <figure><img src="img/grg-singapore-2024.jpg" width="1200" height="901" alt="GRG 新加坡賽臺灣選手" loading="lazy"><figcaption>2024 GRG 新加坡競賽</figcaption></figure>
+        <figure><img src="img/jbc2.jpg" width="1200" height="675" alt="JBC 公開挑戰賽大合照" loading="lazy"><figcaption>2025 JBC 公開挑戰賽</figcaption></figure>
+        <figure><img src="img/enjoyai2.jpg" width="1200" height="675" alt="Enjoy AI 2025 亞洲公開賽頒獎" loading="lazy"><figcaption>Enjoy AI 2025 亞洲公開賽</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head"><h2>聯絡我們</h2><p>學校合作、賽事報名與出團諮詢</p></div>
+      <div class="contact">
+        <a href="mailto:contacteduspark@gmail.com?subject=%E3%80%90SPARK%20%E8%AB%AE%E8%A9%A2%E3%80%91"><svg aria-hidden="true"><use href="#i-mail"/></svg><span><small>電子郵件</small><b>contacteduspark@gmail.com</b></span></a>
+        <a href="tel:+886911955212"><svg aria-hidden="true"><use href="#i-phone"/></svg><span><small>電話</small><b>0911-955-212</b></span></a>
+        <div><svg aria-hidden="true"><use href="#i-pin"/></svg><span><small>會址</small><b>臺中市北屯區遼陽四街59號</b></span></div>
+        <a href="https://www.facebook.com/SPARKrobot"><svg aria-hidden="true"><use href="#i-fb"/></svg><span><small>Facebook</small><b>SPARK Taiwan</b></span></a>
+        <a href="https://www.instagram.com/spark_edu.center"><svg aria-hidden="true"><use href="#i-ig"/></svg><span><small>Instagram</small><b>@spark_edu.center</b></span></a>
+        <a href="https://www.youtube.com/@Spark_Taiwan"><svg aria-hidden="true"><use href="#i-yt"/></svg><span><small>YouTube</small><b>@Spark_Taiwan</b></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>臺灣智能程式科技教育推廣協會（SPARK）｜內政部立案證書字號：1130027903</div>
+    <a href="privacy.html">隱私權政策</a>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="快速操作">
+  <a class="btn primary" href="#schedule">近期賽程</a>
+  <a class="btn ghost" href="#contact">聯絡協會</a>
 </nav>
 
-    <section class="hero-slider">
-        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('slide1.jpg')"></div>
-        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('slide2.jpg')"></div>
-        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('slide3.jpg')"></div>
-      <div class="hero-overlay">
-    <img src="spark_logo2.png" alt="SPARK" class="w-[400px] md:w-[650px] mb-2 spark-logo-glow">
-
-    <h1 class="hero-title">SPARK</h1>
-    
-    <p class="text-lg md:text-xl mt-1 tracking-[6px] uppercase font-light opacity-80">臺灣智能程式科技教育推廣協會</p>
-    
-    <div class="mt-10 animate-bounce text-[var(--spark-blue)]">▼ Scroll Down</div>
-</div>
-    </section>
-
-    <div class="news-ticker">
-        <div class="ticker-content">
-            🔥 2026 JBC 機器人挑戰賽開放報名中！ | 📢 GRG 全球賽事規則更新通知 | 🏆 Enjoy AI 台灣選拔賽獲獎名單公佈 | 🚀 SPARK 官網全新改版上線 | 🤖 歡迎各校洽談合作推廣計畫
-        </div>
-    </div>
-
-<section class="content-section" id="about">
-    <div class="glass-box">
-        <div class="corner-tag tag-tl"></div>
-        <div class="corner-tag tag-br"></div>
-        
-        <h2 class="section-title desktop-only">協會理念</h2>
-        <h2 class="section-title mobile-only block md:hidden">協會<br>理念</h2>
-
-        <p class="text-center text-gray-300 text-lg leading-relaxed max-w-4xl mx-auto relative z-10">
-            <span class="text-[var(--spark-blue)] font-bold">SPARK</span> (臺灣智能程式科技教育推廣協會) 致力於點燃青少年對程式與人工智慧的熱情。<br>
-            我們相信，程式不只是冷冰冰的代碼，而是孩子實踐創意、解決問題、連結世界的語言。<br>
-            透過舉辦高水準國際賽事，我們為臺灣學子搭建通向未來的橋樑。
-        </p>
-    </div>
-</section>
-<section id="records" class="py-20">
-    <div class="container mx-auto px-4 relative z-10">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-black text-white tracking-widest mb-4">TACTICAL RECORDS</h2>
-            <div class="h-1 w-24 bg-[var(--spark-blue)] mx-auto shadow-[0_0_15px_var(--spark-blue)]"></div>
-        </div>
-
-        <div class="ultimate-monitor-container">
-            <div class="side-wing wing-l">
-                <div class="wing-inner-content">
-                    <div class="text-[9px] font-bold border-b border-[var(--spark-blue)] pb-1">COMMS_LINK</div>
-                    <div class="spectrum-box">
-                        <div class="spec-bar" style="animation-delay: 0.1s"></div>
-                        <div class="spec-bar" style="animation-delay: 0.3s"></div>
-                        <div class="spec-bar" style="animation-delay: 0.2s"></div>
-                        <div class="spec-bar" style="animation-delay: 0.5s"></div>
-                        <div class="spec-bar" style="animation-delay: 0.4s"></div>
-                    </div>
-                    <div class="text-[8px] opacity-60">SCANNING...<br>TARGET_LOCKED</div>
-                </div>
-            </div>
-
-            <div class="video-monitor-frame">
-                <div class="monitor-border-flow"></div>
-
-                <div class="monitor-corner top-left"></div>
-                <div class="monitor-corner top-right"></div>
-                <div class="monitor-corner bottom-left"></div>
-                <div class="monitor-corner bottom-right"></div>
-
-                <div class="video-inner-box" style="position:relative; width:100%; padding-top:56.25%; z-index:2; border-radius:5px; overflow:hidden; background:#000;">
-                    <div class="monitor-rec"><div class="rec-dot"></div> REC ● LIVE</div>
-                    
-                    <div id="boot-overlay" class="boot-screen">
-                        <div class="monitor-rec"><div class="rec-dot"></div> SPARK_v2.6已同步</div>
-                        <h3 class="animate-pulse text-lg" style="letter-spacing: 5px; margin-bottom: 20px;">操作介面載入中.....</h3>
-                        <button onclick="startMonitor()" class="boot-btn">啟動系統</button>
-                    </div>
-
-                    <iframe id="monitor-video" 
-                        src="https://www.youtube.com/embed/b4xGeCfHBXA?autoplay=0&mute=1&rel=0&modestbranding=1" 
-                        title="SPARK Video" frameborder="0" allowfullscreen
-                        style="position:absolute; top:0; left:0; width:100%; height:100%;">
-                    </iframe>
-                </div>
-
-                <div class="monitor-bottom-bar" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 50%; height: 6px; background: #1a1a1a; border: 1px solid #333; z-index: 10; display: flex; justify-content: center; gap: 10px; align-items: center; border-top: none;">
-                    <div style="width: 3px; height: 3px; background: var(--spark-blue); border-radius: 50%;"></div>
-                    <div style="width: 3px; height: 3px; background: var(--spark-blue); border-radius: 50%;"></div>
-                </div>
-            </div>
-
-            <div class="side-wing wing-r">
-                <div class="wing-inner-content">
-                    <div class="text-[9px] font-bold border-b border-[var(--spark-purple)] pb-1 text-[var(--spark-purple)]">SYS_LOAD</div>
-                    <div class="flex flex-col gap-2">
-                        <div class="h-1 bg-[var(--spark-purple)] w-full shadow-[0_0_5px_var(--spark-purple)]"></div>
-                        <div class="h-1 bg-[var(--spark-purple)] w-[70%] opacity-50"></div>
-                        <div class="h-1 bg-[var(--spark-purple)] w-[90%] opacity-80"></div>
-                    </div>
-                    <div class="text-[8px] text-[var(--spark-purple)]">CPU: 42%<br>TEMP: 34°C</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="monitor-pedestal md:flex hidden flex-col items-center mt-10">
-            <div class="pedestal-line" style="height:1px; width:40%; background:linear-gradient(90deg,transparent,var(--spark-blue),transparent); margin:0 auto;"></div>
-            <div class="flex gap-8 mt-4 text-[9px] text-[var(--spark-blue)] opacity-50 font-mono">
-                <span>TACTICAL_V4.5</span>
-                <span class="animate-pulse">SYSTEM_ACTIVE</span>
-            </div>
-        </div>
-    </div>
-</section>
-        
-        <div class="flex justify-between max-w-[900px] mx-auto mt-4 text-[10px] font-mono text-gray-600 tracking-widest uppercase">
-            <span>System Status: Optimal</span>
-            <span class="animate-pulse text-[var(--spark-blue)]">● Decrypting Data...</span>
-            <span>Ref: 2026_SPARK_LOG</span>
-        </div>
-    </div>
-</section>
-    <section id="competitions" class="py-20">
-        <h2 class="section-title">MAJOR COMPETITIONS</h2>
-        <div class="comp-grid">
-            <div class="comp-card">
-                <div class="logo-frame"><img src="mrc_logo.png" alt="MRC"></div>
-                <h3>MRC</h3>
-                <p class="text-gray-500 mb-6">Minoan Robotsports Competition<br>米諾安機器人運動奧林匹克</p>
-                <a href="https://minoan-robotsports-competition-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
-            </div>
-            <div class="comp-card">
-                <div class="logo-frame"><img src="jbc_logo3.png" alt="JBC"></div>
-                <h3>JBC</h3>
-                <p class="text-gray-500 mb-6">Junior Botball Challenge<br>機器人挑戰賽</p>
-                <a href="https://junior-botball-challenge-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
-            </div>
-            <div class="comp-card">
-                <div class="logo-frame"><img src="grg_logo_white.png" alt="GRG"></div>
-                <h3>GRG</h3>
-                <p class="text-gray-500 mb-6">Global Robotics Games<br>全球機器人運動會</p>
-                <a href="https://global-robotics-games-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
-            </div>
-            <div class="comp-card">
-                <div class="logo-frame"><img src="enjoyai_logo.png" alt="ENJOY AI"></div>
-                <h3>ENJOY AI</h3>
-                <p class="text-gray-500 mb-6">Global Youth AI Popularization<br>人工智慧普及賽</p>
-                <a href="https://enjoyai-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
-            </div>
-             <div class="comp-card">
-                <div class="logo-frame"><img src="borneo-irt_logo.png" alt="borneo-irt"></div>
-                <h3>Borneo-IRT</h3>
-                <p class="text-gray-500 mb-6">Borneo International Robot Tournament<br>婆羅洲國際機器人錦標賽</p>
-                <a href="https://borneo-irt-taiwan.github.io/" class="inline-block px-8 py-3 border border-[#81D8D0] rounded-full hover:bg-[#81D8D0] hover:text-black transition font-bold">進入賽事官網</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="honors" class="py-20 bg-[#080808]">
-       <header class="text-center pb-12"> <h2 class="section-title mb-2">THE GLORY MOMENTS</h2> <p class="text-[#81D8D0] tracking-[12px] text-xl md:text-2xl uppercase font-bold">榮耀時光放映館</p>
-</header>
-        <div class="container mx-auto px-4">
-            <div class="cinema-screen-container">
-                <div class="projector-unit-fixed">
-                    <div class="projector-machine">
-                        <div class="reel reel-top"></div>
-                        <div class="reel reel-back"></div>
-                        <div class="lens-glow"></div>
-                        <div class="cinema-beam-fixed"></div>
-                    </div>
-                </div>
-
-                <div class="cinema-screen">
-                    <img src="JBC1.jpg" class="slide-img active" data-caption="2024 JBC 比賽">
-                    <img src="JBC2.jpg" class="slide-img" data-caption="2025 JBC 公開挑戰賽">
-                    <img src="JBC3.jpg" class="slide-img" data-caption="2025 JBC 泰國賽">
-                    <img src="JBC4.jpg" class="slide-img" data-caption="2025 JBC 美國賽">
-                    <img src="新加坡GRG競賽3.jpg" class="slide-img" data-caption="2024 GRG 新加坡競賽">
-                    <img src="新加坡GRG競賽2.jpg" class="slide-img" data-caption="2024 GRG Competitions">
-                    <img src="ENJOYAI.jpg" class="slide-img" data-caption="ENJOY AI 2025 日本公開賽">
-                    <img src="ENJOYAI2.jpg" class="slide-img" data-caption="ENJOY AI 2025 馬來西亞競賽">
-                    <div class="subtitle-container"><span id="target-subtitle" class="subtitle-text">2024 JBC 比賽</span></div>
-                </div>
-
-                <div class="control-deck">
-                    <button class="dial-button" onclick="changeCinemaSlide(-1)"></button>
-                    <div class="w-2 h-2 bg-[#81D8D0] rounded-full animate-pulse my-auto"></div>
-                    <button class="dial-button" onclick="changeCinemaSlide(1)"></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20">
-        <div class="container mx-auto">
-            <h2 class="section-title">聯絡我們</h2>
-            <div class="social-container">
-                <a href="https://www.facebook.com/SPARKrobot" target="_blank" class="social-card">
-                    <div class="card-inner">
-                        <div class="icon-box"><img src="path-to-your-fb-icon.png" alt="Facebook" class="social-icon"></div>
-                        <span class="font-bold">Facebook</span>
-                    </div>
-                </a>
-                <a href="https://www.instagram.com/spark_edu.center?igsh=ZGVkNHd2cWQ0aDk1&utm_source=qr" target="_blank" class="social-card">
-                    <div class="card-inner">
-                        <div class="icon-box"><img src="path-to-your-ig-icon.png" alt="Instagram" class="social-icon"></div>
-                        <span class="font-bold">Instagram</span>
-                    </div>
-                </a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacteduspark@gmail.com&su=【SPARK 相關事項諮詢】&body=您好，我想瞭解更多關於 SPARK 的資訊：%0A%0A--- 基本資料 ---%0A姓名： %0A聯絡電話： %0A%0A--- 諮詢內容 ---%0A諮詢項目（JBC / GRG / ENJOY AI / 其他）： %0A具體詢問事項： %0A%0A--- 聯絡資訊 ---%0A方便接聽電話的時間： %0A%0A感謝您的協助！" target="_blank" class="social-card">
-    <div class="card-inner">
-        <div class="icon-box">
-            <img src="path-to-your-gmail-icon.png" alt="Gmail" class="social-icon">
-        </div>
-        <span class="font-bold">Gmail</span>
-    </div>
-</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="mb-4"><span id="typing-text"></span><span class="cursor"></span></div>
-        <p class="text-gray-600 text-sm">臺灣智能程式科技教育推廣協會 (SPARK) <br> Sparking Intelligence, Coding Future.</p>
-    </footer>
-
-    <script>
-        // 1. 滑鼠引力燈
-        const glow = document.getElementById('cursor-glow');
-        document.addEventListener('mousemove', (e) => {
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
-        });
-
-        // 2. 英雄翻頁
-        let curSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        setInterval(() => {
-            if(slides.length > 0) {
-                slides[curSlide].classList.remove('active');
-                curSlide = (curSlide + 1) % slides.length;
-                slides[curSlide].classList.add('active');
-            }
-        }, 5000);
-
-        // 3. 放映館邏輯
-        const cinemaSlides = document.querySelectorAll('.slide-img');
-        const subtitle = document.getElementById('target-subtitle');
-        const reels = document.querySelectorAll('.reel');
-        let cinemaIdx = 0;
-        let isMoving = false;
-
-        window.changeCinemaSlide = function(dir) {
-            if (isMoving || cinemaSlides.length === 0) return;
-            isMoving = true;
-            reels.forEach(r => r.classList.add('spinning'));
-            cinemaSlides[cinemaIdx].classList.remove('active');
-            cinemaIdx = (cinemaIdx + dir + cinemaSlides.length) % cinemaSlides.length;
-            cinemaSlides[cinemaIdx].classList.add('active');
-            subtitle.innerText = cinemaSlides[cinemaIdx].getAttribute('data-caption');
-            setTimeout(() => {
-                reels.forEach(r => r.classList.remove('spinning'));
-                isMoving = false;
-            }, 800);
-        };
-
-        setInterval(() => changeCinemaSlide(1), 5000);
-
-        // 4. 打字機頁尾
-        const footerText = "臺灣智能程式科技教育推廣協會 SPARK © 2026";
-        let fIdx = 0;
-        function type() {
-            if (fIdx < footerText.length) {
-                document.getElementById("typing-text").innerHTML += footerText.charAt(fIdx);
-                fIdx++;
-                setTimeout(type, 150);
-            }
-        }
-        window.onload = type;
-        // 初始化粒子背景
-particlesJS("particles-js", {
-    "particles": {
-        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-        "color": { "value": "#81D8D0" }, // 使用你的 SPARK 藍色
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.3, "random": false },
-        "size": { "value": 6, "random": true },
-        "line_linked": { 
-            "enable": true, 
-            "distance": 150, 
-            "color": "#81D8D0", 
-            "opacity": 0.4, 
-            "width": 2 
-        },
-        "move": { 
-            "enable": true, 
-            "speed": 2, 
-            "direction": "none", 
-            "random": false, 
-            "straight": false, 
-            "out_mode": "out", 
-            "bounce": false 
-        }
-    },
-    "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-            "onhover": { "enable": true, "mode": "grab" }, // 游標經過會吸附
-            "onclick": { "enable": true, "mode": "push" }, // 點擊會噴發
-            "resize": true
-        },
-        "modes": {
-            "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
-            "push": { "particles_nb": 4 }
-        }
-    },
-    "retina_detect": true
-});
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = document.getElementById('menu-icon');
-
-if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-        const isActive = mobileMenu.classList.toggle('active');
-        menuBtn.classList.toggle('btn-active'); // 切換按鈕自己的樣式
-        
-        // 禁止背景捲動
-        document.body.style.overflow = isActive ? 'hidden' : '';
-
-        // 切換圖示：三條線 <-> X
-        if (isActive) {
-            menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-        } else {
-            menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-        }
-    });
-
-    // 點擊連結後自動關閉
-    const links = document.querySelectorAll('.mobile-link');
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            menuBtn.classList.remove('btn-active');
-            menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-            document.body.style.overflow = '';
-        });
-    });
-}
-/* --- SPARK MONITOR 核心驅動 --- */
-function startMonitor() {
-    // 取得開機遮罩、影片元素以及外框配件
-    const overlay = document.getElementById('boot-overlay');
-    const video = document.getElementById('monitor-video');
-    
-    // 檢查元素是否存在
-    if (overlay && video) {
-        // 1. 觸發 CSS 淡出與縮放動畫 (對應我們 CSS 中的 .boot-screen.hide)
-        overlay.classList.add('hide');
-        
-        // 2. 針對主螢幕科技配件進行狀態切換 (如果需要讓掃描線停止或配件亮起)
-        overlay.style.pointerEvents = 'none'; // 確保點擊後不會阻擋滑鼠操作影片
-        
-        // 3. 修正影片連結實現自動播放
-        let videoSrc = video.src;
-        if (videoSrc.includes('autoplay=0')) {
-            // 將原本 src 中的 autoplay=0 改為 1，並加上 &mute=0 確保有聲音 (如果需要的話)
-            video.src = videoSrc.replace('autoplay=0', 'autoplay=1');
-        }
-        
-        // 4. 在控制台印出炫酷的系統啟動 Log
-        console.log("%c[SPARK_OS]: SYSTEM_START_SEQUENCE_INITIALIZED...", "color: #81d8d2; font-weight: bold;");
-        console.log("%c[STATUS]: ALL_TACTICAL_WINGS_ONLINE", "color: #b388ff;");
-        
-    } else {
-        // 錯誤攔截：如果 HTML ID 寫錯了，這裡會提醒你
-        console.error("CRITICAL_ERROR: 找不到開機遮罩 (boot-overlay) 或影片 (monitor-video) 元素。");
-    }
-}
-    </script>
+<script>
+  document.getElementById('yt').addEventListener('click', function (e) {
+    e.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + this.dataset.id + '?autoplay=1&rel=0';
+    f.title = 'SPARK 協會紀錄影片';
+    f.allow = 'autoplay; encrypted-media; picture-in-picture';
+    f.allowFullscreen = true;
+    this.replaceWith(f);
+  });
+  document.querySelectorAll('.menu .panel a').forEach(function (a) {
+    a.addEventListener('click', function () { a.closest('details').removeAttribute('open'); });
+  });
+</script>
 </body>
 </html>
