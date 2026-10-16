@@ -1,7 +1,7 @@
 # 臺灣智能程式科技教育推廣協會 (SPARK Taiwan) - 完整組織與賽事情報庫
 
 ## 1. 協會概覽 (About SPARK)
-臺灣智能程式科技教育推廣協會（英文全名：Taiwan Intelligent Programming Technology Education Promotion Association，簡稱 SPARK / SPARK Taiwan）是深耕台灣科技教育、致力於培養下一代 AI 人才與科技創新者的非營利教育推廣組織。
+臺灣智能程式科技教育推廣協會（英文全名：Taiwan Smart Programming AI Robotics & Knowledge Association，簡稱 SPARK / SPARK Taiwan）是深耕台灣科技教育、致力於培養下一代 AI 人才與科技創新者的非營利教育推廣組織。
 
 - 官方網站：https://spark-taiwan-association.github.io/
 - 官方粉絲專頁：https://www.facebook.com/SPARKrobot
