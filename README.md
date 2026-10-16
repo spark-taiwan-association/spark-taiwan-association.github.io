@@ -2,7 +2,7 @@
 
 [![Official Website](https://img.shields.io/badge/Official%20Website-spark--taiwan--association.github.io-81D8D0?style=for-the-badge&logo=google-chrome&logoColor=white)](https://spark-taiwan-association.github.io/)
 [![Facebook](https://img.shields.io/badge/Facebook-SPARKrobot-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/SPARKrobot)
-[![Instagram](https://img.shields.io/badge/Instagram-spark__edu.center-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/spark_edu.center)
+[![Instagram](https://img.shields.io/badge/Instagram-spark__taiwan-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/spark_taiwan)
 
 > **Sparking Intelligence, Coding Future.**  
 > 點燃智能程式教育的火花！臺灣智能程式科技教育推廣協會致力於推廣青少年智能程式教育、AI 人工智慧與各項國際機器人競賽，為臺灣學子搭建通往國際舞台的橋樑。
@@ -40,4 +40,4 @@
 ## 📬 聯絡我們
 - **電子信箱**：`contacteduspark@gmail.com`
 - **Facebook**：[SPARK 臺灣智能程式科技教育推廣協會](https://www.facebook.com/SPARKrobot)
-- **Instagram**：[@spark_edu.center](https://www.instagram.com/spark_edu.center)
+- **Instagram**：[@spark_taiwan](https://www.instagram.com/spark_taiwan)
