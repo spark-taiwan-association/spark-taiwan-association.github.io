@@ -69,7 +69,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap"></noscript>
 <style>
 /* 版面：單欄閱讀寬度 72rem，左對齊。協會＝背書者，用深藍＋LOGO 星星黃；五項賽事各用自己的代表色，只出現在小色塊。 */
 :root{
@@ -230,7 +232,7 @@ footer a{color:var(--muted);display:inline-flex;align-items:center;min-height:44
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="SPARK 首頁">
-      <img src="spark_logo.png" width="40" height="40" alt="">
+      <img src="spark_logo.webp" width="40" height="40" alt="">
       <span><b>SPARK</b><small>臺灣智能程式科技教育推廣協會</small></span>
     </a>
     <nav class="nav" aria-label="主選單">
@@ -262,7 +264,7 @@ footer a{color:var(--muted);display:inline-flex;align-items:center;min-height:44
         </div>
       </div>
       <figure class="photo" style="margin:0">
-        <img src="img/jbc-thailand-2026.jpg" width="1600" height="900" alt="2026 JBC 泰國賽臺灣代表團約 200 人大合照，舉著 WE ARE Botball TEAM TAIWAN 布條" fetchpriority="high">
+        <img src="img/jbc-thailand-2026.webp" srcset="img/jbc-thailand-2026-800.webp 800w, img/jbc-thailand-2026.webp 1600w" sizes="100vw" width="1600" height="900" alt="2026 JBC 泰國賽臺灣代表團約 200 人大合照，舉著 WE ARE Botball TEAM TAIWAN 布條" fetchpriority="high">
         <figcaption>2026 JBC 泰國賽臺灣代表團大合照</figcaption>
       </figure>
     </div>
@@ -301,31 +303,31 @@ footer a{color:var(--muted);display:inline-flex;align-items:center;min-height:44
       <div class="sec-head"><h2>主辦賽事</h2><p>每項賽事都有自己的臺灣區官網</p></div>
       <div class="comps">
         <a class="comp c-jbc" href="https://junior-botball-challenge-taiwan.github.io/">
-          <div class="logo"><img src="jbc_logo3.png" width="626" height="150" alt="Junior Botball Challenge" loading="lazy"></div>
+          <div class="logo"><img src="jbc_logo3.webp" width="626" height="150" alt="Junior Botball Challenge" loading="lazy"></div>
           <h3>JBC 機器人挑戰賽</h3><div class="en">Junior Botball Challenge</div>
           <p>美國 Botball 國際組委會指導的中小學自主程式機器人競賽。</p>
           <span class="more">進入 JBC 官網</span>
         </a>
         <a class="comp c-grg" href="https://global-robotics-games-taiwan.github.io/">
-          <div class="logo"><img src="grg_logo3.png" width="820" height="820" alt="Global Robotics Games" loading="lazy"></div>
+          <div class="logo"><img src="grg_logo3.webp" width="820" height="820" alt="Global Robotics Games" loading="lazy"></div>
           <h3>GRG 全球機器人運動會</h3><div class="en">Global Robotics Games</div>
           <p>臺灣區優勝隊伍代表臺灣前進新加坡世界總決賽。</p>
           <span class="more">進入 GRG 官網</span>
         </a>
         <a class="comp c-enjoy" href="https://enjoyai-taiwan.github.io/">
-          <div class="logo"><img src="enjoyai_logo.png" width="429" height="429" alt="Enjoy AI" loading="lazy"></div>
+          <div class="logo"><img src="enjoyai_logo.webp" width="429" height="429" alt="Enjoy AI" loading="lazy"></div>
           <h3>Enjoy AI 人工智慧普及賽</h3><div class="en">Global Youth AI Popularization</div>
           <p>全球巡迴的青少年 AI 與機器人賽事，臺灣隊組團出國比賽。</p>
           <span class="more">進入 Enjoy AI 官網</span>
         </a>
         <a class="comp c-mrc" href="https://minoan-robotsports-competition-taiwan.github.io/">
-          <div class="logo"><img src="mrc_logo.png" width="300" height="300" alt="Minoan Robotsports Competition" loading="lazy"></div>
+          <div class="logo"><img src="mrc_logo.webp" width="300" height="300" alt="Minoan Robotsports Competition" loading="lazy"></div>
           <h3>MRC 米諾安機器人運動奧林匹克</h3><div class="en">Minoan Robotsports Competition</div>
           <p>源自希臘 H.E.R.O. 的機器人運動賽，涵蓋 30 餘項競賽項目。</p>
           <span class="more">進入 MRC 官網</span>
         </a>
         <a class="comp c-borneo" href="https://borneo-irt-taiwan.github.io/">
-          <div class="logo"><img src="borneo-irt_logo.png" width="794" height="845" alt="Borneo-IRT" loading="lazy"></div>
+          <div class="logo"><img src="borneo-irt_logo.webp" width="794" height="845" alt="Borneo-IRT" loading="lazy"></div>
           <h3>Borneo-IRT 婆羅洲國際機器人錦標賽</h3><div class="en">Borneo International Robot Tournament</div>
           <p>婆羅洲的國際機器人公開賽，著重跨國交流與團隊合作。</p>
           <span class="more">進入 Borneo-IRT 官網</span>
@@ -358,12 +360,12 @@ footer a{color:var(--muted);display:inline-flex;align-items:center;min-height:44
         </a>
       </div>
       <div class="gallery" tabindex="0" aria-label="活動照片，可左右滑動">
-        <figure><img src="img/slide3.jpg" width="1200" height="782" alt="臺灣隊在 Enjoy AI 國際賽舉校旗合影" loading="lazy"><figcaption>Enjoy AI 國際賽臺灣隊</figcaption></figure>
-        <figure><img src="img/jbc3.jpg" width="1200" height="800" alt="JBC 泰國賽頒獎台" loading="lazy"><figcaption>2025 JBC 泰國賽</figcaption></figure>
-        <figure><img src="img/jbc4.jpg" width="872" height="900" alt="JBC 臺灣代表隊在美國合影" loading="lazy"><figcaption>2025 JBC 美國賽臺灣代表隊</figcaption></figure>
-        <figure><img src="img/grg-singapore-2024.jpg" width="1200" height="901" alt="GRG 新加坡賽臺灣選手" loading="lazy"><figcaption>2024 GRG 新加坡競賽</figcaption></figure>
-        <figure><img src="img/jbc2.jpg" width="1200" height="675" alt="JBC 公開挑戰賽大合照" loading="lazy"><figcaption>2025 JBC 公開挑戰賽</figcaption></figure>
-        <figure><img src="img/enjoyai2.jpg" width="1200" height="675" alt="Enjoy AI 2025 亞洲公開賽頒獎" loading="lazy"><figcaption>Enjoy AI 2025 亞洲公開賽</figcaption></figure>
+        <figure><img src="img/slide3.webp" width="1200" height="782" alt="臺灣隊在 Enjoy AI 國際賽舉校旗合影" loading="lazy"><figcaption>Enjoy AI 國際賽臺灣隊</figcaption></figure>
+        <figure><img src="img/jbc3.webp" width="1200" height="800" alt="JBC 泰國賽頒獎台" loading="lazy"><figcaption>2025 JBC 泰國賽</figcaption></figure>
+        <figure><img src="img/jbc4.webp" width="872" height="900" alt="JBC 臺灣代表隊在美國合影" loading="lazy"><figcaption>2025 JBC 美國賽臺灣代表隊</figcaption></figure>
+        <figure><img src="img/grg-singapore-2024.webp" width="1200" height="901" alt="GRG 新加坡賽臺灣選手" loading="lazy"><figcaption>2024 GRG 新加坡競賽</figcaption></figure>
+        <figure><img src="img/jbc2.webp" width="1200" height="675" alt="JBC 公開挑戰賽大合照" loading="lazy"><figcaption>2025 JBC 公開挑戰賽</figcaption></figure>
+        <figure><img src="img/enjoyai2.webp" width="1200" height="675" alt="Enjoy AI 2025 亞洲公開賽頒獎" loading="lazy"><figcaption>Enjoy AI 2025 亞洲公開賽</figcaption></figure>
       </div>
     </div>
   </section>
